@@ -1,0 +1,425 @@
+@charset "UTF-8";
+.page_header h1 {
+  position: relative;
+  left: 20px;
+  font-weight: 700;
+  color: #5192AE;
+  margin-bottom: 25px;
+}
+
+.page_header h1::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 73%;
+  background-color: #5192AE;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: -20px;
+}
+
+/*css命名
+ 顯示屬性>盒模型>背景>行高>文本屬性>其他
+(1)頁面結構
+
+- 容器: container
+- 頁頭：header
+- 內容：content/container
+- 頁面主體：main
+- 頁尾：footer
+- 導航：nav
+- 側欄：sidebar
+- 欄目：column
+- 頁面外圍控制整體布局寬度：wrapper
+
+(2)導航
+
+- 導航：nav
+- 主導航：mainNav
+- 子導航：subNav
+- 頂導航：topNav
+- 邊導航：sidebar
+- 左導航：leftSidebar
+- 右導航：rightSidebar
+- 菜單：menu
+- 子菜單：subMenu
+- 標題: title
+- 摘要: summary
+
+(3)功能
+
+- 標誌：logo
+- 廣告：banner
+- 登陸：login
+- 登錄條：loginBar
+- 註冊：registered
+- 搜索：search
+- 功能區：shop
+- 標題：title
+- 加入：joinUs
+- 狀態：status
+- 按鈕：btn
+- 滾動：scroll
+- 標簽頁：tab
+- 文章列表：list
+- 提示信息：msg
+- 當前的: current
+- 小技巧：tips
+- 圖標: icon
+- 註釋：note
+- 指南：guild
+- 服務：service
+- 熱點：hot
+- 新聞：news
+- 下載：download
+- 投票：vote
+- 合作夥伴：partner
+- 友情鏈接：link
+- 版權：copyright
+
+ BUGFIX: xxxx by name 2012-04-13 18:32 用於標註修改、待辦等信息*/
+.page_header .sub_banner {
+  width: 100%;
+  height: 480px;
+  background-color: #242424;
+  margin-bottom: 70px;
+}
+
+.page_header nav {
+  position: relative;
+}
+
+.page_header nav .breadcrumb {
+  background-color: unset;
+  padding: 0;
+  padding-bottom: 60px;
+}
+
+.page_header nav .breadcrumb .breadcrumb-item a {
+  color: black;
+}
+
+.page_header nav .breadcrumb .breadcrumb-item:not(:first-child)::before {
+  content: '＞';
+  display: inline-block;
+  text-decoration: none;
+}
+
+.page_header nav .breadcrumb .breadcrumb-item.active {
+  color: #004460;
+  position: relative;
+  text-decoration: underline;
+  display: inline-block;
+}
+
+main .timeline_content {
+  position: relative;
+}
+
+main .timeline_content::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 5px;
+  height: 100%;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(92%, black), to(white));
+  background-image: linear-gradient(black 92%, white 100%);
+  opacity: .25;
+  z-index: 9;
+}
+
+@media (max-width: 991px) {
+  main .timeline_content::before {
+    left: 90%;
+  }
+}
+
+@media (max-width: 767px) {
+  main .timeline_content::before {
+    left: 100%;
+  }
+}
+
+main .timeline_content .event_block {
+  width: 50%;
+  min-height: 650px;
+  position: relative;
+}
+
+@media (max-width: 991px) {
+  main .timeline_content .event_block {
+    width: 60%;
+  }
+}
+
+@media (max-width: 767px) {
+  main .timeline_content .event_block {
+    width: 80%;
+  }
+}
+
+main .timeline_content .event_block:nth-child(odd)::before {
+  content: '';
+  position: absolute;
+  top: -270px;
+  right: 0;
+  width: calc(100% - 275px);
+  height: 3px;
+  background-color: #999999;
+  z-index: -1;
+}
+
+@media (max-width: 991px) {
+  main .timeline_content .event_block:nth-child(odd)::before {
+    top: 49px;
+    left: 273px;
+    width: calc(100% - 75px);
+  }
+}
+
+@media (max-width: 767px) {
+  main .timeline_content .event_block:nth-child(odd)::before {
+    width: calc(100% - 175px);
+  }
+}
+
+@media (max-width: 576px) {
+  main .timeline_content .event_block:nth-child(odd)::before {
+    width: calc(100% - 151px);
+    left: 246px;
+  }
+}
+
+@media (max-width: 440px) {
+  main .timeline_content .event_block:nth-child(odd)::before {
+    width: calc(100% - 180px);
+  }
+}
+
+main .timeline_content .event_block:nth-child(odd)::after {
+  content: '';
+  position: absolute;
+  top: -281px;
+  right: -12.5px;
+  width: 25px;
+  height: 25px;
+  background-color: #999999;
+  z-index: 99;
+}
+
+@media (max-width: 991px) {
+  main .timeline_content .event_block:nth-child(odd)::after {
+    top: 36.5px;
+    left: 608px;
+  }
+}
+
+@media (max-width: 767px) {
+  main .timeline_content .event_block:nth-child(odd)::after {
+    left: 497px;
+  }
+}
+
+@media (max-width: 576px) {
+  main .timeline_content .event_block:nth-child(odd)::after {
+    left: auto;
+    right: -21.1vw;
+  }
+}
+
+main .timeline_content .event_block:nth-child(even) {
+  margin-left: auto;
+}
+
+@media (max-width: 991px) {
+  main .timeline_content .event_block:nth-child(even) {
+    margin-left: 0;
+  }
+}
+
+main .timeline_content .event_block:nth-child(even)::before {
+  content: '';
+  position: absolute;
+  top: -270px;
+  left: 0;
+  width: calc(100% - 455px);
+  height: 3px;
+  background-color: #999999;
+  z-index: -1;
+}
+
+@media (max-width: 1200px) {
+  main .timeline_content .event_block:nth-child(even)::before {
+    width: calc(100% - 400px);
+  }
+}
+
+@media (max-width: 991px) {
+  main .timeline_content .event_block:nth-child(even)::before {
+    top: 49px;
+    left: 273px;
+    width: calc(100% - 75px);
+  }
+}
+
+@media (max-width: 767px) {
+  main .timeline_content .event_block:nth-child(even)::before {
+    width: calc(100% - 175px);
+  }
+}
+
+@media (max-width: 576px) {
+  main .timeline_content .event_block:nth-child(even)::before {
+    width: calc(100% - 151px);
+    left: 246px;
+  }
+}
+
+@media (max-width: 440px) {
+  main .timeline_content .event_block:nth-child(even)::before {
+    width: calc(100% - 180px);
+  }
+}
+
+main .timeline_content .event_block:nth-child(even)::after {
+  content: '';
+  position: absolute;
+  top: -281px;
+  left: -12.5px;
+  width: 25px;
+  height: 25px;
+  background-color: #999999;
+  z-index: 99;
+}
+
+@media (max-width: 991px) {
+  main .timeline_content .event_block:nth-child(even)::after {
+    top: 36.5px;
+    left: 608px;
+  }
+}
+
+@media (max-width: 767px) {
+  main .timeline_content .event_block:nth-child(even)::after {
+    left: 497px;
+  }
+}
+
+@media (max-width: 576px) {
+  main .timeline_content .event_block:nth-child(even)::after {
+    left: auto;
+    right: -21.1vw;
+  }
+}
+
+main .timeline_content .event_block:nth-child(even) .event_offset {
+  right: 0;
+}
+
+main .timeline_content .event_block:not(:first-child) {
+  min-height: 325px;
+}
+
+@media (max-width: 991px) {
+  main .timeline_content .event_block:not(:first-child) {
+    min-height: 600px;
+  }
+}
+
+main .timeline_content .event_block:first-child .event_offset {
+  top: 0;
+}
+
+main .timeline_content .event_block:first-child:nth-child(odd)::before {
+  top: 47px;
+}
+
+main .timeline_content .event_block:first-child:nth-child(odd)::after {
+  top: 35px;
+}
+
+main .timeline_content .event_block .event_offset {
+  position: absolute;
+  top: -317px;
+  max-width: 457px;
+}
+
+@media (max-width: 1199px) {
+  main .timeline_content .event_block .event_offset {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 991px) {
+  main .timeline_content .event_block .event_offset {
+    top: 0;
+    max-width: 430px;
+  }
+}
+
+main .timeline_content .event_block .event_offset .year {
+  display: table;
+  border: 5px solid #004460;
+  color: #004460;
+  font-size: 48px;
+  font-weight: 800;
+  padding: 20px 75px;
+}
+
+@media (max-width: 576px) {
+  main .timeline_content .event_block .event_offset .year {
+    font-size: 36px;
+  }
+}
+
+main .timeline_content .event_block .event_offset .event_title {
+  color: #5192AE;
+  font-size: 24px;
+  font-weight: 600;
+  padding: 15px 0;
+}
+
+@media (max-width: 576px) {
+  main .timeline_content .event_block .event_offset .event_title {
+    font-size: 20px;
+  }
+}
+
+main .timeline_content .event_block .event_offset .event_sub_title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  font-size: 20px;
+}
+
+@media (max-width: 576px) {
+  main .timeline_content .event_block .event_offset .event_sub_title {
+    font-size: 18px;
+  }
+}
+
+main .timeline_content .event_block .event_offset .event_sub_title .capital {
+  width: 50%;
+}
+
+@media (max-width: 440px) {
+  main .timeline_content .event_block .event_offset .event_sub_title .capital {
+    width: 100%;
+  }
+}
+
+main .timeline_content .event_block .event_offset .event_sub_title .engineering {
+  padding: 10px 0;
+}
+
+main .timeline_content .event_block .event_offset .event_img {
+  width: 100%;
+  height: 311px;
+  border: 1px solid #000;
+}
+/*# sourceMappingURL=01-02-history.css.map */

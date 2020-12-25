@@ -1,0 +1,190 @@
+@charset "UTF-8";
+/*css命名
+ 顯示屬性>盒模型>背景>行高>文本屬性>其他
+(1)頁面結構
+
+- 容器: container
+- 頁頭：header
+- 內容：content/container
+- 頁面主體：main
+- 頁尾：footer
+- 導航：nav
+- 側欄：sidebar
+- 欄目：column
+- 頁面外圍控制整體布局寬度：wrapper
+
+(2)導航
+
+- 導航：nav
+- 主導航：mainNav
+- 子導航：subNav
+- 頂導航：topNav
+- 邊導航：sidebar
+- 左導航：leftSidebar
+- 右導航：rightSidebar
+- 菜單：menu
+- 子菜單：subMenu
+- 標題: title
+- 摘要: summary
+
+(3)功能
+
+- 標誌：logo
+- 廣告：banner
+- 登陸：login
+- 登錄條：loginBar
+- 註冊：registered
+- 搜索：search
+- 功能區：shop
+- 標題：title
+- 加入：joinUs
+- 狀態：status
+- 按鈕：btn
+- 滾動：scroll
+- 標簽頁：tab
+- 文章列表：list
+- 提示信息：msg
+- 當前的: current
+- 小技巧：tips
+- 圖標: icon
+- 註釋：note
+- 指南：guild
+- 服務：service
+- 熱點：hot
+- 新聞：news
+- 下載：download
+- 投票：vote
+- 合作夥伴：partner
+- 友情鏈接：link
+- 版權：copyright
+
+ BUGFIX: xxxx by name 2012-04-13 18:32 用於標註修改、待辦等信息*/
+@media (max-width: 1200px) {
+  #hamburgLink .btnGroup .phoneStyleIcon img {
+    min-width: 115px;
+    max-width: 120px;
+    width: 100%;
+  }
+}
+
+#menu-btn-content {
+  min-width: 115px;
+  max-width: 120px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0;
+  left: -17px;
+  margin: 25px auto;
+}
+
+#menu-btn-content .title-level-wrapper {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+#menu-btn-content .title-level-wrapper > a {
+  display: inline-block;
+  font-size: 16px;
+  letter-spacing: 2px;
+  color: #000000;
+  padding-left: 17px;
+  position: relative;
+}
+
+@media screen and (max-width: 767px) {
+  #menu-btn-content .title-level-wrapper > a {
+    font-size: 14px;
+  }
+}
+
+#menu-btn-content .title-level-wrapper > a:after {
+  content: '';
+  width: calc(100% - 17px);
+  height: 1.4px;
+  background-color: #004663;
+  position: absolute;
+  left: 17px;
+  top: 18px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#menu-btn-content .title-level-wrapper .sub-level-wrapper {
+  width: 100%;
+  max-height: 0;
+  padding-left: 17px;
+  overflow: hidden;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  margin: 10px 0 0 0;
+}
+
+#menu-btn-content .title-level-wrapper .sub-level-wrapper > a {
+  display: block;
+  font-size: 14px;
+  color: #000000;
+  margin-bottom: 15px;
+}
+
+@media screen and (max-width: 767px) {
+  #menu-btn-content .title-level-wrapper .sub-level-wrapper > a {
+    font-size: 12px;
+  }
+}
+
+#menu-btn-content .title-level-wrapper.drop-down {
+  margin-bottom: 15px;
+}
+
+#menu-btn-content .title-level-wrapper.drop-down:after {
+  content: '';
+  width: 2px;
+  height: 9px;
+  background-color: #51A0BF;
+  position: absolute;
+  left: 4.5px;
+  top: 5px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+
+#menu-btn-content .title-level-wrapper.drop-down::before {
+  content: '';
+  width: 2px;
+  height: 9px;
+  background-color: #51A0BF;
+  position: absolute;
+  left: 4.5px;
+  top: 5px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+#menu-btn-content .title-level-wrapper.active.drop-down:after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+#menu-btn-content .title-level-wrapper.active.drop-down::before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+#menu-btn-content .title-level-wrapper.active > a:after {
+  height: 4px;
+  background-color: #51A0BF;
+  margin-bottom: 25px;
+}
+
+#menu-btn-content .title-level-wrapper.active .sub-level-wrapper {
+  margin: 25px 0;
+  max-height: 250px;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+/*# sourceMappingURL=menu.css.map */
