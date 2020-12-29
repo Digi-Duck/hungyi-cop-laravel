@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'FrontController@index');
 
+Route::middleware(['auth'])->prefix('admin')->group(function () {
+    //SEO設定
+    Route::get('seo', 'SeoController@index');
+    Route::post('seo/{id}', 'SeoController@update');
+});
 
 // Auth::routes();
 // Authentication Routes...
