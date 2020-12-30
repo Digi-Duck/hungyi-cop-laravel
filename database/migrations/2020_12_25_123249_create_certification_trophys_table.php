@@ -19,6 +19,7 @@ class CreateCertificationTrophysTable extends Migration
             $table->string('title');
             $table->string('content');
             $table->string('img');
+            $table->integer('sort')->default(0)->nullable();
             $table->timestamps();
         });
     }

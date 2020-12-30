@@ -17,7 +17,7 @@ class CreateTendersTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('tender_date');
-            $table->longText('imgs');
+            $table->longText('imgs')->nullable();
             $table->longText('content')->nullable();
             $table->integer('sort')->default(0)->nullable();
             $table->integer('view_times');

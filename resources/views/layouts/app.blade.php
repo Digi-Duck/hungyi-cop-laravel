@@ -16,7 +16,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootnavbar.css') }}" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
@@ -24,7 +24,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm"  id="main_navbar">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -38,38 +38,108 @@
                     <ul class="navbar-nav mr-auto">
                         @guest
                         @else
-                        {{-- SEO 設定 --}}
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="/admin/seo">SEO設定</a>
                         </li>
-
-                        {{-- 動態消息 --}}
+                        {{-- 首頁 --}}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
-                                動態消息
+                                關於我們
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li class="nav-item dropdown">
-                                    <a class="dropdown-item dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        職缺公告
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                                        <li><a class="dropdown-item" href="/admin/photo_albums_types">職缺單位</a></li>
-                                        <li><a class="dropdown-item" href="/admin/photo_albums">職缺名稱</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <li><a class="dropdown-item" href="/admin/offices_infos/1/edit">得標資訊</a></li>
-                                </li>
-
+                                <li><a class="dropdown-item" href="/admin/histories">公司沿革</a></li>
+                                <li><a class="dropdown-item" href="/admin/security_polities">職安品質政策</a></li>
                             </ul>
                         </li>
-
+                        {{-- 動態消息 --}}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    動態消息
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li class="nav-item dropdown">
+                                        <a class="dropdown-item dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            職缺公告
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                                            <li><a class="dropdown-item" href="/admin/job_opportunities_units">職缺單位</a></li>
+                                            <li><a class="dropdown-item" href="/admin/job_opportunities">職缺名稱</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="dropdown-item" href="/admin/tenders">得標資訊</a></li>
+                                </ul>
+                            </li>
+                        {{-- 得獎及認證 --}}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                得獎及認證
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="/admin/award_stories">得獎事蹟</a></li>
+                                <li><a class="dropdown-item" href="/admin/certification_trophys">認證及獎盃</a></li>
+                            </ul>
+                        </li>
+                        {{-- 工程實績 --}}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                工程實績
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="/admin/arounds">土木工程</a></li>
+                                <li><a class="dropdown-item" href="/admin/friendships">環保工程</a></li>
+                                <li><a class="dropdown-item" href="/admin/friendships">建築工程</a></li>
+                                <li><a class="dropdown-item" href="/admin/friendships">其他</a></li>
+                            </ul>
+                        </li>
+                        {{-- 在建工程 --}}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                在建工程
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="/admin/arounds">土木工程</a></li>
+                                <li><a class="dropdown-item" href="/admin/friendships">環保工程</a></li>
+                                <li><a class="dropdown-item" href="/admin/friendships">建築工程</a></li>
+                                <li><a class="dropdown-item" href="/admin/friendships">其他</a></li>
+                            </ul>
+                        </li>
+                        {{-- 技術專區 --}}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="/admin/seo">技術專區</a>
+                        </li>
+                        {{-- 職安資訊 --}}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                職安資訊
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="/admin/arounds">職安資訊</a></li>
+                                <li><a class="dropdown-item" href="/admin/friendships">職安資訊</a></li>
+                                <li><a class="dropdown-item" href="/admin/friendships">職安資訊</a></li>
+                                <li><a class="dropdown-item" href="/admin/friendships">職安資訊</a></li>
+                            </ul>
+                        </li>
+                        {{-- 帳號管理 --}}
+                        @if(Auth::user()->role == 0)
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    帳號管理
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="/admin/members">帳號列表</a></li>
+                                </ul>
+                            </li>
+                        @endif
                         @endguest
                     </ul>
-
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -107,18 +177,79 @@
         </nav>
 
         <main class="py-4">
+            @if(Session::has('message'))
+                <div class="container">
+                    <?php
+                        $message = Session::get('message');
+                    ?>
+                    <div onclick="$(this).hide();">
+                        @if (mb_strlen($message) > 15)
+                            <p class="alert alert-danger">{{ $message }}</p>
+                        @else
+                            <p class="alert alert-info">{{ $message }}</p>
+                        @endif
+
+                    </div>
+                </div>
+            @endif
             @yield('content')
         </main>
     </div>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
-    <script src="{{ asset('js/bootnavbar.js') }}"></script>
+     <!-- Scripts -->
+     <script src="{{ asset('js/app.js') }}"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
 
-</body>
-</html>
+
+     <script src="{{ asset('js/bootnavbar.js') }}"></script>
+     <script>
+        $(function () {
+             $('#main_navbar').bootnavbar({
+                 //option
+                 animation: false
+             });
+         })
+         $(document).ready(function () {
+             if($('.error_message').length){
+
+                 Swal.fire({
+                     title: '請確認檔案格式!',
+                     text: $('.error_message').text(),
+                     icon: 'warning',
+                     showCancelButton: true,
+                     showConfirmButton: false,
+                     cancelButtonColor: '#d33',
+                 })
+             }
+         });
+         @if(Session::has('message'))
+             <?php
+                 $message = Session::get('message');
+             ?>
+             @if (mb_strlen($message) > 15)
+                 Swal.fire({
+                     title: '操作失敗',
+                     text: '{{$message}}',
+                     icon: 'warning',
+                     showCancelButton: true,
+                     showConfirmButton: false,
+                     cancelButtonText: 'OK',
+                     cancelButtonColor: '#d33',
+                 })
+             @else
+                 Swal.fire({
+                     title: '操作成功',
+                     text: '{{$message}}',
+                     icon: 'success',
+                     showConfirmButton: true,
+                 })
+             @endif
+         @endif
+     </script>
+     @yield('js')
+ </body>
+ </html>

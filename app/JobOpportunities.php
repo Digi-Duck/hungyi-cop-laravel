@@ -26,9 +26,9 @@ class JobOpportunities extends Model
      */
     protected $fillable = ['unit_id', 'position', 'sort', 'created_at', 'updated_at'];
 
-    public function repairsUnits()
+    public function jobUnits()
     {
-        return $this->belongsTo('App\repairsUnits', 'unit_id');
+        return $this->belongsTo('App\JobOpportunitieUnits', 'unit_id');
     }
 
 }

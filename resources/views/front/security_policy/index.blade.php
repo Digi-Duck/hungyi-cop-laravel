@@ -14,7 +14,7 @@
             <h1>職安品質政策</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">首頁</a></li>
+                    <li class="breadcrumb-item"><a href="/">首頁</a></li>
                     <li class="breadcrumb-item"><a>關於我們</a></li>
                     <li class="breadcrumb-item active" aria-current="page">職安品質政策</li>
                 </ol>
@@ -45,16 +45,16 @@
             <h2>職業安全衛生目標</h2>
             <div class="sanitation_goals">
                 <ol>
-                    <li>虛驚事故一年<span class="text_orange">低於２次</span></li>
+                    <li>虛驚事故一年<span class="text_orange">低於 {{ $list->accidents_false }} 次</span></li>
                     <li>
-                        <span class="text_orange">０</span>死亡、<span class="text_orange">０</span>重傷災害、<span
-                            class="text_orange">０</span>住院治療
+                        <span class="text_orange">{{ $list->deaths }} </span>死亡、<span class="text_orange">{{ $list->accidents_times }} </span>重傷災害、<span
+                            class="text_orange">{{ $list->hospitalized }} </span>住院治療
                     </li>
                     <li>
-                        罰款一年<span class="text_orange">最多１次</span>，<span class="text_orange">少於６萬</span>
+                        罰款一年<span class="text_orange">最多 {{ $list->fines_times }} 次</span>，<span class="text_orange">少於 {{ $list->fines_million }} 萬</span>
                     </li>
                     <li>
-                        輕傷事故<span class="text_orange">低於3人</span>，一年<span class="text_orange">低於１次</span>
+                        輕傷事故<span class="text_orange">低於 {{ $list->accidents_people }} 人</span>，一年<span class="text_orange">低於 {{ $list->injury }} 次</span>
                     </li>
                 </ol>
             </div>

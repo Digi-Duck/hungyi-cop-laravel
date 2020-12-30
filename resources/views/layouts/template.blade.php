@@ -43,15 +43,15 @@
                     <li>
                         <div class="drop_down_menu">
                             <a href="#">願景理念</a>
-                            <a href="#">公司沿革</a>
-                            <a href="#">職安品質政策</a>
+                            <a href="/history">公司沿革</a>
+                            <a href="/security_policy">職安品質政策</a>
                         </div>
                         <a style="cursor: default;">關於我們</a>
                     </li>
                     <li>
                         <div class="drop_down_menu">
-                            <a href="#">職缺公告</a>
-                            <a href="#">得標資訊</a>
+                            <a href="/job_opportunities">職缺公告</a>
+                            <a href="/tender">得標資訊</a>
                         </div>
                         <a style="cursor: default;">動態消息</a>
                     </li>
@@ -70,7 +70,7 @@
                     </li>
                     <li>
                         <div class="drop_down_menu">
-                            <a href="#">大地工程</a>
+                            <a href="#">土木工程</a>
                             <a href="#">環保工程</a>
                             <a href="#">建築工程</a>
                             <a href="#">其他</a>
@@ -79,7 +79,7 @@
                     </li>
                     <li>
                         <div class="drop_down_menu">
-                            <a href="#">大地工程</a>
+                            <a href="#">土木工程</a>
                             <a href="#">環保工程</a>
                             <a href="#">建築工程</a>
                             <a href="#">其他</a>
@@ -95,7 +95,6 @@
                 </ul>
             </div>
         </div>
-
     </nav>
     <div id="hamburgLink">
         <div class="btnGroup">
@@ -137,7 +136,7 @@
                 <div class="title-level-wrapper drop-down">
                     <a>工程實績</a>
                     <div class="sub-level-wrapper">
-                        <a>大地工程</a>
+                        <a>土木工程</a>
                         <a>環保工程</a>
                         <a>建築工程</a>
                         <a>其他</a>
@@ -146,7 +145,7 @@
                 <div class="title-level-wrapper drop-down">
                     <a>在建工程</a>
                     <div class="sub-level-wrapper">
-                        <a>大地工程</a>
+                        <a>土木工程</a>
                         <a>環保工程</a>
                         <a>建築工程</a>
                         <a>其他</a>

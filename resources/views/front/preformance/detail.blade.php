@@ -6,13 +6,13 @@
     <div class="page_header">
         <div class="sub_banner"></div>
         <div class="container">
-            <h1>大地工程</h1>
+            <h1>土木工程</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">首頁</a></li>
+                    <li class="breadcrumb-item"><a href="/">首頁</a></li>
                     <li class="breadcrumb-item"><a>工程實績</a></li>
-                    <li class="breadcrumb-item"><a href="#">大地工程</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">大地工程</li>
+                    <li class="breadcrumb-item"><a href="#">土木工程</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">土木工程</li>
                 </ol>
             </nav>
         </div>
@@ -70,7 +70,7 @@
             </div>
             <div class="doubleTitle">
                 <span class="listTitle">分類</span>
-                <span class="text">大地工程</span>
+                <span class="text">土木工程</span>
                 <span class="listTitle">地點</span>
                 <span class="text">區段1-1</span>
                 <span class="listTitle">經費</span>

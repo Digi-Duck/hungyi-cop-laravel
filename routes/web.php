@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,10 +16,46 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'FrontController@index');
 
+// 關於我們
+// -公司沿革
+Route::get('history', 'FrontController@history');
+// -職安品質政策
+Route::get('security_policy', 'FrontController@security_policy');
+
+// 動態消息
+// -職缺公告
+Route::get('job_opportunities', 'FrontController@job_opportunities');
+// -得標公告
+Route::get('tender', 'FrontController@tender');
+
+
+Route::get('/home', 'HomeController@index');
 Route::middleware(['auth'])->prefix('admin')->group(function () {
+
     //SEO設定
     Route::get('seo', 'SeoController@index');
     Route::post('seo/{id}', 'SeoController@update');
+
+    // 關於我們
+    // -公司沿革
+    Route::resource('histories', 'HistoriesController');
+    // -職安品質政策
+    Route::resource('security_polities', 'SecurityPolitiesController');
+
+    // 動態消息
+    // -職缺單位
+    Route::resource('job_opportunities_units', 'JobOpportunitieUnitsController');
+    // -職缺名稱
+    Route::resource('job_opportunities', 'JobOpportunitiesController');
+    // -得標資訊
+    Route::resource('tenders', 'TendersController');
+    Route::post('tenders/delNewsFile', 'TendersController@deleteFile');
+
+    // 得獎及認證
+    // -得獎故事
+    Route::resource('award_stories', 'AwardStoriesController');
+    // -認證及獲獎
+    Route::resource('certification_trophys', 'CertificationTrophysController');
 });
 
 // Auth::routes();
@@ -36,5 +73,3 @@ Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm'
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
-
-Route::get('/home', 'HomeController@index')->name('home');

@@ -14,7 +14,7 @@
                         職缺單位管理
                     </h4>
                     <div class="card-body">
-                        <a class="btn btn-success" href="/admin/association_registers_types/create">新增職位</a>
+                        <a class="btn btn-success" href="/admin/job_opportunities_units/create">新增職位</a>
                         <hr>
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
@@ -26,11 +26,11 @@
                             <tbody>
                             @foreach($lists as $list)
                                 <tr>
-                                    <td>{{$list->type}}</td>
+                                    <td>{{$list->unit}}</td>
                                     <td>
-                                        <a class="btn btn-sm btn-success" href="/admin/association_registers_types/{{$list->id}}/edit">編輯</a>
+                                        <a class="btn btn-sm btn-success" href="/admin/job_opportunities_units/{{$list->id}}/edit">編輯</a>
                                         <button class="btn btn-sm btn-danger test" data-listid="{{$list->id}}">刪除</button>
-                                        <form class="delete-form" action="/admin/association_registers_types/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
+                                        <form class="delete-form" action="/admin/job_opportunities_units/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
                                             @csrf
                                             @method("DELETE")
                                         </form>

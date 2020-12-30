@@ -9,7 +9,7 @@
             <h1>得獎事蹟</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">首頁</a></li>
+                    <li class="breadcrumb-item"><a href="/">首頁</a></li>
                     <li class="breadcrumb-item"><a>得獎認證</a></li>
                     <li class="breadcrumb-item active" aria-current="page">得獎事蹟</li>
                 </ol>

@@ -1,4 +1,3 @@
-
 @extends('layouts.template')
 
 @section('css')
@@ -12,7 +11,7 @@
             <h1>職缺公告</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">首頁</a></li>
+                    <li class="breadcrumb-item"><a href="/">首頁</a></li>
                     <li class="breadcrumb-item"><a>動態消息</a></li>
                     <li class="breadcrumb-item active" aria-current="page">職缺公告</li>
                 </ol>
@@ -69,33 +68,21 @@
             <!-- Swiper -->
             <div class="swiper-container">
                 <div class="swiper-wrapper">
+                    @foreach ($units as $unit)
                     <div class="swiper-slide">
-                        <div class="silde_title">基隆工務所</div>
+                        <div class="silde_title">{{ $unit->unit }}</div>
+                        <?php
+                            $unit_id = $unit->id;
+                        ?>
                         <ol>
-                            <li>內業工程師</li>
-                            <li>品管工程師</li>
-                            <li>安衛工程師</li>
-                            <li>現場工程師</li>
+                            @foreach ($lists as $item)
+                                @if ($item->unit_id == $unit_id)
+                                <li>{{ $item->position }}</li>
+                                @endif
+                            @endforeach
                         </ol>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="silde_title">大甲工務所</div>
-                        <ol>
-                            <li>內業工程師</li>
-                            <li>品管工程師</li>
-                            <li>安衛工程師</li>
-                            <li>現場工程師</li>
-                        </ol>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="silde_title">大甲工務所</div>
-                        <ol>
-                            <li>內業工程師</li>
-                            <li>品管工程師</li>
-                            <li>安衛工程師</li>
-                            <li>現場工程師</li>
-                        </ol>
-                    </div>
+                    @endforeach
                 </div>
                 <!-- Add Arrows -->
                 <div class="swiper-button-next"></div>
@@ -105,12 +92,12 @@
         <h2>職缺連結</h2>
         <div class="row justify-content-around">
             <div class="col-md-4 url_img">
-                <a href="#">
+                <a href="https://www.1111.com.tw/corp/536082/" target="_block">
                     <img src="./img/02-news/01.png" alt="">
                 </a>
             </div>
             <div class="col-md-4 url_img">
-                <a href="#">
+                <a href="https://www.104.com.tw/company/178h5z0w" target="_block">
                     <img src="./img/02-news/02.png" alt="">
                 </a>
             </div>

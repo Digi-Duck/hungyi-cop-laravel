@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $title
  * @property string $content
  * @property string $img
+ * @property integer $sort
  * @property string $created_at
  * @property string $updated_at
  */
@@ -17,7 +18,7 @@ class CertificationTrophys extends Model
 {
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -25,6 +26,6 @@ class CertificationTrophys extends Model
     /**
      * @var array
      */
-    protected $fillable = ['award_date', 'title', 'content', 'img', 'created_at', 'updated_at'];
+    protected $fillable = ['award_date', 'title', 'content', 'img', 'sort', 'created_at', 'updated_at'];
 
 }

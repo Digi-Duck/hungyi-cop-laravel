@@ -39,7 +39,7 @@
                             </div>
                             <div class="category">
                                 <div>類別</div>
-                                <div>大地工程</div>
+                                <div>土木工程</div>
                             </div>
                         </div>
                         <div class="swiper-slide">
@@ -56,7 +56,7 @@
                             </div>
                             <div class="category">
                                 <div>類別</div>
-                                <div>大地工程</div>
+                                <div>土木工程</div>
                             </div>
                         </div>
                         <div class="swiper-slide">
@@ -73,7 +73,7 @@
                             </div>
                             <div class="category">
                                 <div>類別</div>
-                                <div>大地工程</div>
+                                <div>土木工程</div>
                             </div>
                         </div>
                         <div class="swiper-slide">
@@ -90,7 +90,7 @@
                             </div>
                             <div class="category">
                                 <div>類別</div>
-                                <div>大地工程</div>
+                                <div>土木工程</div>
                             </div>
                         </div>
                         <div class="swiper-slide">
@@ -107,7 +107,7 @@
                             </div>
                             <div class="category">
                                 <div>類別</div>
-                                <div>大地工程</div>
+                                <div>土木工程</div>
                             </div>
                         </div>
                         <div class="swiper-slide">
@@ -141,7 +141,7 @@
                             </div>
                             <div class="category">
                                 <div>類別</div>
-                                <div>大地工程</div>
+                                <div>土木工程</div>
                             </div>
                         </div>
                     </div>

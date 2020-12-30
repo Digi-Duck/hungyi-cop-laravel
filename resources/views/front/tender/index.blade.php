@@ -9,7 +9,7 @@
             <h1>得標資訊</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">首頁</a></li>
+                    <li class="breadcrumb-item"><a href="/">首頁</a></li>
                     <li class="breadcrumb-item"><a>動態消息</a></li>
                     <li class="breadcrumb-item active" aria-current="page">得標資訊</li>
                 </ol>

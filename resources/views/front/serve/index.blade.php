@@ -9,7 +9,7 @@
             <h1>服務項目</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">首頁</a></li>
+                    <li class="breadcrumb-item"><a href="/">首頁</a></li>
                     <li class="breadcrumb-item active" aria-current="page">服務項目</li>
                 </ol>
             </nav>
@@ -23,7 +23,7 @@
                         <img src="./img/03-serve/icon01.png" alt="">
                     </div>
                     <div class="serve_info">
-                        <p class="small_title">大地工程</p>
+                        <p class="small_title">土木工程</p>
                         <p class="discript">
                             本公司參與了各項國家重大建設，包括橋梁、一般道路、快速道路、高速公路、整地、水保工程等。
                         </p>

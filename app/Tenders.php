@@ -19,7 +19,7 @@ class Tenders extends Model
 {
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -29,4 +29,8 @@ class Tenders extends Model
      */
     protected $fillable = ['title', 'tender_date', 'imgs', 'content', 'sort', 'view_times', 'created_at', 'updated_at'];
 
+    public function tenderImgs()
+    {
+        return $this->hasMany('App\TendersImgs', 'tender_id');
+    }
 }
