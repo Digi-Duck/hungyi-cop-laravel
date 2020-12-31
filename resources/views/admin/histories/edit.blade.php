@@ -52,6 +52,7 @@
                                 <input class="form-control" id="event" name="event" value="{{ $list->event }}" required>
                             </div>
                         </div>
+                        <hr>
                         <div class="form-group row">
                             <label for="img" class="col-2 col-form-label">內容圖片(目前圖片)</label>
                             <div class="col-10 row">
@@ -69,6 +70,7 @@
                                 @enderror
                             </div>
                         </div>
+                        <hr>
                         <div class="form-group row">
                             <label for="capital" class="col-2 col-form-label">事件描述 1</label>
                             <div class="col-10">

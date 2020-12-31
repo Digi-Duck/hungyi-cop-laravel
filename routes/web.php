@@ -27,6 +27,23 @@ Route::get('security_policy', 'FrontController@security_policy');
 Route::get('job_opportunities', 'FrontController@job_opportunities');
 // -得標公告
 Route::get('tender', 'FrontController@tender');
+Route::get('tender_detail/{id}', 'FrontController@tender_detail');
+
+// 服務項目
+Route::get('serve', 'FrontController@serve');
+
+// 得獎及認證
+// -得獎事蹟
+Route::get('award_stories', 'FrontController@award_stories');
+// -認證及獎盃
+Route::get('certification_trophy', 'FrontController@certification_trophy');
+
+// 職安資訊
+Route::get('occupational_safety', 'FrontController@occupational_safety');
+
+//
+Route::get('contact_us', 'FrontController@contact_us');
+
 
 
 Route::get('/home', 'HomeController@index');
@@ -56,6 +73,12 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('award_stories', 'AwardStoriesController');
     // -認證及獲獎
     Route::resource('certification_trophys', 'CertificationTrophysController');
+
+    // 工程實績
+    // Route::resource('performances', 'PreformancesController');
+    Route::get('performances/{id}', 'PreformancesController@index');
+    Route::get('performances/create/{id}', 'PreformancesController@create');
+    Route::post('performances/store', 'PreformancesController@store');
 });
 
 // Auth::routes();

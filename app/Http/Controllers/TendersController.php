@@ -54,6 +54,10 @@ class TendersController extends Controller
         $new_record->content = $request->content;
         $new_record->sort  = $request->sort;
         $new_record->view_times = 0;
+        if ($request->hasFile('img')) {
+            $files = $request->file('img')[0];
+            $new_record->imgs = FilesController::imgUpload($files, 'tender_img');
+        }
         $new_record->save();
         if ($request->hasFile('imgs')) {
             $files = $request->file('imgs');
@@ -110,10 +114,15 @@ class TendersController extends Controller
         $old_record->title  = $request->title;
         $old_record->content  = $request->content;
         $old_record->sort  = $request->sort;
+        if ($request->hasFile('img')) {
+            FilesController::deleteUpload($old_record->imgs);
+            $old_record->imgs = FilesController::imgUpload($request->file('img')[0], 'tender_img');
+        }
+
         if ($request->hasFile('imgs')) {
             $files = $request->file('imgs');
             foreach ($files as $file) {
-                $path = FilesController::imgUpload($file, 'news_img');
+                $path = FilesController::imgUpload($file, 'tender_img');
                 $query = new TendersImgs();
                 $query->tender_id = $old_record->id;
                 $query->img = $path;

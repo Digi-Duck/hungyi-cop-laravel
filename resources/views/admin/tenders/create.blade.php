@@ -28,6 +28,16 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label for="img" class="col-2 col-form-label">封面圖片</label>
+                                <div class="col-10">
+                                    <input type="file" class="form-control" id="img" name="img[]">
+                                    @error('img.*')
+                                        <p class="text-danger error_message">{{ $message}}</p>
+                                    @enderror
+                                </div>
+                                <div class="col-12"><p class="text-danger">單多張圖片上傳</p></div>
+                            </div>
+                            <div class="form-group row">
                                 <label for="imgs" class="col-2 col-form-label">內容圖片</label>
                                 <div class="col-10">
                                     <input type="file" class="form-control" id="imgs" name="imgs[]" multiple>

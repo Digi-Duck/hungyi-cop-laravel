@@ -196,6 +196,7 @@ main .container .card_content .card:hover .card_img_top .hover_mask * {
 main .container .card_content .card .card_img_top {
   height: 270px;
   position: relative;
+  background-size: cover;
 }
 
 main .container .card_content .card .card_img_top .card_create_date {
@@ -307,6 +308,7 @@ main .container .card_content .card .card-body .card-text {
 
 .award_storis_modal .modal-content .modal-header .modal_img_top {
   position: relative;
+  width: 100%;
   height: 540px;
   background-size: cover;
   background-position: center;

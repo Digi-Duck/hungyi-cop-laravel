@@ -14,9 +14,9 @@
                     <li class="breadcrumb-item active" aria-current="page">得獎事蹟</li>
                 </ol>
                 <ol class="tab">
-                    <li class="tab_btn active"><a href="#">得獎事蹟</a></li>
+                    <li class="tab_btn active"><a>得獎事蹟</a></li>
                     <li class="mark"></li>
-                    <li class="tab_btn"><a href="#">認證及獎盃</a></li>
+                    <li class="tab_btn"><a href="/certification_trophy">認證及獎盃</a></li>
                 </ol>
             </nav>
         </div>
@@ -24,83 +24,48 @@
 
     <div class="container">
         <div class="row">
+            @foreach ($lists as $index => $item)
             <div class="col-lg-4 col-md-6 card_content">
-                <div class="card" data-toggle="modal" data-target="#award_storis_modal">
-                    <div class="card_img_top">
-                        <div class="card_create_date">2020-11-20</div>
+                <div class="card" data-toggle="modal" data-target="#award_storis_modal{{ $index }}">
+                    <div class="card_img_top" style="background-image: url({{ $item->img }})">
+                        <div class="card_create_date">{{ $item->award_date }}</div>
                         <div class="hover_mask">
                             <div class="hover_icon"></div>
                             <div class="hover_text">MORE</div>
                         </div>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">標題標題標題標題標題標題標題標題標題標題標題標題</h5>
-                        <p class="card-text">內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容容內容內容內容內容內容內容內容內容</p>
+                        <h5 class="card-title">{{ $item->title }}</h5>
+                        <p class="card-text">{{ $item->content }}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 card_content">
-                <div class="card" data-toggle="modal" data-target="#award_storis_modal">
-                    <div class="card_img_top">
-                        <div class="card_create_date">2020-11-20</div>
-                        <div class="hover_mask">
-                            <div class="hover_icon"></div>
-                            <div class="hover_text">MORE</div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">標題標題標題標題標題標題標題標題標題標題標題標題</h5>
-                        <p class="card-text">內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容容內容內容內容內容內容內容內容內容</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 card_content">
-                <div class="card" data-toggle="modal" data-target="#award_storis_modal">
-                    <div class="card_img_top">
-                        <div class="card_create_date">2020-11-20</div>
-                        <div class="hover_mask">
-                            <div class="hover_icon"></div>
-                            <div class="hover_text">MORE</div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">標題標題標題標題標題標題標題標題標題標題標題標題</h5>
-                        <p class="card-text">內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容容內容內容內容內容內容內容內容內容</p>
+            @endforeach
+        </div>
+    </div>
+
+    <!-- 得獎事蹟 modal -->
+    @foreach ($lists as $index => $item)
+    <div class="modal fade award_storis_modal" id="award_storis_modal{{ $index }}" tabindex="-1" role="dialog"
+        aria-labelledby="award_storis_modal_title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="modal_img_top" style="background-image: url({{ $item->img }})">
+                        <div class="modal_create_date">{{ $item->award_date }}</div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 card_content">
-                <div class="card" data-toggle="modal" data-target="#award_storis_modal">
-                    <div class="card_img_top">
-                        <div class="card_create_date">2020-11-20</div>
-                        <div class="hover_mask">
-                            <div class="hover_icon"></div>
-                            <div class="hover_text">MORE</div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">標題標題標題標題標題標題標題標題標題標題標題標題</h5>
-                        <p class="card-text">內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容容內容內容內容內容內容內容內容內容</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 card_content">
-                <div class="card" data-toggle="modal" data-target="#award_storis_modal">
-                    <div class="card_img_top">
-                        <div class="card_create_date">2020-11-20</div>
-                        <div class="hover_mask">
-                            <div class="hover_icon"></div>
-                            <div class="hover_text">MORE</div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">標題標題標題標題標題標題標題標題標題標題標題標題</h5>
-                        <p class="card-text">內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容容內容內容內容內容內容內容內容內容</p>
-                    </div>
+                <div class="modal-body">
+                    <h5 class="modal-title" id="exampleModalLongTitle">{{ $item->title }}</h5>
+                    <p class="modal-text">{{ $item->content }}</p>
                 </div>
             </div>
         </div>
     </div>
+    @endforeach
 @endsection
 
 @section('js')

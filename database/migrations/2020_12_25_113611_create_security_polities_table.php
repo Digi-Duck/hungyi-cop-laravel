@@ -15,14 +15,14 @@ class CreateSecurityPolitiesTable extends Migration
     {
         Schema::create('security_polities', function (Blueprint $table) {
             $table->id();
-            $table->integer('deaths');
-            $table->integer('injury');
-            $table->integer('hospitalized');
-            $table->integer('accidents_people');
-            $table->integer('accidents_times');
-            $table->integer('accidents_false');
-            $table->integer('fines_times');
-            $table->integer('fines_million');
+            $table->integer('deaths')->default(0);
+            $table->integer('injury')->default(0);
+            $table->integer('hospitalized')->default(0);
+            $table->integer('accidents_people')->default(0);
+            $table->integer('accidents_times')->default(0);
+            $table->integer('accidents_false')->default(0);
+            $table->integer('fines_times')->default(0);
+            $table->integer('fines_million')->default(0);
             $table->timestamps();
         });
     }

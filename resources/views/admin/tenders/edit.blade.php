@@ -50,9 +50,28 @@
                         <div class="form-group row">
                             <label for="tender_date" class="col-2 col-form-label">得標日期</label>
                             <div class="col-10">
-                                <input type="date" name="tender_date" id="tender_date" value="{{ $list->tender_date }}">
+                                <input class="form-control" type="date" name="tender_date" id="tender_date" value="{{ $list->tender_date }}">
                             </div>
                         </div>
+                        <hr>
+                        <div class="form-group row">
+                            <label for="imgs" class="col-2 col-form-label">封面圖片(目前圖片)</label>
+                            <div class="col-10 row">
+                                <div class="imgs_area mx-2 mb-2">
+                                    <img src="{{$list->imgs}}" alt="" width="200">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="img" class="col-2 col-form-label">封面圖片(更新圖片)</label>
+                            <div class="col-10">
+                                <input type="file" class="form-control" id="img" name="img[]" multiple>
+                                @error('img.*')
+                                    <p class="text-danger error_message">{{ $message}}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <hr>
                         <div class="form-group row">
                             <label for="img" class="col-2 col-form-label">內容圖片(目前圖片)</label>
                             <div class="col-10 row">
@@ -73,6 +92,7 @@
                                 @enderror
                             </div>
                         </div>
+                        <hr>
                         <div class="form-group row">
                             <label for="title" class="col-2 col-form-label">公告標題 (英)</label>
                             <div class="col-10">

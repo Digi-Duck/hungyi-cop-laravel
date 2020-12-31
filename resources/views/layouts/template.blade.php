@@ -23,8 +23,8 @@
     <!-- 部分分頁選用  end-->
 
     <!-- layout -->
-    <link rel="stylesheet" href="./css/template.css">
-    <link rel="stylesheet" href="./css/menu.css">
+    <link rel="stylesheet" href="{{ asset('./css/template.css') }}">
+    <link rel="stylesheet" href="{{ asset('./css/menu.css') }}">
     <!-- page css  -->
     @yield('css')
 
@@ -43,30 +43,30 @@
                     <li>
                         <div class="drop_down_menu">
                             <a href="#">願景理念</a>
-                            <a href="/history">公司沿革</a>
-                            <a href="/security_policy">職安品質政策</a>
+                            <a href="{{ asset('history') }}">公司沿革</a>
+                            <a href="{{ asset('security_policy') }}">職安品質政策</a>
                         </div>
                         <a style="cursor: default;">關於我們</a>
                     </li>
                     <li>
                         <div class="drop_down_menu">
-                            <a href="/job_opportunities">職缺公告</a>
-                            <a href="/tender">得標資訊</a>
+                            <a href="{{ asset('job_opportunities') }}">職缺公告</a>
+                            <a href="{{ asset('tender') }}">得標資訊</a>
                         </div>
                         <a style="cursor: default;">動態消息</a>
                     </li>
                     <li>
-                        <a href="#">服務項目</a>
+                        <a href="{{ asset('serve') }}">服務項目</a>
                     </li>
                     <li>
                         <div class="drop_down_menu">
-                            <a href="#">得獎事蹟</a>
-                            <a href="#">認證及獎盃</a>
+                            <a href="{{ asset('award_stories') }}">得獎事蹟</a>
+                            <a href="{{ asset('certification_trophy') }}">認證及獎盃</a>
                         </div>
                         <a style="cursor: default;">得獎及認證</a>
                     </li>
                     <li>
-                        <a href="#"><img src="./img/logo.svg" alt="宏義工程"></a>
+                        <a href="#"><img src="{{ asset('./img/logo.svg') }}" alt="宏義工程"></a>
                     </li>
                     <li>
                         <div class="drop_down_menu">
@@ -90,7 +90,7 @@
                         <a href="#">技術專區</a>
                     </li>
                     <li>
-                        <a href="#">職安資訊</a>
+                        <a href="/occupational_safety">職安資訊</a>
                     </li>
                 </ul>
             </div>
@@ -169,7 +169,7 @@
     </main>
     <!-- 內頁結束 -->
     <!-- 聯絡我們開始 -->
-    <a href="" id="contactus">
+    <a href="{{ asset('contact_us') }}" id="contactus">
         <div class="btn_box">
             聯絡我們
         </div>
@@ -193,7 +193,7 @@
         <div class="container">
             <div class="row">
                 <div class="footerLogo">
-                    <img src="./img/footerLogo.svg" alt="頁尾LOGO">
+                    <img src="{{ asset('./img/footerLogo.svg') }}" alt="頁尾LOGO">
                 </div>
                 <div class="contactInformation">
                     <ul>

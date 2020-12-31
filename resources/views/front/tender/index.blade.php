@@ -17,37 +17,24 @@
         </div>
     </div>
     <div class="container">
-        <div class="tender_card">
-            <div class="card_img_top" style="background-image:url('./img/02-news/TenderDemo.png');">
-                <div class="hover_mask">
-                    <div class="hover_icon"></div>
-                    <div class="hover_text">MORE</div>
+        @foreach ($lists as $index => $item)
+        <a href="/tender_detail/{{ $item->id }}">
+            <div class="tender_card">
+                <div class="card_img_top" style="background-image:url({{ $item->imgs }});">
+                    <div class="hover_mask">
+                        <div class="hover_icon"></div>
+                        <div class="hover_text">MORE</div>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="title">{{ $item->title }}</div>
+                    <div class="date">{{ $item->tender_date }}</div>
+                    <div class="text"></div>
+                    <div class="readmore">閱讀更多</div>
                 </div>
             </div>
-            <div class="content">
-                <div class="title">基隆河員山子分洪工程隧道全線貫通典禮</div>
-                <div class="date">2020-08-18</div>
-                <div class="text"></div>
-                <div class="readmore">閱讀更多</div>
-            </div>
-        </div>
-        <div class="tender_card">
-            <div class="card_img_top" style="background-image:url('./img/02-news/TenderDemo.png');">
-                <div class="hover_mask">
-                    <div class="hover_icon"></div>
-                    <div class="hover_text">MORE</div>
-                </div>
-            </div>
-            <div class="content">
-                <div class="title">基隆河員山子分洪工程隧道全線貫通典禮</div>
-                <div class="date">2020-08-18</div>
-                <div class="text">
-                    沙特阿拉伯於2011年宣布了“2024年國家長期戰略”，並雄心勃勃地追求能源開發項目，例如核電站，礦產，石油和天然氣。該工程是由現代E＆C訂購的核電站，礦產，石油和天然氣。該工程是由現沙特阿拉伯於2011年宣布了“2024年國家長期戰略”，並雄心勃勃地追求能源開發項目，例如核電站，礦產，石油和天然氣。該工程是由現代E＆C訂購的核電站，礦產，石油和天然氣。
-
-                </div>
-                <div class="readmore">閱讀更多</div>
-            </div>
-        </div>
+        </a>
+        @endforeach
         <div aria-label="Page navigation" class="pages">
             <ul class="pagination">
                 <li class="page-item">
