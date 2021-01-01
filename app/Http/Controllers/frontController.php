@@ -7,6 +7,8 @@ use App\CertificationTrophys;
 use App\Histories;
 use App\JobOpportunities;
 use App\JobOpportunitieUnits;
+use App\Performances;
+use App\PerformancesImgs;
 use App\SecurityPolities;
 use App\Tenders;
 use App\TendersImgs;
@@ -66,6 +68,41 @@ class FrontController extends Controller
     {
         $lists = CertificationTrophys::all()->sortByDesc('sort');
         return view('front.certification_trophy.index', compact('lists'));
+    }
+
+    public function performance($id)
+    {
+        $lists = Performances::all();
+        $type_name = '實績';
+
+        if ($id == 1)
+            $type_name = '土木工程';
+        elseif ($id == 2)
+            $type_name = '環保工程';
+        elseif ($id == 3)
+            $type_name = '建築工程';
+        elseif ($id == 4)
+            $type_name = '其他';
+
+        return view('front.performance.index', compact('lists', 'id', 'type_name'));
+    }
+
+    public function performance_detail($id)
+    {
+        $list = Performances::find($id);
+        $imgs = PerformancesImgs::all();
+
+        $type_name = '實績';
+        if ($id == 1)
+            $type_name = '土木工程';
+        elseif ($id == 2)
+            $type_name = '環保工程';
+        elseif ($id == 3)
+            $type_name = '建築工程';
+        elseif ($id == 4)
+            $type_name = '其他';
+
+        return view('front.performance.detail', compact('list', 'imgs', 'type_name', 'id'));
     }
 
     public function occupational_safety()

@@ -6,11 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
- * @property string $type
+ * @property string $name
+ * @property string $email
+ * @property string $phone
+ * @property string $content
  * @property string $created_at
  * @property string $updated_at
  */
-class PreformancesTypes extends Model
+class Contactus extends Model
 {
     /**
      * The "type" of the auto-incrementing ID.
@@ -22,6 +25,6 @@ class PreformancesTypes extends Model
     /**
      * @var array
      */
-    protected $fillable = ['type', 'created_at', 'updated_at'];
+    protected $fillable = ['name', 'email', 'phone', 'content', 'created_at', 'updated_at'];
 
 }

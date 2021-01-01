@@ -126,6 +126,10 @@
                                 <li><a class="dropdown-item" href="/admin/friendships">職安資訊</a></li>
                             </ul>
                         </li>
+                        {{-- 聯絡我們 --}}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="/admin/contactus">聯絡我們</a>
+                        </li>
                         {{-- 帳號管理 --}}
                         @if(Auth::user()->role == 0)
                             <li class="nav-item dropdown">

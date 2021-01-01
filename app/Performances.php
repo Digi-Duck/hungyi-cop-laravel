@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property integer $id
  * @property string $title
- * @property string $preformances_date
+ * @property string $performances_date
  * @property string $type_id
  * @property string $location
  * @property string $funds
@@ -18,11 +18,11 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $created_at
  * @property string $updated_at
  */
-class Preformances extends Model
+class Performances extends Model
 {
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -30,6 +30,11 @@ class Preformances extends Model
     /**
      * @var array
      */
-    protected $fillable = ['title', 'preformances_date', 'type_id', 'location', 'funds', 'imgs', 'content', 'sort', 'view_times', 'created_at', 'updated_at'];
+    protected $fillable = ['title', 'performances_date', 'type_id', 'location', 'funds', 'imgs', 'content', 'sort', 'view_times', 'created_at', 'updated_at'];
+
+    public function performancesImgs()
+    {
+        return $this->hasMany('App\PerformancesImgs', 'performances_id');
+    }
 
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePreformancesImgsTable extends Migration
+class CreatePerformancesTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreatePreformancesImgsTable extends Migration
      */
     public function up()
     {
-        Schema::create('preformances_imgs', function (Blueprint $table) {
+        Schema::create('performances_types', function (Blueprint $table) {
             $table->id();
-            $table->integer('preformances_id');
-            $table->string('img');
+            $table->string('type');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreatePreformancesImgsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('preformances_imgs');
+        Schema::dropIfExists('performances_types');
     }
 }

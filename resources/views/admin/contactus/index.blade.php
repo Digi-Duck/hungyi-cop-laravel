@@ -9,30 +9,31 @@
             <div class="col-sm-12">
                 <div class="card">
                     <h4 class="card-header">
-                        得獎事蹟管理
+                        聯絡我們管理
                     </h4>
                     <div class="card-body">
-                        <a class="btn btn-success" href="/admin/award_stories/create">新增得獎事蹟</a>
                         <hr>
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
                             <tr>
-                                <th>權重</th>
-                                <th>得獎日期</th>
-                                <th>得獎標題</th>
+                                <th>姓名</th>
+                                <th>信箱</th>
+                                <th>電話</th>
+                                <th>留言</th>
                                 <th width="120">功能</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($lists as $list)
                                 <tr>
-                                    <td>{{ $list->sort }}</td>
-                                    <td>{{$list->award_date}}</td>
-                                    <td>{{$list->title}}</td>
+                                    <td>{{ $list->name }}</td>
+                                    <td>{{$list->email}}</td>
+                                    <td>{{$list->phone}}</td>
+                                    <td>{{ $list->content }}</td>
                                     <td>
-                                        <a class="btn btn-sm btn-success" href="/admin/award_stories/{{$list->id}}/edit">編輯</a>
+                                        <a class="btn btn-sm btn-success" href="/admin/contactus/{{$list->id}}/edit">查看</a>
                                         <button class="btn btn-sm btn-danger test" data-listid="{{$list->id}}">刪除</button>
-                                        <form class="delete-form" action="/admin/award_stories/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
+                                        <form class="delete-form" action="/admin/contactus/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
                                             @csrf
                                             @method("DELETE")
                                         </form>

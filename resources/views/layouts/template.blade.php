@@ -66,14 +66,14 @@
                         <a style="cursor: default;">得獎及認證</a>
                     </li>
                     <li>
-                        <a href="#"><img src="{{ asset('./img/logo.svg') }}" alt="宏義工程"></a>
+                        <a href="/"><img src="{{ asset('./img/logo.svg') }}" alt="宏義工程"></a>
                     </li>
                     <li>
                         <div class="drop_down_menu">
-                            <a href="#">土木工程</a>
-                            <a href="#">環保工程</a>
-                            <a href="#">建築工程</a>
-                            <a href="#">其他</a>
+                            <a href="{{ asset('performance/1') }}">土木工程</a>
+                            <a href="{{ asset('performance/2') }}">環保工程</a>
+                            <a href="{{ asset('performance/3') }}">建築工程</a>
+                            <a href="{{ asset('performance/4') }}">其他</a>
                         </div>
                         <a style="cursor: default;">工程實績</a>
                     </li>

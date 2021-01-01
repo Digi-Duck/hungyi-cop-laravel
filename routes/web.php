@@ -38,12 +38,15 @@ Route::get('award_stories', 'FrontController@award_stories');
 // -認證及獎盃
 Route::get('certification_trophy', 'FrontController@certification_trophy');
 
+// 工程實績
+Route::get('performance/{id}', 'FrontController@performance');
+Route::get('performance_detail/{id}', 'FrontController@performance_detail');
+
 // 職安資訊
 Route::get('occupational_safety', 'FrontController@occupational_safety');
 
-//
+// 聯絡我們
 Route::get('contact_us', 'FrontController@contact_us');
-
 
 
 Route::get('/home', 'HomeController@index');
@@ -75,10 +78,17 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('certification_trophys', 'CertificationTrophysController');
 
     // 工程實績
-    // Route::resource('performances', 'PreformancesController');
-    Route::get('performances/{id}', 'PreformancesController@index');
-    Route::get('performances/create/{id}', 'PreformancesController@create');
-    Route::post('performances/store', 'PreformancesController@store');
+    // Route::resource('performances', 'PerformancesController');
+    Route::get('performances/{id}', 'PerformancesController@index');
+    Route::get('performances/create/{id}', 'PerformancesController@create');
+    Route::post('performances/store', 'PerformancesController@store');
+    Route::get('performances/{id}/edit/', 'PerformancesController@edit');
+    Route::resource('performances', PerformancesController::class)->only([
+        'update', 'destroy'
+    ]);
+
+    // 聯絡我們
+    Route::resource('contactus', 'ContactusController');
 });
 
 // Auth::routes();

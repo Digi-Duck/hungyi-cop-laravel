@@ -60,7 +60,7 @@
         $('.btn-danger').click(function(){
 
             var listid = $(this).data("listid");
-            if (confirm('確定要刪除此最新消息？')){
+            if (confirm('確定要刪除這筆資料？')){
                 event.preventDefault();
                 $('.delete-form[data-listid="' + listid + '"]').submit();
             }

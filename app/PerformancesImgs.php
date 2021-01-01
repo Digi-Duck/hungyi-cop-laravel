@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
- * @property int $preformances_id
+ * @property int $performances_id
  * @property string $img
  * @property string $created_at
  * @property string $updated_at
  */
-class PreformancesImgs extends Model
+class PerformancesImgs extends Model
 {
     /**
      * The "type" of the auto-incrementing ID.
@@ -23,5 +23,5 @@ class PreformancesImgs extends Model
     /**
      * @var array
      */
-    protected $fillable = ['preformances_id', 'img', 'created_at', 'updated_at'];
+    protected $fillable = ['performances_id', 'img', 'created_at', 'updated_at'];
 }

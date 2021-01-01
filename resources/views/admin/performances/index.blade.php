@@ -37,11 +37,11 @@
                             <tr>
                                 <td>{{ $list->sort }}</td>
                                 <td>{{$list->title}}</td>
-                                <td>{{$list->preformances_date}}</td>
+                                <td>{{$list->performances_date}}</td>
                                 <td>
-                                    <a class="btn btn-sm btn-success" href="/admin/tenders/{{$list->id}}/edit">編輯</a>
+                                    <a class="btn btn-sm btn-success" href="/admin/performances/{{$list->id}}/edit">編輯</a>
                                     <button class="btn btn-sm btn-danger test" data-listid="{{$list->id}}">刪除</button>
-                                    <form class="delete-form" action="/admin/tenders/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
+                                    <form class="delete-form" action="/admin/performances/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
                                         @csrf
                                         @method("DELETE")
                                     </form>
@@ -70,7 +70,7 @@
         $('.btn-danger').click(function(){
 
             var listid = $(this).data("listid");
-            if (confirm('確定要刪除此最新消息？')){
+            if (confirm('確定要刪除這筆資料？')){
                 event.preventDefault();
                 $('.delete-form[data-listid="' + listid + '"]').submit();
             }

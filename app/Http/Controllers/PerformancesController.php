@@ -2,29 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use App\Tenders;
-use App\TendersImgs;
+use App\Performances;
+use App\PerformancesImgs;
 use Illuminate\Http\Request;
 
-class TendersController extends Controller
+class PerformancesController extends Controller
 {
     function __construct()
     {
         $this->redirect = '/admin';
-        $this->index = 'admin.tenders.index';
-        $this->create = 'admin.tenders.create';
-        $this->edit = 'admin.tenders.edit';
+        $this->index = 'admin.performances.index';
+        $this->create = 'admin.performances.create';
+        $this->edit = 'admin.performances.edit';
     }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
         //
-        $lists = Tenders::all();
-        return view($this->index, compact('lists'));
+        $lists = Performances::all();
+
+        return view($this->index, compact('lists', 'id'));
     }
 
     /**
@@ -32,10 +33,9 @@ class TendersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
-        return view($this->create);
+        return view($this->create, compact('id'));
     }
 
     /**
@@ -47,30 +47,34 @@ class TendersController extends Controller
     public function store(Request $request)
     {
         //
-        $new_record = new Tenders();
+        $id = $request->id;
+        $new_record = new Performances;
         $new_record->title  = $request->title;
-        $new_record->tender_date  = $request->tender_date;
+        $new_record->performances_date  = $request->performances_date;
+        $new_record->location  = $request->location;
+        $new_record->funds  = $request->funds;
         $new_record->content = $request->content;
         $new_record->sort  = $request->sort;
+        $new_record->type_id = $id;
         $new_record->view_times = 0;
         if ($request->hasFile('img')) {
             $files = $request->file('img')[0];
-            $new_record->imgs = FilesController::imgUpload($files, 'tender_img');
+            $new_record->imgs = FilesController::imgUpload($files, 'performances_img');
         }
         $new_record->save();
         if ($request->hasFile('imgs')) {
             $files = $request->file('imgs');
 
             foreach ($files as $file) {
-                $path = FilesController::imgUpload($file, 'tender_img');
-                $query = new TendersImgs;
-                $query->tender_id = $new_record->id;
+                $path = FilesController::imgUpload($file, 'performances_img');
+                $query = new PerformancesImgs;
+                $query->performances_id = $new_record->id;
                 $query->img = $path;
                 $query->save();
             }
         }
 
-        return redirect('/admin/tenders')->with('message', '新增成功!');
+        return redirect('/admin/performances/' . $id)->with('message', '新增成功!');
     }
 
     /**
@@ -82,7 +86,7 @@ class TendersController extends Controller
     public function show($id)
     {
         //
-        $list = Tenders::find($id);
+        $list = Performances::find($id);
         return view($this->edit, compact('list'));
     }
 
@@ -95,8 +99,18 @@ class TendersController extends Controller
     public function edit($id)
     {
         //
-        $list = Tenders::find($id);
-        return view($this->edit, compact('list'));
+        $list = Performances::find($id);
+        $type = '實績';
+        if ($list->type_id == 1)
+            $type = '土木工程';
+        elseif ($list->type_id == 2)
+            $type = '環保工程';
+        elseif ($list->type_id == 3)
+            $type = '建築工程';
+        elseif ($list->type_id == 4)
+            $type = '其他';
+
+        return view($this->edit, compact('list', 'type'));
     }
 
     /**
@@ -109,27 +123,30 @@ class TendersController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $old_record = Tenders::find($id);
+        $old_record = Performances::find($id);
         $old_record->title  = $request->title;
         $old_record->content  = $request->content;
         $old_record->sort  = $request->sort;
+        $old_record->location  = $request->location;
+        $old_record->performances_date  = $request->performances_date;
+        $old_record->funds  = $request->funds;
         if ($request->hasFile('img')) {
             FilesController::deleteUpload($old_record->imgs);
-            $old_record->imgs = FilesController::imgUpload($request->file('img')[0], 'tender_img');
+            $old_record->imgs = FilesController::imgUpload($request->file('img')[0], 'performances_img');
         }
 
         if ($request->hasFile('imgs')) {
             $files = $request->file('imgs');
             foreach ($files as $file) {
-                $path = FilesController::imgUpload($file, 'tender_img');
-                $query = new TendersImgs();
+                $path = FilesController::imgUpload($file, 'performances_img');
+                $query = new PerformancesImgs();
                 $query->tender_id = $old_record->id;
                 $query->img = $path;
                 $query->save();
             }
         }
         $old_record->save();
-        return redirect('/admin/tenders')->with('message','更新成功!');
+        return redirect('/admin/performances/'.$request->this_type_id)->with('message', '更新成功!');
     }
 
     /**
@@ -141,21 +158,22 @@ class TendersController extends Controller
     public function destroy($id)
     {
         //
-        $old_record = Tenders::find($id);
+        $old_record = Performances::find($id);
+        $this_type_id = $old_record->type_id;
         FilesController::deleteUpload($old_record->imgs);
 
-        $old_imgs = TendersImgs::where('tender_id',$id)->get();
+        $old_imgs = PerformancesImgs::where('performances_id',$id)->get();
         foreach ($old_imgs as $old_img) {
             FilesController::deleteUpload($old_img->img);
         }
         $old_record->delete();
-        return redirect('/admin/tenders')->with('message','刪除成功!');
+        return redirect('/admin/performances/'.$this_type_id)->with('message','刪除成功!');
     }
 
     public function deleteFile(Request $request)
     {
         if($request->type == 'img'){
-            $img = TendersImgs::find($request->id);
+            $img = PerformancesImgs::find($request->id);
             $old_img = $img->img;
             FilesController::deleteUpload($old_img);
             $img->delete();

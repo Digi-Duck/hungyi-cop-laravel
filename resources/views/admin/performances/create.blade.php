@@ -37,9 +37,9 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="preformances_date" class="col-2 col-form-label">工期</label>
+                                <label for="performances_date" class="col-2 col-form-label">工期</label>
                                 <div class="col-10">
-                                    <input type="text" class="form-control" id="preformances_date" name="preformances_date">
+                                    <input type="text" class="form-control" id="performances_date" name="performances_date">
                                 </div>
                             </div>
                             <div class="form-group row">

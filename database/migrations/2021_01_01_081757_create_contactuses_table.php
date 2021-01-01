@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePreformancesTypesTable extends Migration
+class CreateContactusesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreatePreformancesTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('preformances_types', function (Blueprint $table) {
+        Schema::create('contactuses', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
+            $table->string('name');
+            $table->string('email');
+            $table->string('phone');
+            $table->string('content');
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ class CreatePreformancesTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('preformances_types');
+        Schema::dropIfExists('contactuses');
     }
 }
