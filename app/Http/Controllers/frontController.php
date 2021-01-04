@@ -9,6 +9,11 @@ use App\JobOpportunities;
 use App\JobOpportunitieUnits;
 use App\Performances;
 use App\PerformancesImgs;
+use App\SafetyCases;
+use App\SafetyDecrees;
+use App\SafetyLinks;
+use App\SafetyMinutes;
+use App\SafetyPlans;
 use App\SecurityPolities;
 use App\Tenders;
 use App\TendersImgs;
@@ -107,7 +112,12 @@ class FrontController extends Controller
 
     public function occupational_safety()
     {
-        return view('front.occupational_safety.index');
+        $minutes = SafetyMinutes::all();
+        $plans = SafetyPlans::all();
+        $decrees = SafetyDecrees::all();
+        $cases = SafetyCases::all();
+        $links = SafetyLinks::all();
+        return view('front.occupational_safety.index', compact('minutes', 'plans', 'decrees', 'cases', 'links'));
     }
 
     public function contact_us()

@@ -23,7 +23,7 @@ class TendersController extends Controller
     public function index()
     {
         //
-        $lists = Tenders::all();
+        $lists = Tenders::all()->sortByDesc('sort');
         return view($this->index, compact('lists'));
     }
 

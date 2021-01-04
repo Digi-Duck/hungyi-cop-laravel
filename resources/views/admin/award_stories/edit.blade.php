@@ -43,7 +43,7 @@
                         <div class="form-group row">
                             <label for="sort" class="col-2 col-form-label">權重</label>
                             <div class="col-10">
-                                <input class="form-control" id="sort" name="sort" value="{{ $list->sort }}" required>
+                                <input type="number" class="form-control" id="sort" name="sort" value="{{ $list->sort }}" required>
                             </div>
                             <div class="col-12"><p class="text-danger">權重等於排序，數字越大排序越前面。</p></div>
                         </div>

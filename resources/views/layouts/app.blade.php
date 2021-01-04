@@ -120,10 +120,12 @@
                                 職安資訊
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="/admin/arounds">職安資訊</a></li>
-                                <li><a class="dropdown-item" href="/admin/friendships">職安資訊</a></li>
-                                <li><a class="dropdown-item" href="/admin/friendships">職安資訊</a></li>
-                                <li><a class="dropdown-item" href="/admin/friendships">職安資訊</a></li>
+                                <li><a class="dropdown-item" href="/admin/safety_minutes">職安衛生委員會議紀錄</a></li>
+                                <li><a class="dropdown-item" href="/admin/safety_plans">職安衛生教育訓練計畫</a></li>
+                                <li><a class="dropdown-item" href="/admin/safety_decrees">法令規章</a></li>
+                                <li><a class="dropdown-item" href="/admin/safety_cases">案例宣導</a></li>
+                                <li><a class="dropdown-item" href="/admin/safety_links">相關連結</a></li>
+                                <li><a class="dropdown-item" href="/admin/friendships">特殊專區</a></li>
                             </ul>
                         </li>
                         {{-- 聯絡我們 --}}

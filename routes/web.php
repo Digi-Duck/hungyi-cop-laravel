@@ -81,11 +81,22 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     // Route::resource('performances', 'PerformancesController');
     Route::get('performances/{id}', 'PerformancesController@index');
     Route::get('performances/create/{id}', 'PerformancesController@create');
-    Route::post('performances/store', 'PerformancesController@store');
     Route::get('performances/{id}/edit/', 'PerformancesController@edit');
     Route::resource('performances', PerformancesController::class)->only([
-        'update', 'destroy'
+        'store', 'update', 'destroy'
     ]);
+
+    // 職安資訊
+    // -職安衛生教育會議記錄
+    Route::resource('safety_minutes', 'SafetyMinutesController');
+    // -職安衛生教育訓練計畫
+    Route::resource('safety_plans', 'SafetyPlansController');
+    // -法令規章
+    Route::resource('safety_decrees', 'SafetyDecreesController');
+    // -案例宣導
+    Route::resource('safety_cases', 'SafetyCasesController');
+    // -相關連結
+    Route::resource('safety_links', 'SafetyLinksController');
 
     // 聯絡我們
     Route::resource('contactus', 'ContactusController');
