@@ -14,6 +14,8 @@ use App\SafetyDecrees;
 use App\SafetyLinks;
 use App\SafetyMinutes;
 use App\SafetyPlans;
+use App\SafetyZones;
+use App\SafetyZonesSetings;
 use App\SecurityPolities;
 use App\Tenders;
 use App\TendersImgs;
@@ -117,7 +119,9 @@ class FrontController extends Controller
         $decrees = SafetyDecrees::all();
         $cases = SafetyCases::all();
         $links = SafetyLinks::all();
-        return view('front.occupational_safety.index', compact('minutes', 'plans', 'decrees', 'cases', 'links'));
+        $zones = SafetyZones::all()->sortByDesc('sort')->take(4);
+        $zone_seting = SafetyZonesSetings::find(1);
+        return view('front.occupational_safety.index', compact('minutes', 'plans', 'decrees', 'cases', 'links', 'zones', 'zone_seting'));
     }
 
     public function contact_us()

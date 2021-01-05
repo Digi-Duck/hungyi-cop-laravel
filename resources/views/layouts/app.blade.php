@@ -125,7 +125,16 @@
                                 <li><a class="dropdown-item" href="/admin/safety_decrees">法令規章</a></li>
                                 <li><a class="dropdown-item" href="/admin/safety_cases">案例宣導</a></li>
                                 <li><a class="dropdown-item" href="/admin/safety_links">相關連結</a></li>
-                                <li><a class="dropdown-item" href="/admin/friendships">特殊專區</a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="dropdown-item dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        特殊專區
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                                        <li><a class="dropdown-item" href="/admin/safety_zones_setings">專區設定</a></li>
+                                        <li><a class="dropdown-item" href="/admin/safety_zones">專區連結</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
                         {{-- 聯絡我們 --}}

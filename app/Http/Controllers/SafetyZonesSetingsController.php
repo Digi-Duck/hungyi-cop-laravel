@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\SafetyZones;
+use App\SafetyZonesSetings;
 use Illuminate\Http\Request;
 
-class SafetyZonesController extends Controller
+class SafetyZonesSetingsController extends Controller
 {
     function __construct()
     {
         $this->redirect = '/admin';
-        $this->index = 'admin.safety_zones.index';
-        $this->create = 'admin.safety_zones.create';
-        $this->edit = 'admin.safety_zones.edit';
+        $this->index = 'admin.safety_zones_setings.index';
+        $this->create = 'admin.safety_zones_setings.create';
+        $this->edit = 'admin.safety_zones_setings.edit';
     }
     /**
      * Display a listing of the resource.
@@ -22,8 +22,8 @@ class SafetyZonesController extends Controller
     public function index()
     {
         //
-        $lists = SafetyZones::all()->sortByDesc('sort');
-        return view($this->index, compact('lists'));
+        $list = SafetyZonesSetings::find(1);
+        return view($this->index, compact('list'));
     }
 
     /**
@@ -34,7 +34,6 @@ class SafetyZonesController extends Controller
     public function create()
     {
         //
-        return view($this->create);
     }
 
     /**
@@ -46,12 +45,6 @@ class SafetyZonesController extends Controller
     public function store(Request $request)
     {
         //
-        $new_record = new SafetyZones();
-        $new_record->name = $request->name;
-        $new_record->url = $request->url;
-        $new_record->sort = $request->sort;
-        $new_record->save();
-        return redirect('/admin/safety_zones')->with('message','新增成功!');
     }
 
     /**
@@ -63,8 +56,6 @@ class SafetyZonesController extends Controller
     public function show($id)
     {
         //
-        $list = SafetyZones::find($id);
-        return view($this->edit, compact('list'));
     }
 
     /**
@@ -76,8 +67,6 @@ class SafetyZonesController extends Controller
     public function edit($id)
     {
         //
-        $list = SafetyZones::find($id);
-        return view($this->edit, compact('list'));
     }
 
     /**
@@ -90,12 +79,13 @@ class SafetyZonesController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $old_record = SafetyZones::find($id);
-        $old_record->sort = $request->sort;
+        $old_record = SafetyZonesSetings::find($id);
+        $old_record->switch = $request->switch;
+        $old_record->title = $request->title;
         $old_record->url = $request->url;
-        $old_record->name = $request->name;
         $old_record->save();
-        return redirect('/admin/safety_zones')->with('message','修改成功!');
+
+        return redirect('/admin/safety_zones_setings')->with('message','更新成功!');
     }
 
     /**
@@ -107,8 +97,5 @@ class SafetyZonesController extends Controller
     public function destroy($id)
     {
         //
-        $old_record = SafetyZones::find($id);
-        $old_record->delete();
-        return redirect('/admin/safety_zones')->with('message','刪除成功!');
     }
 }

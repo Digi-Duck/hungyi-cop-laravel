@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// 初始化
+Route::get('initial', 'InitialController@initial');
+
 Route::get('/', 'FrontController@index');
 
 // 關於我們
@@ -97,6 +100,11 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('safety_cases', 'SafetyCasesController');
     // -相關連結
     Route::resource('safety_links', 'SafetyLinksController');
+    // -特殊專區
+    // --專區設定
+    Route::resource('safety_zones_setings', 'SafetyZonesSetingsController');
+    // --專區連結
+    Route::resource('safety_zones', 'SafetyZonesController');
 
     // 聯絡我們
     Route::resource('contactus', 'ContactusController');
