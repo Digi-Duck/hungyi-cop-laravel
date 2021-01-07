@@ -197,11 +197,11 @@
                 </div>
                 <div class="contactInformation">
                     <ul>
-                        <li>TEL 04-26869581</li>
-                        <li>FAX 04-26869580</li>
+                        <li>TEL 02-2771-8965#11</li>
+                        <li>FAX 02-2275-5896</li>
                         <li>0930-000000</li>
-                        <li>hy.m37f@gmail.com</li>
-                        <li>43762台中市大甲區開元路37-2號</li>
+                        <li>hungyi.hy88@mas.hinet.net</li>
+                        <li>10691 台北市大安區復興南路一段135巷27號8樓之3</li>
                     </ul>
                 </div>
                 <div class="copyRight">

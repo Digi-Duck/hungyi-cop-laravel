@@ -25,125 +25,35 @@
                 <div class="swiperTitle">工程實績</div>
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
+                        @foreach ($performances as $item)
+                        <?php
+                            if ($item->type_id == 1)
+                                $type_name = '土木工程';
+                            elseif ($item->type_id == 2)
+                                $type_name = '環保工程';
+                            elseif ($item->type_id == 3)
+                                $type_name = '建築工程';
+                            elseif ($item->type_id == 4)
+                                $type_name = '其他';
+                        ?>
                         <div class="swiper-slide">
                             <div class="photo">
-                                <img src="./img/index/swiperPhoto1.jpg" alt="">
+                                <img src="{{ asset($item->imgs) }}" alt="">
                             </div>
                             <div class="projectName">
-                                <div class="date">109</div>
-                                <div class="name">國道高速公路後續路段橋梁耐震補強工程第M37B標</div>
+                                {{-- <div class="date">109</div> --}}
+                                <div class="name">{{ $item->title }}</div>
                             </div>
                             <div class="location">
                                 <div>經費</div>
-                                <div>790,880仟元</div>
+                                <div>{{ $item->funds }}</div>
                             </div>
                             <div class="category">
                                 <div>類別</div>
-                                <div>土木工程</div>
+                                <div>{{ $type_name }}</div>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="photo">
-                                <img src="./img/index/swiperPhoto2.jpg" alt="">
-                            </div>
-                            <div class="projectName">
-                                <div class="date">107</div>
-                                <div class="name">第C011標國道1號龜山蘆竹段箱涵拓建工程</div>
-                            </div>
-                            <div class="location">
-                                <div>經費</div>
-                                <div>366,280仟元</div>
-                            </div>
-                            <div class="category">
-                                <div>類別</div>
-                                <div>土木工程</div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="photo">
-                                <img src="./img/index/swiperPhoto3.jpg" alt="">
-                            </div>
-                            <div class="projectName">
-                                <div class="date">105</div>
-                                <div class="name">國道6號舊正交流道改善工程（第J14標）</div>
-                            </div>
-                            <div class="location">
-                                <div>經費</div>
-                                <div>343,823仟元</div>
-                            </div>
-                            <div class="category">
-                                <div>類別</div>
-                                <div>土木工程</div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="photo">
-                                <img src="./img/index/swiperPhoto4.jpg" alt="">
-                            </div>
-                            <div class="projectName">
-                                <div class="date">101</div>
-                                <div class="name">國道2號拓建工程第H31標</div>
-                            </div>
-                            <div class="location">
-                                <div>經費</div>
-                                <div>1,512,280仟元</div>
-                            </div>
-                            <div class="category">
-                                <div>類別</div>
-                                <div>土木工程</div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="photo">
-                                <img src="./img/index/swiperPhoto5.jpg" alt="">
-                            </div>
-                            <div class="projectName">
-                                <div class="date">100</div>
-                                <div class="name">國道2號拓建工程第H21A標</div>
-                            </div>
-                            <div class="location">
-                                <div>經費</div>
-                                <div>742,600仟元</div>
-                            </div>
-                            <div class="category">
-                                <div>類別</div>
-                                <div>土木工程</div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="photo">
-                                <img src="./img/index/swiperPhoto6.jpg" alt="">
-                            </div>
-                            <div class="projectName">
-                                <div class="date">94</div>
-                                <div class="name">復健C1區護理之家結構體</div>
-                            </div>
-                            <div class="location">
-                                <div>經費</div>
-                                <div>305,207仟元</div>
-                            </div>
-                            <div class="category">
-                                <div>類別</div>
-                                <div>建築工程</div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="photo">
-                                <img src="./img/index/swiperPhoto7.jpg" alt="">
-                            </div>
-                            <div class="projectName">
-                                <div class="date">99</div>
-                                <div class="name">國道高速公路橋梁耐震補強工程（第—期）第M14標</div>
-                            </div>
-                            <div class="location">
-                                <div>經費</div>
-                                <div>1,532,466仟元</div>
-                            </div>
-                            <div class="category">
-                                <div>類別</div>
-                                <div>土木工程</div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="swiperArrows">
@@ -153,7 +63,7 @@
                     <div class="swiper-button-next">
                     </div>
                 </div>
-                <a href="#" class="more">更多實績</a>
+                <a href="{{ asset('/performance/1') }}" class="more">更多實績</a>
             </div>
         </div>
     </section>
@@ -161,9 +71,9 @@
         <div class="background"></div>
         <div class="serviceItemsTitle">服務項目</div>
         <div class="itemsWrap">
-            <a href="#" class="item">
+            <a href="{{ asset('/performance/1') }}" class="item">
                 <div class="itemsTitle">
-                    <div>大地</div>
+                    <div>土木</div>
                     <div>工程</div>
                 </div>
                 <div class="hoverText">
@@ -172,7 +82,7 @@
                     </div>
                 </div>
             </a>
-            <a href="#" class="item">
+            <a href="{{ asset('/performance/2') }}" class="item">
                 <div class="itemsTitle">
                     <div>環保</div>
                     <div>工程</div>
@@ -183,7 +93,7 @@
                     </div>
                 </div>
             </a>
-            <a href="#" class="item">
+            <a href="{{ asset('/performance/3') }}" class="item">
                 <div class="itemsTitle">
                     <div>建築</div>
                     <div>工程</div>
@@ -194,7 +104,7 @@
                     </div>
                 </div>
             </a>
-            <a href="#" class="item">
+            <a href="{{ asset('/performance/4') }}" class="item">
                 <div class="itemsTitle">
                     <div>其他</div>
                     <div>工程</div>
@@ -260,7 +170,7 @@
         <div class="container">
             <div class="news_block row">
                 <h1>動態消息</h1>
-                <a class="more_news_btn" href="./build.php">
+                <a class="more_news_btn" href="{{ asset('/tender') }}">
                     <div class="left">更多動態</div>
                     <div class="right">
                         <span class="triangle"></span>
@@ -268,38 +178,16 @@
                 </a>
                 <div class="news_lists">
                     <ul>
-                        <a href="./build.php">
-                            <li>
-                                <span class="triangle"></span>
-                                <span class="type">職缺公告</span>
-                                <span class="data">2020-06-09</span>
-                                <span class="title">誠徵工地主任1名</span>
-                            </li>
-                        </a>
-                        <a href="./build.php">
+                        @foreach ($tenders as $item)
+                        <a href="{{ asset('tender_detail/'.$item->id) }}">
                             <li>
                                 <span class="triangle"></span>
                                 <span class="type">得標資訊</span>
-                                <span class="data">2020-06-09</span>
-                                <span class="title">國家歌劇院景觀工程</span>
+                                <span class="data">{{ $item->tender_date }}</span>
+                                <span class="title">{{ $item->title }}</span>
                             </li>
                         </a>
-                        <a href="./build.php">
-                            <li>
-                                <span class="triangle"></span>
-                                <span class="type">職缺公告</span>
-                                <span class="data">2020-06-09</span>
-                                <span class="title">誠徵工地主任1名</span>
-                            </li>
-                        </a>
-                        <a href="./build.php">
-                            <li>
-                                <span class="triangle"></span>
-                                <span class="type">職缺公告</span>
-                                <span class="data">2020-06-09</span>
-                                <span class="title">誠徵AutoCad製圖員</span>
-                            </li>
-                        </a>
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -308,5 +196,24 @@
 @endsection
 
 @section('js')
-
+<script>
+var swiper = new Swiper('.swiper-container', {
+    slidesPerView:1,
+    loop: true,
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    breakpoints:{
+        1400: {
+            slidesPerView: 3,
+            spaceBetween: 0,
+        },
+        1000: {
+            slidesPerView: 2,
+            spaceBetween: 0,
+        },
+    }
+});
+</script>
 @endsection

@@ -172,8 +172,13 @@ main .container .card_content .card .card_img_top .hover_mask::before, main .con
   background-color: #fff;
 }
 
+main .container .card_content a {
+  text-decoration: none;
+  color: initial;
+}
+
 main .container .card_content:last-child .card {
-  margin-bottom: 146px;
+  margin-bottom: 75px;
 }
 
 main .container .card_content .card {
@@ -196,6 +201,7 @@ main .container .card_content .card:hover .card_img_top .hover_mask * {
 main .container .card_content .card .card_img_top {
   height: 415px;
   position: relative;
+  background-size: cover;
 }
 
 main .container .card_content .card .card_img_top .card_create_date {
@@ -290,6 +296,9 @@ main .container .card_content .card .card-body .card_info {
 
 main .container .card_content .card .card-body .card_info > div {
   padding: 15px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 main .container .card_content .card .card-body .card_info .sub_info {
@@ -369,4 +378,4 @@ main .container .pages {
   letter-spacing: 1px;
   line-height: 22px;
 }
-/*# sourceMappingURL=05-performance.css.map */
+/*# sourceMappingURL=05-preformance.css.map */

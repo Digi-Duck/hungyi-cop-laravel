@@ -11,7 +11,7 @@
                     <div class="swiper-wrapper">
                         @foreach ($minutes as $item)
                         <a href="{{ asset($item->file) }}" class="swiper-slide"
-                            target="_black">{{ $item->name }}</a>
+                            target="_black">{{ Str::limit($item->name, 30, '...') }}</a>
                         @endforeach
                     </div>
                     <!-- Add Pagination -->
@@ -27,7 +27,7 @@
                     <div class="swiper-wrapper">
                         @foreach ($plans as $item)
                         <a href="{{ asset($item->file) }}"
-                            class="swiper-slide" target="_black">{{ Str::limit($item->name, 20, '...') }}</a>
+                            class="swiper-slide" target="_black">{{ Str::limit($item->name, 30, '...') }}</a>
                         @endforeach
                     </div>
                     <!-- Add Pagination -->
@@ -43,7 +43,7 @@
                     <div class="swiper-wrapper">
                         @foreach ($decrees as $item)
                         <a href="{{ asset($item->file) }}" target="_black"
-                            class="swiper-slide">{{ Str::limit($item->name, 20, '...') }}</a>
+                            class="swiper-slide">{{ Str::limit($item->name, 30, '...') }}</a>
                         @endforeach
                     </div>
                     <!-- Add Pagination -->
@@ -59,7 +59,7 @@
                     <div class="swiper-wrapper">
                         @foreach ($cases as $item)
                         <a href="{{ asset($item->file) }}" target="_black"
-                            class="swiper-slide">{{ Str::limit($item->name, 20, '...') }}</a>
+                            class="swiper-slide">{{ Str::limit($item->name, 30, '...') }}</a>
                         @endforeach
                     </div>
                     <!-- Add Pagination -->
@@ -74,7 +74,7 @@
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
                         @foreach ($links as $item)
-                        <a href="{{ asset($item->url) }}" target="_block" class="swiper-slide">{{ $item->name }}</a>
+                            <a href="{{ asset($item->url) }}" target="_block" class="swiper-slide">{{ Str::limit($item->name, 30, '...') }}</a>
                         @endforeach
                     </div>
                     <!-- Add Pagination -->

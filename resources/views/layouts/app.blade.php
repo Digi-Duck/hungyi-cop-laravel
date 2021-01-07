@@ -103,10 +103,10 @@
                                 在建工程
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="/admin/arounds">土木工程</a></li>
-                                <li><a class="dropdown-item" href="/admin/friendships">環保工程</a></li>
-                                <li><a class="dropdown-item" href="/admin/friendships">建築工程</a></li>
-                                <li><a class="dropdown-item" href="/admin/friendships">其他</a></li>
+                                <li><a class="dropdown-item" href="/admin/constructions/1">土木工程</a></li>
+                                <li><a class="dropdown-item" href="/admin/constructions/2">環保工程</a></li>
+                                <li><a class="dropdown-item" href="/admin/constructions/3">建築工程</a></li>
+                                <li><a class="dropdown-item" href="/admin/constructions/4">其他</a></li>
                             </ul>
                         </li>
                         {{-- 技術專區 --}}

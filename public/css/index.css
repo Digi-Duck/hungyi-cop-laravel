@@ -1053,15 +1053,22 @@ section#news .news_block .news_lists a li .type {
   color: #009090;
   font-weight: 600;
   padding: 0 36px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
 section#news .news_block .news_lists a li .data {
   padding-right: 43px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
 section#news .news_block .news_lists a li .title {
   text-align: left;
   font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 @media (max-width: 1200px) {

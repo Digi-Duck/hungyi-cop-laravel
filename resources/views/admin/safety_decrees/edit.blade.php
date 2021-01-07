@@ -34,7 +34,7 @@
         <div class="col-sm-12">
             <div class="card">
                 <h4 class="card-header">
-                    案例宣導管理-編輯
+                    法令規章管理-編輯
                 </h4>
                 <div class="card-body">
                     <form method="POST" action="/admin/safety_decrees/{{$list->id}}" enctype="multipart/form-data">

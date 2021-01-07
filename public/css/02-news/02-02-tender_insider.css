@@ -165,7 +165,8 @@ main .container .pics img {
   width: 100%;
 }
 
-main .container .pics .swiper-button-prev, main .container .pics .swiper-button-next {
+main .container .pics .swiper-button-prev,
+main .container .pics .swiper-button-next {
   width: 70px;
   height: 70px;
   color: white;
@@ -199,7 +200,20 @@ main .container .content p {
   margin-bottom: 35px;
 }
 
-main .container .back {
+main .container a {
+  text-decoration: none;
+  display: table;
+  margin: 0 auto;
+}
+
+main .container a:hover .back {
+  background-color: #004460;
+}
+
+main .container a .back {
+  margin-top: 84px;
+  -webkit-transition-duration: .2s;
+          transition-duration: .2s;
   -ms-flex-item-align: center;
       align-self: center;
   display: -webkit-box;

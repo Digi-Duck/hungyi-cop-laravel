@@ -1,5 +1,6 @@
 <?php
 
+use App\Constructions;
 use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 
@@ -83,10 +84,21 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     // 工程實績
     // Route::resource('performances', 'PerformancesController');
     Route::get('performances/{id}', 'PerformancesController@index');
+    Route::post('performances/store', 'PerformancesController@store');
     Route::get('performances/create/{id}', 'PerformancesController@create');
     Route::get('performances/{id}/edit/', 'PerformancesController@edit');
     Route::resource('performances', PerformancesController::class)->only([
-        'store', 'update', 'destroy'
+        'update', 'destroy'
+    ]);
+
+    // 在建工程
+    // Route::resource('performances', 'PerformancesController');
+    Route::get('constructions/{id}', 'ConstructionsController@index');
+    Route::post('constructions/store', 'ConstructionsController@store');
+    Route::get('constructions/create/{id}', 'ConstructionsController@create');
+    Route::get('constructions/{id}/edit/', 'ConstructionsController@edit');
+    Route::resource('constructions', Constructions::class)->only([
+        'update', 'destroy'
     ]);
 
     // 職安資訊

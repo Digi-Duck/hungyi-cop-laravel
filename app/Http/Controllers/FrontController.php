@@ -25,7 +25,9 @@ class FrontController extends Controller
 {
     public function index()
     {
-        return view('front.index');
+        $performances = Performances::all()->sortByDesc('sort');
+        $tenders = Tenders::all()->sortByDesc('sort')->take(4);
+        return view('front.index', compact('performances', 'tenders'));
     }
 
     public function history()
@@ -49,14 +51,14 @@ class FrontController extends Controller
 
     public function tender()
     {
-        $lists = Tenders::all();
+        $lists = Tenders::orderby('sort', 'desc')->paginate();
         return view('front.tender.index', compact('lists'));
     }
 
     public function tender_detail($id)
     {
         $list = Tenders::find($id);
-        $imgs = TendersImgs::all();
+        $imgs = TendersImgs::where('tender_id', $id)->get();
         return view('front.tender.detail', compact('list', 'imgs', 'id'));
     }
 
@@ -79,8 +81,8 @@ class FrontController extends Controller
 
     public function performance($id)
     {
-        $lists = Performances::all();
         $type_name = '實績';
+        $lists = Performances::where('type_id', $id)->orderby('sort', 'desc')->paginate(4);
 
         if ($id == 1)
             $type_name = '土木工程';
@@ -97,16 +99,19 @@ class FrontController extends Controller
     public function performance_detail($id)
     {
         $list = Performances::find($id);
-        $imgs = PerformancesImgs::all();
+        $imgs = PerformancesImgs::where('performances_id', $id)->get();
+        // $imgs = PerformancesImgs::all();
+
+        // dd($imgs);
 
         $type_name = '實績';
-        if ($id == 1)
+        if ($list->type_id == 1)
             $type_name = '土木工程';
-        elseif ($id == 2)
+        elseif ($list->type_id == 2)
             $type_name = '環保工程';
-        elseif ($id == 3)
+        elseif ($list->type_id == 3)
             $type_name = '建築工程';
-        elseif ($id == 4)
+        elseif ($list->type_id == 4)
             $type_name = '其他';
 
         return view('front.performance.detail', compact('list', 'imgs', 'type_name', 'id'));

@@ -24,7 +24,7 @@ class InitialController extends Controller
 
         SafetyZonesSetings::create([
             'title' => '特殊專區',
-            'switch' => ''
+            'switch' => null
         ]);
     }
 }

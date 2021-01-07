@@ -28,58 +28,42 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 card_content">
-                @foreach ($lists as $item)
+            @foreach ($lists as $item)
                 @if ($item->type_id == $id)
-                <a href="/performance_detail/{{ $item->id }}">
-                    <div class="card">
-                        <div class="card_img_top" style="background-image: url({{ $item->imgs }})">
-                            <div class="card_create_date">{{ $item->location }}</div>
-                            <div class="hover_mask">
-                                <div class="hover_icon"></div>
-                                <div class="hover_text">MORE</div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $item->title }}</h5>
-                            <div class="card_info">
-                                <div class="date">
-                                    <span class="sub_info">工期</span>
-                                    <span>{{ $item->performances_date }}</span>
-                                </div>
-                                <div class="budget">
-                                    <span class="sub_info">經費</span>
-                                    <span>{{ $item->funds }}</span>
-                                </div>
-                                <div class="intro">
-                                    <span class="sub_info">簡介</span>
-                                    <span>{{ $item->content }}</span>
+                <div class="col-lg-6 card_content">
+                    <a href="/performance_detail/{{ $item->id }}">
+                        <div class="card">
+                            <div class="card_img_top" style="background-image: url({{ $item->imgs }})">
+                                <div class="card_create_date">{{ $item->location }}</div>
+                                <div class="hover_mask">
+                                    <div class="hover_icon"></div>
+                                    <div class="hover_text">MORE</div>
                                 </div>
                             </div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $item->title }}</h5>
+                                <div class="card_info">
+                                    <div class="date">
+                                        <span class="sub_info">工期</span>
+                                        <span>{{ $item->performances_date }}</span>
+                                    </div>
+                                    <div class="budget">
+                                        <span class="sub_info">經費</span>
+                                        <span>{{ $item->funds }}</span>
+                                    </div>
+                                    <div class="intro">
+                                        <span class="sub_info">簡介</span>
+                                        <span>{{ $item->content }}</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
                 @endif
-                @endforeach
-            </div>
+            @endforeach
         </div>
-        <div aria-label="Page navigation" class="pages">
-            <ul class="pagination">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
+        {{ $lists->links() }}
     </div>
 @endsection
 

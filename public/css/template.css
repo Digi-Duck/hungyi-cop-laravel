@@ -642,7 +642,7 @@ main {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  max-width: 512.5px;
+  max-width: 515.5px;
 }
 
 @media (max-width: 1200px) {
@@ -964,5 +964,24 @@ main {
     text-align: justify;
     margin-top: 0;
   }
+}
+
+nav .pagination {
+  margin-bottom: 145px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+nav .pagination .page-item a {
+  border-color: #BFBEBE;
+  color: #004460;
+  font-weight: 600;
+}
+
+nav .pagination .page-item.active span {
+  color: white;
+  background-color: #004460;
+  border-color: #004460;
 }
 /*# sourceMappingURL=template.css.map */

@@ -6,13 +6,13 @@
     <div class="page_header">
         <div class="sub_banner"></div>
         <div class="container">
-            <h1>{{ $type_name }}</h1>
+            <h1>{{ $list->title }}</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/">首頁</a></li>
                     <li class="breadcrumb-item"><a>工程實績</a></li>
-                    <li class="breadcrumb-item"><a href="{{ asset('performance/'.$id) }}">{{ $type_name }}</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">土木工程</li>
+                    <li class="breadcrumb-item"><a href="{{ asset('performance/'.$list->type_id) }}">{{ $type_name }}</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ $list->title }}</li>
                 </ol>
             </nav>
         </div>
@@ -69,7 +69,9 @@
                 </span>
             </div>
         </div>
-        <div class="back">回上一頁</div>
+        <a href="{{ asset('performance/'.$list->type_id) }}">
+            <div class="back">回上一頁</div>
+        </a>
     </div>
 @endsection
 

@@ -9,7 +9,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <h4 class="card-header">
-                        案例宣導管理-新增
+                        法令規章管理-新增
                     </h4>
                     <div class="card-body">
                         <form method="POST" action="/admin/safety_decrees" enctype="multipart/form-data">

@@ -136,7 +136,6 @@ main .container h2::before {
 
 main .container .welfare_content .top_img {
   height: 185px;
-  border: 1px solid #000;
   margin-top: 25px;
   margin-bottom: 15px;
 }
@@ -156,7 +155,7 @@ main .container .welfare_content ol li {
 main .container .welfare_content ol li::before {
   content: '';
   position: absolute;
-  top: 6px;
+  top: 9px;
   left: 0;
   width: 8px;
   height: 8px;

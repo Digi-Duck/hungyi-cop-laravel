@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col-lg-3 col-md-6 welfare_content">
                 <div class="top_img">
-                    <img src="" alt="">
+                    <img src="{{ asset('img/02-news/F1.jpg') }}" alt="">
                 </div>
                 <ol class="intro_text">
                     <li>員工聚餐</li>
@@ -35,7 +35,7 @@
             </div>
             <div class="col-lg-3 col-md-6 welfare_content">
                 <div class="top_img">
-                    <img src="" alt="">
+                    <img src="{{ asset('img/02-news/F2.jpg') }}" alt="">
                 </div>
                 <ol class="intro_text">
                     <li>三節禮金 <br>
@@ -46,7 +46,7 @@
             </div>
             <div class="col-lg-3 col-md-6 welfare_content">
                 <div class="top_img">
-                    <img src="" alt="">
+                    <img src="{{ asset('img/02-news/F3.jpg') }}" alt="">
                 </div>
                 <ol class="intro_text">
                     <li>激勵獎金</li>
@@ -56,7 +56,7 @@
             </div>
             <div class="col-lg-3 col-md-6 welfare_content">
                 <div class="top_img">
-                    <img src="" alt="">
+                    <img src="{{ asset('img/02-news/F4.jpg') }}" alt="">
                 </div>
                 <ol class="intro_text">
                     <li>每年會舉辦關於勞工安全衛生的教育訓練，並定期做身體健康檢查，工作場所皆提供制服及安全設備給現場人員。</li>
