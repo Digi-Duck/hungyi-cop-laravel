@@ -20,14 +20,14 @@
                         @endif
                     </h4>
                     <div class="card-body">
-                        <a class="btn btn-success" href="/admin/performances/create/{{ $id }}">新增工程實績</a>
+                        <a class="btn btn-success" href="/admin/constructions/create/{{ $id }}">新增在建工程</a>
                         <hr>
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
                             <tr>
                                 <th>權重</th>
                                 <th>實績名稱</th>
-                                <th>工期</th>
+                                <th>完成日期</th>
                                 <th width="120">功能</th>
                             </tr>
                             </thead>
@@ -37,11 +37,11 @@
                             <tr>
                                 <td>{{ $list->sort }}</td>
                                 <td>{{$list->title}}</td>
-                                <td>{{$list->performances_date}}</td>
+                                <td>{{$list->complete_date}}</td>
                                 <td>
-                                    <a class="btn btn-sm btn-success" href="/admin/performances/{{$list->id}}/edit">編輯</a>
+                                    <a class="btn btn-sm btn-success" href="/admin/constructions/{{$list->id}}/edit">編輯</a>
                                     <button class="btn btn-sm btn-danger test" data-listid="{{$list->id}}">刪除</button>
-                                    <form class="delete-form" action="/admin/performances/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
+                                    <form class="delete-form" action="/admin/constructions/{{$list->id}}" method="POST" style="display: none;" data-listid="{{$list->id}}">
                                         @csrf
                                         @method("DELETE")
                                     </form>

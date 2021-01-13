@@ -21,12 +21,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $view_times
  * @property string $created_at
  * @property string $updated_at
+ * @property string $complete_date
+ * @property string $youtube
  */
 class Constructions extends Model
 {
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -34,6 +36,10 @@ class Constructions extends Model
     /**
      * @var array
      */
-    protected $fillable = ['title', 'type_id', 'imgs', 'owner', 'duration', 'award_date', 'start_date', 'price', 'scheduled_progress', 'actual_progress', 'content', 'sort', 'view_times', 'created_at', 'updated_at'];
+    protected $fillable = ['title', 'type_id', 'imgs', 'owner', 'duration', 'award_date', 'start_date', 'price', 'scheduled_progress', 'actual_progress', 'content', 'sort', 'view_times', 'created_at', 'updated_at', 'complete_date', 'youtube'];
 
+    public function constructionsImgs()
+    {
+        return $this->hasMany('App\ConstructionsImgs', 'constructions_id');
+    }
 }

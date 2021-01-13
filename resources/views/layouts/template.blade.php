@@ -42,7 +42,7 @@
                 <ul>
                     <li>
                         <div class="drop_down_menu">
-                            <a href="#">願景理念</a>
+                            <a href="{{ asset('vision') }}">願景理念</a>
                             <a href="{{ asset('history') }}">公司沿革</a>
                             <a href="{{ asset('security_policy') }}">職安品質政策</a>
                         </div>
@@ -79,10 +79,10 @@
                     </li>
                     <li>
                         <div class="drop_down_menu">
-                            <a href="#">土木工程</a>
-                            <a href="#">環保工程</a>
-                            <a href="#">建築工程</a>
-                            <a href="#">其他</a>
+                            <a href="{{ asset('constructions/1') }}">土木工程</a>
+                            <a href="{{ asset('constructions/2') }}">環保工程</a>
+                            <a href="{{ asset('constructions/3') }}">建築工程</a>
+                            <a href="{{ asset('constructions/4') }}">其他</a>
                         </div>
                         <a style="cursor: default;">在建工程</a>
                     </li>

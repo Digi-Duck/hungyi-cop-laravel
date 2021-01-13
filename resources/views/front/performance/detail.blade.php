@@ -28,7 +28,7 @@
             $data = $dt->toDateString();
             ?>
             {{ $data }}
-            <img src="./img/02-news/viewerEyes.svg" alt="">
+            <img src="{{ asset('./img/02-news/viewerEyes.svg') }}" alt="">
             {{ $list->view_times }}
         </div>
         <hr>

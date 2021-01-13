@@ -20,7 +20,7 @@
                         @endif
                     </h4>
                     <div class="card-body">
-                        <form method="POST" action="/admin/performances/store" enctype="multipart/form-data">
+                        <form method="POST" action="/admin/constructions/store" enctype="multipart/form-data">
                             @csrf
                             <input type="text" name="id" value="{{ $id }}" hidden>
                             <div class="form-group row">
@@ -37,22 +37,56 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="performances_date" class="col-2 col-form-label">工期</label>
+                                <label for="owner" class="col-2 col-form-label">業主</label>
                                 <div class="col-10">
-                                    <input type="text" class="form-control" id="performances_date" name="performances_date">
+                                    <input class="form-control" id="owner" name="owner" required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="location" class="col-2 col-form-label">地點</label>
+                                <label for="duration" class="col-2 col-form-label">契約工期</label>
                                 <div class="col-10">
-                                    <input type="text" class="form-control" id="location" name="location">
+                                    <input type="text" class="form-control" id="duration" name="duration">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-group row">
+                                <label for="award_date" class="col-2 col-form-label">決標日</label>
+                                <div class="col-10">
+                                    <input type="date" class="form-control" id="award_date" name="award_date">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="funds" class="col-2 col-form-label">經費</label>
+                                <label for="start_date" class="col-2 col-form-label">開工日</label>
                                 <div class="col-10">
-                                    <input type="text" class="form-control" id="funds" name="funds">
+                                    <input type="date" class="form-control" id="start_date" name="start_date">
                                 </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="complete_date" class="col-2 col-form-label">預定完工日</label>
+                                <div class="col-10">
+                                    <input type="date" class="form-control" id="complete_date" name="complete_date">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="price" class="col-2 col-form-label">承攬金額</label>
+                                <div class="col-10">
+                                    <input type="text" class="form-control" id="price" name="price">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-group row">
+                                <label for="scheduled_progress" class="col-2 col-form-label">預定進度 (%)</label>
+                                <div class="col-10">
+                                    <input type="number" max="100" step="0.01" class="form-control" id="scheduled_progress" name="scheduled_progress">
+                                </div>
+                                <div class="col-12"><p class="text-danger">請輸入 0.00 ~ 100.00 的數值</p></div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="actual_progress" class="col-2 col-form-label">實際進度 (%)</label>
+                                <div class="col-10">
+                                    <input type="number" max="100" step="0.01" class="form-control" id="actual_progress" name="actual_progress">
+                                </div>
+                                <div class="col-12"><p class="text-danger">請輸入 0.00 ~ 100.00 的數值</p></div>
                             </div>
                             <hr>
                             <div class="form-group row">
@@ -74,6 +108,13 @@
                                     @enderror
                                 </div>
                                 <div class="col-12"><p class="text-danger">支援多張圖片上傳</p></div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="url" class="col-2 col-form-label">Youtube 影片網址</label>
+                                <div class="col-10">
+                                    <input type="text" max="100" step="0.01" class="form-control" id="url" name="url">
+                                </div>
+                                <div class="col-12"><p class="text-danger">不輸入網址就不會顯示</p></div>
                             </div>
                             <hr>
                             <div class="form-group row">

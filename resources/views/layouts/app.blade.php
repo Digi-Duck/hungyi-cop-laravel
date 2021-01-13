@@ -141,18 +141,19 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="/admin/contactus">聯絡我們</a>
                         </li>
-                        {{-- 帳號管理 --}}
-                        @if(Auth::user()->role == 0)
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                    帳號管理
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="/admin/members">帳號列表</a></li>
-                                </ul>
-                            </li>
-                        @endif
+                        {{-- 員工專區 --}}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            員工專區
+                        </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @can('admin')
+                                    <li><a class="dropdown-item" href="/admin/members">員工管理</a></li>
+                                @endcan
+                                <li><a class="dropdown-item" href="/admin/cctvs">CCTV管理</a></li>
+                            </ul>
+                        </li>
                         @endguest
                     </ul>
                     <!-- Right Side Of Navbar -->

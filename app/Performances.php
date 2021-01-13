@@ -36,5 +36,4 @@ class Performances extends Model
     {
         return $this->hasMany('App\PerformancesImgs', 'performances_id');
     }
-
 }

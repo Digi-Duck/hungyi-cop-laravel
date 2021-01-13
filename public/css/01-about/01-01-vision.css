@@ -1,0 +1,336 @@
+@charset "UTF-8";
+.page_header h1 {
+  position: relative;
+  left: 20px;
+  font-weight: 700;
+  color: #5192AE;
+  margin-bottom: 25px;
+}
+
+.page_header h1::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 73%;
+  background-color: #5192AE;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: -20px;
+}
+
+/*css命名
+ 顯示屬性>盒模型>背景>行高>文本屬性>其他
+(1)頁面結構
+
+- 容器: container
+- 頁頭：header
+- 內容：content/container
+- 頁面主體：main
+- 頁尾：footer
+- 導航：nav
+- 側欄：sidebar
+- 欄目：column
+- 頁面外圍控制整體布局寬度：wrapper
+
+(2)導航
+
+- 導航：nav
+- 主導航：mainNav
+- 子導航：subNav
+- 頂導航：topNav
+- 邊導航：sidebar
+- 左導航：leftSidebar
+- 右導航：rightSidebar
+- 菜單：menu
+- 子菜單：subMenu
+- 標題: title
+- 摘要: summary
+
+(3)功能
+
+- 標誌：logo
+- 廣告：banner
+- 登陸：login
+- 登錄條：loginBar
+- 註冊：registered
+- 搜索：search
+- 功能區：shop
+- 標題：title
+- 加入：joinUs
+- 狀態：status
+- 按鈕：btn
+- 滾動：scroll
+- 標簽頁：tab
+- 文章列表：list
+- 提示信息：msg
+- 當前的: current
+- 小技巧：tips
+- 圖標: icon
+- 註釋：note
+- 指南：guild
+- 服務：service
+- 熱點：hot
+- 新聞：news
+- 下載：download
+- 投票：vote
+- 合作夥伴：partner
+- 友情鏈接：link
+- 版權：copyright
+
+ BUGFIX: xxxx by name 2012-04-13 18:32 用於標註修改、待辦等信息*/
+.page_header .sub_banner {
+  width: 100%;
+  height: 480px;
+  background-color: #242424;
+  margin-bottom: 70px;
+}
+
+.page_header nav {
+  position: relative;
+}
+
+.page_header nav .breadcrumb {
+  background-color: unset;
+  padding: 0;
+  padding-bottom: 60px;
+}
+
+.page_header nav .breadcrumb .breadcrumb-item a {
+  color: black;
+}
+
+.page_header nav .breadcrumb .breadcrumb-item:not(:first-child)::before {
+  content: '＞';
+  display: inline-block;
+  text-decoration: none;
+}
+
+.page_header nav .breadcrumb .breadcrumb-item.active {
+  color: #004460;
+  position: relative;
+  text-decoration: underline;
+  display: inline-block;
+}
+
+main > .container .row {
+  margin-bottom: 20px;
+}
+
+main > .container > img {
+  display: block;
+  margin: 0 auto 60px auto;
+}
+
+@media (max-width: 767px) {
+  main > .container > img {
+    margin-bottom: 20px;
+    width: 40%;
+  }
+}
+
+main > .container > p {
+  color: #595959;
+  font-size: 20px;
+  line-height: 34px;
+  max-width: 750px;
+  margin: 0 auto;
+  margin-bottom: 95px;
+  padding: 0;
+  letter-spacing: 1px;
+  font-weight: 600;
+  text-align: justify;
+}
+
+@media (max-width: 991px) {
+  main > .container > p {
+    margin-bottom: 65px;
+  }
+}
+
+@media (max-width: 767px) {
+  main > .container > p {
+    margin-bottom: 40px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+@media (max-width: 576px) {
+  main > .container > p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+main > .container .icon_row {
+  margin-bottom: 90px;
+}
+
+@media (max-width: 991px) {
+  main > .container .icon_row {
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 576px) {
+  main > .container .icon_row {
+    margin-bottom: 30px;
+  }
+}
+
+main > .container .icon_row .icon_col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media (max-width: 576px) {
+  main > .container .icon_row .icon_col {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+main > .container .icon_row .icon_col img {
+  min-width: 245px;
+}
+
+@media (max-width: 1200px) {
+  main > .container .icon_row .icon_col img {
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 991px) {
+  main > .container .icon_row .icon_col img {
+    min-width: 165px;
+  }
+}
+
+@media (max-width: 767px) {
+  main > .container .icon_row .icon_col img {
+    min-width: 145px;
+  }
+}
+
+@media (max-width: 576px) {
+  main > .container .icon_row .icon_col img {
+    max-width: 185px;
+    margin: 15px 0;
+  }
+}
+
+main > .container .h3_line {
+  width: 100%;
+  height: 4px;
+  background-color: #5192AE;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+main > .container h3 {
+  color: #5192AE;
+  font-size: 38px;
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+@media (max-width: 1200px) {
+  main > .container h3 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 576px) {
+  main > .container h3 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 460px) {
+  main > .container h3 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  main > .container .descript .des_img_block {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  main > .container .descript .des_img_block {
+    height: 215px;
+    position: relative;
+  }
+}
+
+main > .container .descript .des_img_block img {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+@media (max-width: 767px) {
+  main > .container .descript .des_img_block img {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  main > .container .descript .des_img_block img {
+    height: 100%;
+    width: 100vw;
+    position: absolute;
+    left: -15px;
+  }
+}
+
+main > .container .descript > p {
+  font-size: 20px;
+  color: #595959;
+  font-weight: 600;
+  line-height: 40px;
+  margin-bottom: 80px;
+  text-align: justify;
+}
+
+@media (max-width: 991px) {
+  main > .container .descript > p {
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 767px) {
+  main > .container .descript > p {
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 32px;
+  }
+}
+
+@media (max-width: 576px) {
+  main > .container .descript > p {
+    font-size: 16px;
+    line-height: 29px;
+  }
+}
+/*# sourceMappingURL=01-01-vision.css.map */

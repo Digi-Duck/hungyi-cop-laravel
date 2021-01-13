@@ -140,7 +140,7 @@ class PerformancesController extends Controller
             foreach ($files as $file) {
                 $path = FilesController::imgUpload($file, 'performances_img');
                 $query = new PerformancesImgs();
-                $query->tender_id = $old_record->id;
+                $query->performances_id = $old_record->id;
                 $query->img = $path;
                 $query->save();
             }

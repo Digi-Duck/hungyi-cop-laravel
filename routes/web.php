@@ -21,6 +21,8 @@ Route::get('initial', 'InitialController@initial');
 Route::get('/', 'FrontController@index');
 
 // 關於我們
+// -理念願景
+Route::get('vision', 'FrontController@vision');
 // -公司沿革
 Route::get('history', 'FrontController@history');
 // -職安品質政策
@@ -46,6 +48,10 @@ Route::get('certification_trophy', 'FrontController@certification_trophy');
 Route::get('performance/{id}', 'FrontController@performance');
 Route::get('performance_detail/{id}', 'FrontController@performance_detail');
 
+// 在建工程
+Route::get('constructions/{id}', 'FrontController@constructions');
+Route::get('constructions_detail/{id}', 'FrontController@constructions_detail');
+
 // 職安資訊
 Route::get('occupational_safety', 'FrontController@occupational_safety');
 
@@ -53,8 +59,8 @@ Route::get('occupational_safety', 'FrontController@occupational_safety');
 Route::get('contact_us', 'FrontController@contact_us');
 
 
-Route::get('/home', 'HomeController@index');
 Route::middleware(['auth'])->prefix('admin')->group(function () {
+    Route::get('/', 'HomeController@index');
 
     //SEO設定
     Route::get('seo', 'SeoController@index');
@@ -120,6 +126,12 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
     // 聯絡我們
     Route::resource('contactus', 'ContactusController');
+
+    // CCTV管理
+    Route::resource('cctvs', 'CctvsController');
+
+    // 帳號管理
+    Route::resource('members', 'MembersController');
 });
 
 // Auth::routes();

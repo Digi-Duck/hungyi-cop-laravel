@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\AwardStories;
 use App\CertificationTrophys;
+use App\Constructions;
+use App\ConstructionsImgs;
 use App\Histories;
 use App\JobOpportunities;
 use App\JobOpportunitieUnits;
@@ -28,6 +30,11 @@ class FrontController extends Controller
         $performances = Performances::all()->sortByDesc('sort');
         $tenders = Tenders::all()->sortByDesc('sort')->take(4);
         return view('front.index', compact('performances', 'tenders'));
+    }
+
+    public function vision()
+    {
+        return view('front.vision.index');
     }
 
     public function history()
@@ -96,6 +103,22 @@ class FrontController extends Controller
         return view('front.performance.index', compact('lists', 'id', 'type_name'));
     }
 
+    public function constructions($id)
+    {
+        $type_name = '實績';
+        $lists = Constructions::where('type_id', $id)->orderby('sort', 'desc')->paginate(4);
+
+        if ($id == 1)
+            $type_name = '土木工程';
+        elseif ($id == 2)
+            $type_name = '環保工程';
+        elseif ($id == 3)
+            $type_name = '建築工程';
+        elseif ($id == 4)
+            $type_name = '其他';
+        return view('front.constructions.index', compact('lists', 'id', 'type_name'));
+    }
+
     public function performance_detail($id)
     {
         $list = Performances::find($id);
@@ -115,6 +138,27 @@ class FrontController extends Controller
             $type_name = '其他';
 
         return view('front.performance.detail', compact('list', 'imgs', 'type_name', 'id'));
+    }
+
+    public function constructions_detail($id)
+    {
+        $list = Constructions::find($id);
+        $imgs = ConstructionsImgs::where('construction_id', $id)->get();
+        // $imgs = PerformancesImgs::all();
+
+        // dd($imgs);
+
+        $type_name = '實績';
+        if ($list->type_id == 1)
+            $type_name = '土木工程';
+        elseif ($list->type_id == 2)
+            $type_name = '環保工程';
+        elseif ($list->type_id == 3)
+            $type_name = '建築工程';
+        elseif ($list->type_id == 4)
+            $type_name = '其他';
+
+        return view('front.constructions.detail', compact('list', 'imgs', 'type_name', 'id'));
     }
 
     public function occupational_safety()
