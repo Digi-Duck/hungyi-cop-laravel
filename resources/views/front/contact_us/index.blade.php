@@ -18,10 +18,17 @@
         @endif
     <div class="container">
         <div class="infomation">
-            <div>聯絡資訊</div>
-            <span>電話：<br>04-26869581</span>
-            <span>傳真：<br>02-27755896</span>
-            <span>營業時間：<br>周一至周日 08:00-17:30</span>
+            <div class="infoBlock">
+                <div class="office">台北總公司</div>
+                <span>電話：<br>04-2771-8965</span>
+                <span>傳真：<br>02-2775-5896</span>
+            </div>
+            <div class="infoBlock">
+                <div class="office">台中辦公室</div>
+                <span>電話：<br>04-2386-1278</span>
+                <span>傳真：<br>04-2386-8128</span>
+            </div>
+            <span><b>營業時間：</b>周一至周日 08:00-17:30</span>
         </div>
         <form method="POST" action="/admin/contactus" enctype="multipart/form-data">
             @csrf

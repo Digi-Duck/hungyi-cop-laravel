@@ -19,6 +19,29 @@
   left: -20px;
 }
 
+main > .container .vision h2 {
+  position: relative;
+  padding-left: 36px;
+  font-size: 40px;
+  font-weight: 700;
+  color: #004460;
+  margin-bottom: 0;
+}
+
+main > .container .vision h2::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10.5px 0 10.5px 18px;
+  border-color: transparent transparent transparent #004460;
+}
+
 /*css命名
  顯示屬性>盒模型>背景>行高>文本屬性>其他
 (1)頁面結構
@@ -81,7 +104,7 @@
  BUGFIX: xxxx by name 2012-04-13 18:32 用於標註修改、待辦等信息*/
 .page_header .sub_banner {
   width: 100%;
-  height: 480px;
+  height: 25vw;
   background-color: #242424;
   margin-bottom: 70px;
 }
@@ -113,8 +136,43 @@
   display: inline-block;
 }
 
-main > .container .row {
-  margin-bottom: 20px;
+main > .container .row .h3_line {
+  width: 100%;
+  height: 4px;
+  background-color: #5192AE;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+main > .container .row h3 {
+  color: #5192AE;
+  font-size: 38px;
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+@media (max-width: 1200px) {
+  main > .container .row h3 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 576px) {
+  main > .container .row h3 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 460px) {
+  main > .container .row h3 {
+    font-size: 20px;
+  }
 }
 
 main > .container > img {
@@ -232,45 +290,6 @@ main > .container .icon_row .icon_col img {
   }
 }
 
-main > .container .h3_line {
-  width: 100%;
-  height: 4px;
-  background-color: #5192AE;
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-
-main > .container h3 {
-  color: #5192AE;
-  font-size: 38px;
-  text-align: center;
-  font-weight: bold;
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-
-@media (max-width: 1200px) {
-  main > .container h3 {
-    font-size: 32px;
-  }
-}
-
-@media (max-width: 576px) {
-  main > .container h3 {
-    font-size: 30px;
-  }
-}
-
-@media (max-width: 460px) {
-  main > .container h3 {
-    font-size: 20px;
-  }
-}
-
 @media (max-width: 767px) {
   main > .container .descript .des_img_block {
     margin-bottom: 10px;
@@ -331,6 +350,74 @@ main > .container .descript > p {
   main > .container .descript > p {
     font-size: 16px;
     line-height: 29px;
+  }
+}
+
+main > .container .vision h2 {
+  margin-bottom: 20px;
+}
+
+main > .container .vision .step:last-child {
+  margin-bottom: 70px;
+}
+
+main > .container .vision .step h4 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #5192AE;
+  position: relative;
+}
+
+main > .container .vision .step h4::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -2%;
+  width: 10px;
+  height: 10px;
+  background-color: #004460;
+  -webkit-transform: translateY(-50%) rotate(-45deg);
+          transform: translateY(-50%) rotate(-45deg);
+}
+
+@media (max-width: 576px) {
+  main > .container .vision .step h4::before {
+    width: 5px;
+    height: 5px;
+    left: -2%;
+  }
+}
+
+@media (max-width: 767px) {
+  main > .container .vision .step h4 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 576px) {
+  main > .container .vision .step h4 {
+    font-size: 20px;
+  }
+}
+
+main > .container .vision .step p {
+  font-size: 20px;
+  line-height: 34px;
+  font-weight: 600;
+  color: #595959;
+}
+
+@media (max-width: 767px) {
+  main > .container .vision .step p {
+    font-size: 18px;
+    line-height: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  main > .container .vision .step p {
+    font-size: 16px;
+    line-height: 26px;
   }
 }
 /*# sourceMappingURL=01-01-vision.css.map */

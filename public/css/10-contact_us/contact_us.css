@@ -1,279 +1,479 @@
+@charset "UTF-8";
+.page_header h1 {
+  position: relative;
+  left: 20px;
+  font-weight: 700;
+  color: #5192AE;
+  margin-bottom: 25px;
+}
+
+.page_header h1::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 73%;
+  background-color: #5192AE;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: -20px;
+}
+
+/*css命名
+ 顯示屬性>盒模型>背景>行高>文本屬性>其他
+(1)頁面結構
+
+- 容器: container
+- 頁頭：header
+- 內容：content/container
+- 頁面主體：main
+- 頁尾：footer
+- 導航：nav
+- 側欄：sidebar
+- 欄目：column
+- 頁面外圍控制整體布局寬度：wrapper
+
+(2)導航
+
+- 導航：nav
+- 主導航：mainNav
+- 子導航：subNav
+- 頂導航：topNav
+- 邊導航：sidebar
+- 左導航：leftSidebar
+- 右導航：rightSidebar
+- 菜單：menu
+- 子菜單：subMenu
+- 標題: title
+- 摘要: summary
+
+(3)功能
+
+- 標誌：logo
+- 廣告：banner
+- 登陸：login
+- 登錄條：loginBar
+- 註冊：registered
+- 搜索：search
+- 功能區：shop
+- 標題：title
+- 加入：joinUs
+- 狀態：status
+- 按鈕：btn
+- 滾動：scroll
+- 標簽頁：tab
+- 文章列表：list
+- 提示信息：msg
+- 當前的: current
+- 小技巧：tips
+- 圖標: icon
+- 註釋：note
+- 指南：guild
+- 服務：service
+- 熱點：hot
+- 新聞：news
+- 下載：download
+- 投票：vote
+- 合作夥伴：partner
+- 友情鏈接：link
+- 版權：copyright
+
+ BUGFIX: xxxx by name 2012-04-13 18:32 用於標註修改、待辦等信息*/
+.page_header .sub_banner {
+  width: 100%;
+  height: 25vw;
+  background-color: #242424;
+  margin-bottom: 70px;
+}
+
+.page_header nav {
+  position: relative;
+}
+
+.page_header nav .breadcrumb {
+  background-color: unset;
+  padding: 0;
+  padding-bottom: 60px;
+}
+
+.page_header nav .breadcrumb .breadcrumb-item a {
+  color: black;
+}
+
+.page_header nav .breadcrumb .breadcrumb-item:not(:first-child)::before {
+  content: '＞';
+  display: inline-block;
+  text-decoration: none;
+}
+
+.page_header nav .breadcrumb .breadcrumb-item.active {
+  color: #004460;
+  position: relative;
+  text-decoration: underline;
+  display: inline-block;
+}
+
 * {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-  }
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
 
-  main .container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
+main > .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 110px;
+}
 
-  @media (max-width: 991px) {
-    main .container {
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-          -ms-flex-direction: column;
-              flex-direction: column;
-    }
+@media (max-width: 1200px) {
+  main > .container {
+    gap: 40px;
   }
+}
 
-  main .container .infomation {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    background-color: #f4f4f4;
-    padding: 80px 60px;
-    font-weight: 600;
-  }
-
-  @media (max-width: 1200px) {
-    main .container .infomation {
-      padding: 80px 30px;
-    }
-  }
-
-  @media (max-width: 991px) {
-    main .container .infomation {
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center;
-    }
-  }
-
-  main .container .infomation div {
-    width: 300px;
-    padding-bottom: 10px;
-    font-size: 40px;
-    border-bottom: 1px solid #000000;
-    color: #004663;
-    font-weight: 600;
-    letter-spacing: 3px;
-  }
-
-  @media (max-width: 550px) {
-    main .container .infomation div {
-      font-size: 30px;
-    }
-  }
-
-  @media (max-width: 360px) {
-    main .container .infomation div {
-      width: 100%;
-    }
-  }
-
-  main .container .infomation span {
-    width: 300px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: flex-end;
-    line-height: 30px;
-    height: 80px;
-    font-size: 20px;
-    border-bottom: 1px dashed #000000;
-  }
-
-  @media (max-width: 550px) {
-    main .container .infomation span {
-      font-size: 16px;
-    }
-  }
-
-  @media (max-width: 360px) {
-    main .container .infomation span {
-      width: 100%;
-    }
-  }
-
-  main .container form {
-    width: calc(100% - 460px);
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-
-  @media (max-width: 1200px) {
-    main .container form {
-      width: calc(100% - 400px);
-    }
-  }
-
-  @media (max-width: 991px) {
-    main .container form {
-      width: 100%;
-      padding-bottom: 100px;
-    }
-  }
-
-  @media (max-width: 550px) {
-    main .container form {
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-          -ms-flex-direction: column;
-              flex-direction: column;
-      -ms-flex-wrap: nowrap;
-          flex-wrap: nowrap;
-    }
-  }
-
-  main .container form div {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+@media (max-width: 991px) {
+  main > .container {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
   }
+}
 
-  main .container form div label {
-    display: inline-block;
-    font-size: 20px;
-    width: 65px;
-    padding: 0px;
-    margin: 20px 0px 10px;
-    text-align: justify;
-    text-justify: distribute-all-lines;
-    text-align-last: justify;
-    color: #004663;
-    font-weight: 600;
-  }
+main > .container .infomation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #f4f4f4;
+  padding: 30px 60px;
+  font-weight: 600;
+}
 
-  main .container form div input {
-    width: 100%;
-    height: 40px;
-    border: 2px solid #BDBDBD;
-    outline: none;
-  }
-
-  main .container form div textarea {
-    resize: none;
-    border: 2px solid #BDBDBD;
-    outline: none;
-  }
-
-  main .container form .name {
-    width: 40%;
-    margin-right: auto;
-  }
-
-  @media (max-width: 550px) {
-    main .container form .name {
-      width: 100%;
-      margin: unset;
-    }
-  }
-
-  main .container form .phone {
-    width: 55%;
-  }
-
-  @media (max-width: 550px) {
-    main .container form .phone {
-      width: 100%;
-    }
-  }
-
-  main .container form .email {
-    width: 100%;
-  }
-
-  main .container form .contain {
-    width: 100%;
-  }
-
-  main .container form .varify {
-    width: 130px;
-  }
-
-  main .container form .btns {
-    width: calc(100% - 130px);
+@media (max-width: 1200px) {
+  main > .container .infomation {
+    padding: 20px 40px;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: flex-end;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
+}
 
-  @media (max-width: 550px) {
-    main .container form .btns {
-      margin-top: 10px;
-      width: 100%;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-    }
+@media (max-width: 991px) {
+  main > .container .infomation {
+    padding: 30px 35px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
+}
 
-  main .container form .btns .varify_img {
+@media (max-width: 991px) {
+  main > .container .infomation {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  main > .container .infomation {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+@media (max-width: 576px) {
+  main > .container .infomation .infoBlock {
+    width: 100%;
+  }
+}
+
+main > .container .infomation .office {
+  width: 300px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  font-size: 30px;
+  border-bottom: 1px solid #000000;
+  color: #004663;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+@media (max-width: 576px) {
+  main > .container .infomation .office {
+    width: 100%;
+    font-size: 30px;
+  }
+}
+
+main > .container .infomation span {
+  width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  line-height: 24px;
+  font-size: 18px;
+  border-bottom: 1px dashed #000000;
+  padding: 4px 0;
+}
+
+main > .container .infomation span b {
+  width: 100%;
+  color: #004460;
+  font-size: 1.2em;
+  margin-bottom: 0.2em;
+}
+
+@media (max-width: 550px) {
+  main > .container .infomation span {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  main > .container .infomation span {
+    width: 100%;
+  }
+}
+
+main > .container form {
+  width: calc(100% - 460px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+@media (max-width: 1200px) {
+  main > .container form {
+    width: auto;
+  }
+}
+
+@media (max-width: 991px) {
+  main > .container form {
+    width: 100%;
+    padding-bottom: 100px;
+  }
+}
+
+@media (max-width: 550px) {
+  main > .container form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+  }
+}
+
+main > .container form div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main > .container form div label {
+  display: inline-block;
+  font-size: 20px;
+  width: 65px;
+  padding: 0px;
+  margin: 20px 0px 10px;
+  text-align: justify;
+  text-justify: distribute-all-lines;
+  text-align-last: justify;
+  color: #004663;
+  font-weight: 600;
+}
+
+main > .container form div input {
+  width: 100%;
+  height: 40px;
+  border: 2px solid #BDBDBD;
+  outline: none;
+}
+
+main > .container form div textarea {
+  resize: none;
+  border: 2px solid #BDBDBD;
+  outline: none;
+}
+
+main > .container form .name {
+  width: 40%;
+  margin-right: auto;
+}
+
+@media (max-width: 550px) {
+  main > .container form .name {
+    width: 100%;
+    margin: unset;
+  }
+}
+
+main > .container form .phone {
+  width: 55%;
+}
+
+@media (max-width: 550px) {
+  main > .container form .phone {
+    width: 100%;
+  }
+}
+
+main > .container form .email {
+  width: 100%;
+}
+
+main > .container form .contain {
+  width: 100%;
+}
+
+main > .container form .varify {
+  width: 130px;
+}
+
+@media (max-width: 1200px) {
+  main > .container form .varify {
+    margin-right: 10px;
+  }
+}
+
+main > .container form .btns {
+  width: calc(100% - 130px);
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  gap: 10px;
+}
+
+@media (max-width: 1200px) {
+  main > .container form .btns {
+    width: calc(100% - 150px);
+  }
+}
+
+@media (max-width: 550px) {
+  main > .container form .btns {
+    margin-top: 10px;
+    width: 100%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+main > .container form .btns .varify_img {
+  width: 200px;
+  height: 50px;
+  margin: 0px 20px;
+  border: 1px solid #BDBDBD;
+}
+
+@media (max-width: 1200px) {
+  main > .container form .btns .varify_img {
+    margin: 0px;
+    width: 170px;
+  }
+}
+
+@media (max-width: 768px) {
+  main > .container form .btns .varify_img {
+    width: 150px;
+    height: 37.5px;
+  }
+}
+
+@media (max-width: 550px) {
+  main > .container form .btns .varify_img {
+    margin: 0px;
+    margin-right: 20px;
     width: 200px;
     height: 50px;
-    margin: 0px 20px;
-    border: 1px solid #BDBDBD;
   }
+}
 
-  @media (max-width: 1200px) {
-    main .container form .btns .varify_img {
-      margin: 0px 10px;
-    }
-  }
+main > .container form .btns .varify_refresh {
+  height: 40px;
+  width: 40px;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #018080;
+}
 
-  @media (max-width: 768px) {
-    main .container form .btns .varify_img {
-      width: 150px;
-      height: 37.5px;
-    }
-  }
+main > .container form .btns .varify_refresh img {
+  width: 80%;
+}
 
-  @media (max-width: 550px) {
-    main .container form .btns .varify_img {
-      margin: 0px;
-      margin-right: 20px;
-      width: 200px;
-      height: 50px;
-    }
+@media (max-width: 550px) {
+  main > .container form .btns .varify_refresh {
+    margin-right: auto;
   }
+}
 
-  main .container form .btns .varify_refresh {
-    height: 40px;
-    width: 40px;
-    background-color: #018080;
-  }
+main > .container form .btns button {
+  margin-left: auto;
+  border: none;
+  color: white;
+  background-color: #018080;
+  width: 130px;
+  height: 45px;
+  font-size: 20px;
+}
 
-  @media (max-width: 550px) {
-    main .container form .btns .varify_refresh {
-      margin-right: auto;
-    }
+@media (max-width: 1200px) {
+  main > .container form .btns button {
+    width: 100px;
   }
+}
 
-  main .container form .btns button {
-    margin-left: auto;
-    border: none;
-    color: white;
-    background-color: #018080;
-    width: 130px;
-    height: 45px;
-    font-size: 20px;
+@media (max-width: 420px) {
+  main > .container form .btns button {
+    margin-top: 30px;
+    width: 100%;
   }
-
-  @media (max-width: 420px) {
-    main .container form .btns button {
-      margin-top: 30px;
-      width: 100%;
-    }
-  }
-  /*# sourceMappingURL=contact_us.css.map */
+}
+/*# sourceMappingURL=contact_us.css.map */

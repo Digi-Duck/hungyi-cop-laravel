@@ -169,7 +169,7 @@
     </main>
     <!-- 內頁結束 -->
     <!-- 聯絡我們開始 -->
-    <a href="{{ asset('contact_us') }}" id="contactus">
+    <a href="{{ asset('contact_us') }}" id="contactus" style="background-image: url({{ asset('img/contact.svg') }})">
         <div class="btn_box">
             聯絡我們
         </div>
@@ -192,33 +192,48 @@
     <footer id="footer">
         <div class="container">
             <div class="row">
-                <div class="footerLogo">
-                    <img src="{{ asset('./img/footerLogo.svg') }}" alt="頁尾LOGO">
+                <div class="col-xl-4 offset-xl-1 col-lg-5 col-md-6 mb-5 footerLogo">
+                    <img src="{{ asset('img/footerLogo.svg') }}" alt="頁尾LOGO">
+                    <div class="taxID">
+                        <span>公 司 統 編</span>
+                        <span class="IDnumber">9411420</span>
+                    </div>
+                    <div class="copyright">
+                        © 2020 宏義工程股份有限公司 版權所有
+                    </div>
                 </div>
-                <div class="contactInformation">
-                    <ul>
-                        <li>TEL 02-2771-8965#11</li>
-                        <li>FAX 02-2275-5896</li>
-                        <li>0930-000000</li>
-                        <li>hungyi.hy88@mas.hinet.net</li>
-                        <li>10691 台北市大安區復興南路一段135巷27號8樓之3</li>
-                    </ul>
-                </div>
-                <div class="copyRight">
-                    <!-- 下拉選單 -->
-                    <!-- HTML預設無法改option樣式用此方式改變CSS 會將值取出放置input -->
-                    <!-- <div class="languageSelectArea">
-                        <a class="selectStyle btn" data-toggle="collapse" href="#collapseExample" role="button"
-                            aria-expanded="false" aria-controls="collapseExample">繁體中文</a>
-                        <input id="inputValue" type="hidden" value="">
-                        <div class="optionStyle collapse" id="collapseExample">
-                            <div class="card card-body">繁體中文</div>
-                        </div>
-                        <div class="optionStyle collapse" id="collapseExample">
-                            <div class="card card-body">English</div>
-                        </div>
-                    </div> -->
-                    <div class="copyRightText">© 2020 宏義工程股份有限公司 版權所有</div>
+                <div class="col-xl-5 offset-xl-2 offset-lg-1 col-lg-6 col-md-6 footerIntro">
+                    <div class="information">
+                        <ul>
+                            <li>台北總公司</li>
+                            <li>
+                                <span>TEL：02-2771-8965</span>
+                                <span>FAX：02-2775-5896</span>
+                            </li>
+                            <li>
+                                E-mail : hungyi.hy88@msa.hinet.net
+                            </li>
+                            <li>
+                                10691台北市大安區復興南路一段135巷27號4樓之3
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="line"></div>
+                    <div class="information">
+                        <ul>
+                            <li>台中辦公室</li>
+                            <li>
+                                <span>TEL：04-2386-1278</span>
+                                <span>FAX：04-2386-8128</span>
+                            </li>
+                            <li>
+                                E-mail : hy-taichung@hungyi-cop.com.tw
+                            </li>
+                            <li>
+                                408台中市南屯區五權西路二段666號14樓之7
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
