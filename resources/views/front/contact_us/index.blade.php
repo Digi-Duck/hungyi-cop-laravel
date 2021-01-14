@@ -16,6 +16,18 @@
             </div>
         </div>
         @endif
+    <div class="page_header">
+        <div class="sub_banner" style="background-image: url({{ 'img/00-banner/09-contact.png' }})"></div>
+        <div class="container">
+            <h1>聯絡我們</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">首頁</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">聯絡我們</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
     <div class="container">
         <div class="infomation">
             <div class="infoBlock">

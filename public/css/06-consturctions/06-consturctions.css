@@ -90,7 +90,7 @@ main .container .card_content .card .card_img_top .hover_mask::before, main .con
 .page_header .sub_banner {
   width: 100%;
   height: 25vw;
-  background-color: #242424;
+  background-size: cover;
   margin-bottom: 70px;
 }
 
@@ -130,8 +130,39 @@ ol.tab {
   display: flex;
 }
 
+@media (max-width: 991px) {
+  ol.tab {
+    left: 25px;
+    top: 45%;
+  }
+}
+
 ol.tab .tab_btn {
   font-size: 26px;
+}
+
+@media (max-width: 1200px) {
+  ol.tab .tab_btn {
+    font-size: 23px;
+  }
+}
+
+@media (max-width: 767px) {
+  ol.tab .tab_btn {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  ol.tab .tab_btn {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 420px) {
+  ol.tab .tab_btn {
+    font-size: 16px;
+  }
 }
 
 ol.tab .tab_btn a {
@@ -165,6 +196,26 @@ ol.tab .mark {
   padding: 0;
   position: relative;
   top: 0px;
+}
+
+@media (max-width: 1200px) {
+  ol.tab .mark {
+    margin: 0 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  ol.tab .mark {
+    height: 22px;
+    margin: 0 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  ol.tab .mark {
+    height: 20px;
+    margin: 0 10px;
+  }
 }
 
 main .container .card_content .card .card_img_top .hover_mask::before, main .container .card_content .card .card_img_top .hover_mask::after {

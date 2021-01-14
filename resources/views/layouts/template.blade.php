@@ -90,7 +90,7 @@
                         <a href="#">技術專區</a>
                     </li>
                     <li>
-                        <a href="/occupational_safety">職安資訊</a>
+                        <a href="{{ asset('occupational_safety') }}">職安資訊</a>
                     </li>
                 </ul>
             </div>
@@ -104,51 +104,51 @@
                 <span></span>
             </div>
             <div class="phoneStyleIcon">
-                <img src="./img/logo.svg" alt="">
+                <a href="/"><img src="{{ asset('./img/logo.svg') }}" alt="宏義工程"></a>
             </div>
             <!-- 選單 -->
             <div id="menu-btn-content">
                 <div class="title-level-wrapper drop-down">
                     <a>關於我們</a>
                     <div class="sub-level-wrapper">
-                        <a>願景理念</a>
-                        <a>公司沿革</a>
-                        <a>職安品質政策</a>
+                        <a href="{{ asset('vision') }}">願景理念</a>
+                        <a href="{{ asset('history') }}">公司沿革</a>
+                        <a href="{{ asset('security_policy') }}">職安品質政策</a>
                     </div>
                 </div>
                 <div class="title-level-wrapper drop-down">
                     <a>動態消息</a>
                     <div class="sub-level-wrapper">
-                        <a>職缺公告</a>
-                        <a>得標資訊</a>
+                        <a href="{{ asset('job_opportunities') }}">職缺公告</a>
+                        <a href="{{ asset('tender') }}">得標資訊</a>
                     </div>
                 </div>
                 <div class="title-level-wrapper">
-                    <a>服務項目</a>
+                    <a href="{{ asset('serve') }}">服務項目</a>
                 </div>
                 <div class="title-level-wrapper drop-down">
                     <a>得獎及認證</a>
                     <div class="sub-level-wrapper">
-                        <a>得獎事蹟</a>
-                        <a>認證及獎盃</a>
+                        <a href="{{ asset('award_stories') }}">得獎事蹟</a>
+                        <a href="{{ asset('certification_trophy') }}">認證及獎盃</a>
                     </div>
                 </div>
                 <div class="title-level-wrapper drop-down">
                     <a>工程實績</a>
                     <div class="sub-level-wrapper">
-                        <a>土木工程</a>
-                        <a>環保工程</a>
-                        <a>建築工程</a>
-                        <a>其他</a>
+                        <a href="{{ asset('performance/1') }}">土木工程</a>
+                        <a href="{{ asset('performance/2') }}">環保工程</a>
+                        <a href="{{ asset('performance/3') }}">建築工程</a>
+                        <a href="{{ asset('performance/4') }}">其他</a>
                     </div>
                 </div>
                 <div class="title-level-wrapper drop-down">
                     <a>在建工程</a>
                     <div class="sub-level-wrapper">
-                        <a>土木工程</a>
-                        <a>環保工程</a>
-                        <a>建築工程</a>
-                        <a>其他</a>
+                        <a href="{{ asset('constructions/1') }}">土木工程</a>
+                        <a href="{{ asset('constructions/2') }}">環保工程</a>
+                        <a href="{{ asset('constructions/3') }}">建築工程</a>
+                        <a href="{{ asset('constructions/4') }}">其他</a>
                     </div>
                 </div>
                 <div class="title-level-wrapper">

@@ -82,7 +82,7 @@
 .page_header .sub_banner {
   width: 100%;
   height: 25vw;
-  background-color: #242424;
+  background-size: cover;
   margin-bottom: 70px;
 }
 
@@ -354,19 +354,6 @@ main .container .content .progressBlock .progressBox .progressNumber span {
 main .container .content .progressBlock .progressBox .progressText {
   font-size: 20px;
   font-weight: 600;
-}
-
-main .container .content #YouTubeVideoPlayerScale {
-  width: 100%;
-  height: 0;
-  padding-bottom: 56.25%;
-  position: relative;
-}
-
-main .container .content #YouTubeVideoPlayerScale #YouTubeVideoPlayerAPI {
-  position: absolute;
-  width: 100%;
-  height: 100%;
 }
 
 main .container a {

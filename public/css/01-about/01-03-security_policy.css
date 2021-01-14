@@ -105,7 +105,7 @@ main .container .poilcy_content h2::before {
 .page_header .sub_banner {
   width: 100%;
   height: 25vw;
-  background-color: #242424;
+  background-size: cover;
   margin-bottom: 70px;
 }
 

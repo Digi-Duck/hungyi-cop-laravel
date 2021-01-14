@@ -62,6 +62,7 @@
             </div>
             @endforeach
         </div>
+        {{ $lists->links() }}
     </div>
 @endsection
 
