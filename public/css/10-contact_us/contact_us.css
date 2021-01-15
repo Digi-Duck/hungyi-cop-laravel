@@ -125,6 +125,9 @@ main > .container {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+main > .container:last-of-type {
   margin-bottom: 110px;
 }
 
@@ -442,6 +445,7 @@ main > .container form .btns .varify_refresh {
       -ms-flex-align: center;
           align-items: center;
   background-color: #018080;
+  cursor: pointer;
 }
 
 main > .container form .btns .varify_refresh img {
