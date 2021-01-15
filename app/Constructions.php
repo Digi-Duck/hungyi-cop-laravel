@@ -40,6 +40,6 @@ class Constructions extends Model
 
     public function constructionsImgs()
     {
-        return $this->hasMany('App\ConstructionsImgs', 'constructions_id');
+        return $this->hasMany('App\ConstructionsImgs', 'construction_id');
     }
 }

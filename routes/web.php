@@ -1,7 +1,10 @@
 <?php
 
 use App\Constructions;
+use App\Http\Controllers\ConstructionsController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\TechnologyBlocksController;
+use App\TechnologyBlocks;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -93,17 +96,35 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::post('performances/store', 'PerformancesController@store');
     Route::get('performances/create/{id}', 'PerformancesController@create');
     Route::get('performances/{id}/edit/', 'PerformancesController@edit');
-    Route::resource('performances', PerformancesController::class)->only([
+    Route::resource('performances', 'PerformancesController')->only([
         'update', 'destroy'
     ]);
 
     // 在建工程
-    // Route::resource('performances', 'PerformancesController');
     Route::get('constructions/{id}', 'ConstructionsController@index');
     Route::post('constructions/store', 'ConstructionsController@store');
     Route::get('constructions/create/{id}', 'ConstructionsController@create');
     Route::get('constructions/{id}/edit/', 'ConstructionsController@edit');
-    Route::resource('constructions', Constructions::class)->only([
+    Route::resource('performances', 'ConstructionsController')->only([
+        'update', 'destroy'
+    ]);
+
+    // 技術專區
+    // -畫面管理
+    Route::resource('technologys', 'TechnologyZonesController');
+    // --區塊管理
+    Route::get('technologys_blocks/{zones_id}', 'TechnologyBlocksController@index');
+    Route::post('technologys_blocks/store', 'TechnologyBlocksController@store');
+    Route::get('technologys_blocks/create/{zones_id}', 'TechnologyBlocksController@create');
+    Route::get('technologys_blocks/{id}/edit/', 'TechnologyBlocksController@edit');
+    Route::resource('technologys_blocks', 'TechnologyBlocksController')->only([
+        'update', 'destroy'
+    ]);
+    // ---內容管理
+    Route::get('technologys_details/create/{block_id}', 'TechnologyDetailsController@create');
+    Route::post('technologys_details/store', 'TechnologyDetailsController@store');
+    Route::get('technologys_details/{id}/edit/', 'TechnologyDetailsController@edit');
+    Route::resource('technologys_details', 'TechnologyDetailsController')->only([
         'update', 'destroy'
     ]);
 

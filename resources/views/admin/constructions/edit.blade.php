@@ -135,7 +135,7 @@
                         <div class="form-group row">
                             <label for="img" class="col-2 col-form-label">內容圖片(目前圖片)</label>
                             <div class="col-10 row">
-                                @foreach ($list->performancesImgs as $img)
+                                @foreach ($list->constructionsImgs as $img)
                                     <div class="imgs_area mx-2 mb-2">
                                         <div class="del_btn bg-danger text-white" data-type="img" data-id="{{$img->id}}">X</div>
                                         <img src="{{$img->img}}" alt="" width="200">

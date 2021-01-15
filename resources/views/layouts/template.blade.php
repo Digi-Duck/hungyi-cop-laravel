@@ -87,7 +87,7 @@
                         <a style="cursor: default;">在建工程</a>
                     </li>
                     <li>
-                        <a href="#">技術專區</a>
+                        <a href="{{ asset('technologys') }}">技術專區</a>
                     </li>
                     <li>
                         <a href="{{ asset('occupational_safety') }}">職安資訊</a>

@@ -111,7 +111,7 @@
                         </li>
                         {{-- 技術專區 --}}
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="/admin/seo">技術專區</a>
+                            <a class="nav-link" href="/admin/technologys">技術專區</a>
                         </li>
                         {{-- 職安資訊 --}}
                         <li class="nav-item dropdown">
