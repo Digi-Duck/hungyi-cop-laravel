@@ -25,7 +25,7 @@ class TechnologyBlocksController extends Controller
     {
         //
         $zone = TechnologyZones::find($zones_id);
-        $lists = TechnologyBlocks::where('zones_id', $zone->id)->orderByDesc('sort')->get();
+        $lists = TechnologyBlocks::where('zones_id', $zone->id)->orderBy('sort', 'asc')->get();
         $details = TechnologyDetails::orderByDesc('sort')->get();
         return view($this->index, compact('lists', 'zone', 'details'));
     }
@@ -57,6 +57,8 @@ class TechnologyBlocksController extends Controller
         $new_record->title = $request->title;
         $new_record->style = $request->style;
         $new_record->zones_id = $request->zones_id;
+        $new_record->block_color = $request->block_color;
+        $new_record->text_color = $request->text_color;
         $new_record->save();
         return redirect('admin/technologys_blocks/'.$request->zones_id)->with('message', '新增成功！');
     }
@@ -99,6 +101,8 @@ class TechnologyBlocksController extends Controller
         $old_record->sort = $request->sort;
         $old_record->title = $request->title;
         $old_record->style = $request->style;
+        $old_record->block_color = $request->block_color;
+        $old_record->text_color = $request->text_color;
         $old_record->save();
 
         return redirect('admin/technologys_blocks/'.$old_record->zones_id)->with('message', '編輯成功！');

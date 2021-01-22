@@ -19,6 +19,12 @@
   left: -20px;
 }
 
+@media (max-width: 767px) {
+  .page_header h1 {
+    font-size: 2rem;
+  }
+}
+
 main .container .poilcy_content h2 {
   position: relative;
   padding-left: 36px;
@@ -40,6 +46,35 @@ main .container .poilcy_content h2::before {
   border-style: solid;
   border-width: 10.5px 0 10.5px 18px;
   border-color: transparent transparent transparent #004460;
+}
+
+@media (max-width: 767px) {
+  main .container .poilcy_content h2::before {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 0 5px 10px;
+    border-color: transparent transparent transparent #004460;
+  }
+}
+
+@media (max-width: 1200px) {
+  main .container .poilcy_content h2 {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 991px) {
+  main .container .poilcy_content h2 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  main .container .poilcy_content h2 {
+    padding-left: 26px;
+    font-size: 26px;
+  }
 }
 
 /*css命名
@@ -140,8 +175,20 @@ main .container .poilcy_content {
   padding-left: 68px;
 }
 
+@media (max-width: 1200px) {
+  main .container .poilcy_content {
+    padding-left: 0;
+  }
+}
+
 main .container .poilcy_content > div {
   padding: 35px 0;
+}
+
+@media (max-width: 767px) {
+  main .container .poilcy_content > div {
+    padding: 15px 0 30px 30px;
+  }
 }
 
 main .container .poilcy_content > div ol {
@@ -157,6 +204,14 @@ main .container .poilcy_content > div ol {
 }
 
 main .container .poilcy_content > div ol li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 26px;
   color: #5192AE;
   position: relative;
@@ -165,16 +220,51 @@ main .container .poilcy_content > div ol li {
   font-weight: 500;
 }
 
-main .container .poilcy_content > div ol li::before {
+@media (max-width: 1200px) {
+  main .container .poilcy_content > div ol li {
+    margin-left: 0px;
+    font-size: 24px;
+    padding: 15px 0 15px 25px;
+  }
+}
+
+@media (max-width: 991px) {
+  main .container .poilcy_content > div ol li {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 767px) {
+  main .container .poilcy_content > div ol li {
+    font-size: 18px;
+    padding: 10px 0 10px 15px;
+  }
+}
+
+main .container .poilcy_content > div ol li span {
+  position: relative;
+}
+
+main .container .poilcy_content > div ol li span:first-of-type::before {
   content: '';
-  position: absolute;
+  display: block;
   top: 50%;
-  left: 0;
+  left: -25px;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
+  position: absolute;
+  margin-right: 10px;
   width: 10px;
   height: 10px;
   background-color: #004460;
+}
+
+@media (max-width: 767px) {
+  main .container .poilcy_content > div ol li span:first-of-type::before {
+    width: 8px;
+    height: 8px;
+    left: -15px;
+  }
 }
 
 main .container .poilcy_content > div ol li .text_orange {
@@ -186,11 +276,41 @@ main .container .poilcy_content .quality_policy ol li {
   width: calc(50% - 100px);
 }
 
+@media (max-width: 767px) {
+  main .container .poilcy_content .quality_policy ol li {
+    width: 100%;
+  }
+}
+
 main .container .poilcy_content .sanitation_goals {
   margin-bottom: 200px;
 }
 
+@media (max-width: 991px) {
+  main .container .poilcy_content .sanitation_goals {
+    margin-bottom: 130px;
+  }
+}
+
+@media (max-width: 767px) {
+  main .container .poilcy_content .sanitation_goals {
+    margin-bottom: 100px;
+  }
+}
+
+@media (max-width: 576px) {
+  main .container .poilcy_content .sanitation_goals {
+    margin-bottom: 60px;
+  }
+}
+
 main .container .poilcy_content .sanitation_goals ol li {
   width: calc(50% - 100px);
+}
+
+@media (max-width: 767px) {
+  main .container .poilcy_content .sanitation_goals ol li {
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=01-03-security_policy.css.map */

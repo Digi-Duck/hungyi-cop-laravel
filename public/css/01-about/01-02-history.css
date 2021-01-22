@@ -14,7 +14,8 @@
   height: 73%;
   background-color: #5192AE;
   top: 50%;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
   left: -20px;
 }
 
@@ -120,9 +121,11 @@ main .timeline_content::before {
   content: '';
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   width: 5px;
   height: 100%;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(92%, black), to(white));
   background-image: linear-gradient(black 92%, white 100%);
   opacity: .25;
   z-index: 9;
@@ -386,8 +389,11 @@ main .timeline_content .event_block .event_offset .event_title {
 }
 
 main .timeline_content .event_block .event_offset .event_sub_title {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   font-size: 20px;
 }
 
@@ -414,11 +420,10 @@ main .timeline_content .event_block .event_offset .event_sub_title .engineering 
 main .timeline_content .event_block .event_offset .event_img {
   width: 100%;
   height: 311px;
-  border: 1px solid #000;
 }
 
 main .timeline_content .event_block .event_offset .event_img img {
-  width: 100%;
-  height: 100%;
+  -webkit-box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
 }
 /*# sourceMappingURL=01-02-history.css.map */

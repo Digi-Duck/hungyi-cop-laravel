@@ -5,7 +5,7 @@
 
 @section('main')
     <div class="page_header">
-        <div class="sub_banner" style="background-image: url({{ asset('img/00-banner/06-constructions.png') }})"></div>
+        <div class="sub_banner" style="background-image: url({{ asset($sub_banner->img) }})"></div>
         <div class="container">
             <h1>{{ $type_name }}</h1>
             <nav aria-label="breadcrumb">

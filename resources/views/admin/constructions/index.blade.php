@@ -62,7 +62,7 @@
     <script>
         $(document).ready(function() {
             $('#table').DataTable({
-                "order": [[0,'desc']],
+                "order": [[0,'asc']],
                 scrollCollapse: true,
             });
         } );

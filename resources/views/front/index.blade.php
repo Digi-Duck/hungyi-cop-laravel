@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="./css/index.css">
 @endsection
 @section('main')
-    <section id="banner">
+    <section id="banner" style="background-image: url('{{ asset($sub_banner->img) }}')">
         <div class="container">
             <div class="row">
                 <div class="bannerTitle">

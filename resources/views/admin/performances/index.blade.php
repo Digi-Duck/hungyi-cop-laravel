@@ -10,13 +10,13 @@
                 <div class="card">
                     <h4 class="card-header">
                         @if ($id == 1)
-                        土木工程管理
+                        工程實績-土木工程管理
                         @elseif ($id ==2)
-                        環保工程管理
+                        工程實績-環保工程管理
                         @elseif ($id ==3)
-                        建築工程管理
+                        工程實績-建築工程管理
                         @elseif ($id ==4)
-                        其他管理
+                        工程實績-其他管理
                         @endif
                     </h4>
                     <div class="card-body">
@@ -62,7 +62,7 @@
     <script>
         $(document).ready(function() {
             $('#table').DataTable({
-                "order": [[0,'desc']],
+                "order": [[0,'asc']],
                 scrollCollapse: true,
             });
         } );

@@ -62,10 +62,10 @@ class ContactusController extends Controller
                 $new_record->content = $request->content;
                 $new_record->save();
 
-                return redirect()->back()->with('message', '感謝您的回饋！我們已確實收到您傳送的回應');
+                return redirect()->back()->with('message', 'success');
 
             } else {
-                return redirect()->back()->with('message', '驗證碼輸入錯誤，請重新輸入');
+                return redirect()->back()->with('message', 'error');
             }
         }
     }

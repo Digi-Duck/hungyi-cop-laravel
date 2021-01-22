@@ -1,29 +1,53 @@
 @extends('layouts.app')
 
 @section('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.css" />
 <style>
-    .imgs_area{
+    .imgs_area {
         position: relative;
     }
-    .imgs_area img{
+
+    .imgs_area img {
         border: 1px solid #000;
     }
-    .del_btn{
-        position:absolute;
+
+    .del_btn {
+        position: absolute;
         top: 0;
-        right:0;
+        right: 0;
         width: 30px;
         height: 30px;
         border-radius: 50%;
-        transform: translate(50%,-50%);
+        transform: translate(50%, -50%);
         font-size: 25px;
         line-height: 30px;
         text-align: center;
         z-index: 20;
         cursor: pointer;
     }
-    .fa-file{
+
+    .fa-file {
         font-size: 48px;
+    }
+
+    img#image {
+        display: block;
+        max-width: 100%;
+    }
+
+    .preview {
+        display: none;
+        overflow: hidden;
+        width: 260px;
+        height: 260px;
+        margin-left: 10px;
+        border: 1px solid red;
+    }
+
+    #cropbtn {
+        margin-top: 10px;
+        margin-left: 10px;
+        display: none
     }
 </style>
 @endsection
@@ -34,7 +58,7 @@
         <div class="col-sm-12">
             <div class="card">
                 <h4 class="card-header">
-                    得獎事蹟管理-編輯
+                    公司沿革管理-編輯
                 </h4>
                 <div class="card-body">
                     <form method="POST" action="/admin/histories/{{$list->id}}" enctype="multipart/form-data">
@@ -43,13 +67,14 @@
                         <div class="form-group row">
                             <label for="year" class="col-2 col-form-label">年份</label>
                             <div class="col-10">
-                                <input class="form-control" id="year" name="year" value="{{ $list->year }}" required>
+                                <input type="number" class="form-control" id="year" name="year"
+                                    value="{{ $list->year }}" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="event" class="col-2 col-form-label">事件名稱</label>
                             <div class="col-10">
-                                <input class="form-control" id="event" name="event" value="{{ $list->event }}" required>
+                                <input class="form-control" id="event" name="event" value="{{ $list->event }}">
                             </div>
                         </div>
                         <hr>
@@ -62,11 +87,21 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            {{-- 裁減圖片區塊 --}}
+                            <div class="col-md-6 offset-md-2 mb-3">
+                                <img id="image" src="">
+                            </div>
+                            <div class="col-md-4">
+                                <div id="preview" class="preview"></div>
+                            </div>
                             <label for="img" class="col-2 col-form-label">內容圖片(更新圖片)</label>
                             <div class="col-10">
-                                <input type="file" class="form-control" id="img" name="img[]" multiple>
+                                <input id="uploadImg" type="file" data-mywidth="455" data-myheight="309"
+                                    class="form-control image">
+                                <input type="text" class="form-control " id="img" name="img" hidden>
+                                {{-- <input type="file" class="form-control" id="img" name="img[]" multiple> --}}
                                 @error('img.*')
-                                    <p class="text-danger error_message">{{ $message}}</p>
+                                <p class="text-danger error_message">{{ $message}}</p>
                                 @enderror
                             </div>
                         </div>
@@ -74,26 +109,35 @@
                         <div class="form-group row">
                             <label for="capital" class="col-2 col-form-label">事件描述 1</label>
                             <div class="col-10">
-                                <input class="form-control" id="capital" name="capital" value="{{ $list->capital }}" required>
+                                <input class="form-control" id="capital" name="capital" value="{{ $list->capital }}"
+                                    required>
                             </div>
-                            <div class="col-12"><p class="text-danger">建議 12 個字以內</p></div>
+                            <div class="col-12">
+                                <p class="text-danger">建議 12 個字以內</p>
+                            </div>
                         </div>
                         <div class="form-group row">
                             <label for="address" class="col-2 col-form-label">事件描述 2</label>
                             <div class="col-10">
-                                <input class="form-control" id="address" name="address" value="{{ $list->address }}" required>
+                                <input class="form-control" id="address" name="address" value="{{ $list->address }}"
+                                    required>
                             </div>
-                            <div class="col-12"><p class="text-danger">建議 12 個字以內</p></div>
+                            <div class="col-12">
+                                <p class="text-danger">建議 12 個字以內</p>
+                            </div>
                         </div>
                         <div class="form-group row">
                             <label for="engineering" class="col-2 col-form-label">事件描述 3</label>
                             <div class="col-10">
-                                <input class="form-control" id="engineering" name="engineering" value="{{ $list->engineering }}" required>
+                                <input class="form-control" id="engineering" name="engineering"
+                                    value="{{ $list->engineering }}" required>
                             </div>
-                            <div class="col-12"><p class="text-danger">建議 24 個字以內</p></div>
+                            <div class="col-12">
+                                <p class="text-danger">建議 24 個字以內</p>
+                            </div>
                         </div>
                         <hr>
-                        <button type="submit" class="btn btn-primary d-block mx-auto">更新</button>
+                        <button id="form_submit" type="submit" class="btn btn-primary d-block mx-auto">更新</button>
                     </form>
                 </div>
             </div>
@@ -103,8 +147,8 @@
 @endsection
 
 @section('js')
-    <script>
-        $(document).ready(function() {
+<script>
+    $(document).ready(function() {
             $('.summernote').summernote({
                 height: 300,
                 popover: {
@@ -139,5 +183,7 @@
         $('.clear_end').click(function () {
             $('#end').val('');
         });
-    </script>
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.js"></script>
+<script src="{{ asset('js/cropper.js') }}"></script>
 @endsection

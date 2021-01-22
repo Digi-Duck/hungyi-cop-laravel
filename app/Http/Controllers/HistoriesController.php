@@ -52,9 +52,10 @@ class HistoriesController extends Controller
         $new_record->capital = $request->capital;
         $new_record->address  = $request->address;
         $new_record->engineering  = $request->engineering;
-        if ($request->hasFile('img')) {
-            $files = $request->file('img')[0];
-            $new_record->img = FilesController::imgUpload($files, 'award_img');
+        if ($request->img) {
+            $new_record->img = FilesController::imgCropper($request->img, 'histories_img');
+        } else {
+            $new_record->img = '/img/404/noimg.png';
         }
         $new_record->save();
 
@@ -103,12 +104,14 @@ class HistoriesController extends Controller
         $old_record->capital = $request->capital;
         $old_record->address = $request->address;
         $old_record->engineering = $request->engineering;
-        if ($request->hasFile('img')) {
-            FilesController::deleteUpload($old_record->img);
-            $old_record->img = FilesController::imgUpload($request->file('img')[0], 'award_img');
+        if ($request->img) {
+            if ($old_record->img != '/img/404/noimg.png') {
+                FilesController::deleteUpload($old_record->img);
+            }
+            $old_record->img = FilesController::imgCropper($request->img, 'histories_img');
         }
         $old_record->save();
-        return redirect('/admin/histories')->with('message','更新成功!');
+        return redirect('/admin/histories')->with('message', '更新成功!');
     }
 
     /**
@@ -121,8 +124,9 @@ class HistoriesController extends Controller
     {
         //
         $old_record = Histories::find($id);
-        FilesController::deleteUpload($old_record->img);
+        if ($old_record->img != '/img/404/noimg.png')
+            FilesController::deleteUpload($old_record->img);
         $old_record->delete();
-        return redirect('/admin/award_stories')->with('message', '刪除成功!');
+        return redirect('/admin/histories')->with('message', '刪除成功!');
     }
 }

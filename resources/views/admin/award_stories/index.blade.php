@@ -18,7 +18,7 @@
                             <thead>
                             <tr>
                                 <th>權重</th>
-                                <th>得獎日期</th>
+                                <th>得獎年度</th>
                                 <th>得獎標題</th>
                                 <th width="120">功能</th>
                             </tr>
@@ -52,7 +52,7 @@
     <script>
         $(document).ready(function() {
             $('#table').DataTable({
-                "order": [[0,'desc']],
+                "order": [[0,'asc']],
                 scrollCollapse: true,
             });
         } );

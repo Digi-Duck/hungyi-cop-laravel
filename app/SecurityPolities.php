@@ -6,16 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
- * @property int $deaths
- * @property int $injury
- * @property int $hospitalized
- * @property int $accidents_people
- * @property int $accidents_times
- * @property int $accidents_false
- * @property int $fines_times
- * @property int $fines_million
+ * @property string $orange_text
+ * @property string $blue_text
  * @property string $created_at
  * @property string $updated_at
+ * @property int $sort
  */
 class SecurityPolities extends Model
 {
@@ -29,6 +24,6 @@ class SecurityPolities extends Model
     /**
      * @var array
      */
-    protected $fillable = ['deaths', 'injury', 'hospitalized', 'accidents_people', 'accidents_times', 'accidents_false', 'fines_times', 'fines_million', 'created_at', 'updated_at'];
+    protected $fillable = ['orange_text', 'blue_text', 'created_at', 'updated_at', 'sort'];
 
 }

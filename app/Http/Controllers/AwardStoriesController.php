@@ -51,9 +51,10 @@ class AwardStoriesController extends Controller
         $new_record->award_date  = $request->award_date;
         $new_record->content = $request->content;
         $new_record->sort  = $request->sort;
-        if ($request->hasFile('img')) {
-            $files = $request->file('img')[0];
-            $new_record->img = FilesController::imgUpload($files, 'award_img');
+        if ($request->img) {
+            $new_record->img = FilesController::imgCropper($request->img, 'award_img');
+        } else {
+            $new_record->img = '/img/404/noimg.png';
         }
         $new_record->save();
 
@@ -100,12 +101,14 @@ class AwardStoriesController extends Controller
         $old_record->content = $request->content;
         $old_record->award_date = $request->award_date;
         $old_record->sort = $request->sort;
-        if ($request->hasFile('img')) {
-            FilesController::deleteUpload($old_record->img);
-            $old_record->img = FilesController::imgUpload($request->file('img')[0], 'award_img');
+        if ($request->img) {
+            if ($old_record->img != '/img/404/noimg.png') {
+                FilesController::deleteUpload($old_record->img);
+            }
+            $old_record->img = FilesController::imgCropper($request->img, 'award_img');
         }
         $old_record->save();
-        return redirect('/admin/award_stories')->with('message','更新成功!');
+        return redirect('/admin/award_stories')->with('message', '更新成功!');
     }
 
     /**
@@ -118,7 +121,8 @@ class AwardStoriesController extends Controller
     {
         //
         $old_record = AwardStories::find($id);
-        FilesController::deleteUpload($old_record->img);
+        if ($old_record->img != '/img/404/noimg.png')
+            FilesController::deleteUpload($old_record->img);
         $old_record->delete();
         return redirect('/admin/award_stories')->with('message', '刪除成功!');
     }

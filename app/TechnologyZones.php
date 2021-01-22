@@ -17,7 +17,7 @@ class TechnologyZones extends Model
 {
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -26,5 +26,10 @@ class TechnologyZones extends Model
      * @var array
      */
     protected $fillable = ['title', 'subtitle', 'content', 'created_at', 'updated_at', 'sort'];
+
+    public function blocks()
+    {
+        return $this->hasMany('App\TechnologyBlocks', 'zones_id', 'id')->with('details')->orderBy('sort', 'asc');
+    }
 
 }

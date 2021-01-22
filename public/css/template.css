@@ -75,7 +75,7 @@ html {
   position: fixed;
   padding: 20px 25px 20px 20px;
   right: 0;
-  bottom: 45%;
+  bottom: 28rem;
   z-index: 99;
   background-color: #004460;
   color: white;
@@ -93,13 +93,15 @@ html {
   #contactus {
     padding: 15px 20px 15px 15px;
     font-size: 18px;
-    bottom: 50%;
+    bottom: 26rem;
   }
 }
 
 @media (max-width: 576px) {
   #contactus {
-    bottom: 40%;
+    padding: 10px 15px 10px 10px;
+    bottom: 23rem;
+    font-size: 14px;
   }
 }
 
@@ -129,17 +131,15 @@ html {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  text-decoration: none;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   -ms-flex-line-pack: center;
       align-content: center;
   position: fixed;
+  z-index: 999;
   right: 5px;
-  z-index: 99;
   width: 55px;
   height: 55px;
-  background-color: #004460;
+  background-color: rgba(0, 68, 96, 0.9);
+  border: 1px solid #eee;
   border-radius: 50%;
   color: white;
   font-size: 30px;
@@ -155,41 +155,66 @@ html {
   }
 }
 
+@media screen and (max-width: 576px) {
+  .fixed_icon {
+    right: 5px;
+    font-size: 14px;
+    width: 30px;
+    height: 30px;
+  }
+}
+
 .fixed_icon:hover {
   background-color: rgba(0, 68, 96, 0.8);
   color: white;
   text-shadow: black 0.05em 0.05em 0.1em;
 }
 
+#youtubelink {
+  bottom: 23rem;
+}
+
+@media screen and (max-width: 768px) {
+  #youtubelink {
+    bottom: 21rem;
+  }
+}
+
+@media (max-width: 576px) {
+  #youtubelink {
+    bottom: 19rem;
+  }
+}
+
 #email {
-  bottom: 37%;
+  bottom: 18rem;
 }
 
 @media screen and (max-width: 768px) {
   #email {
-    bottom: 42%;
+    bottom: 17rem;
   }
 }
 
 @media (max-width: 576px) {
   #email {
-    bottom: 15%;
+    bottom: 15rem;
   }
 }
 
 #goTop {
-  bottom: 30%;
+  bottom: 13rem;
 }
 
 @media screen and (max-width: 768px) {
   #goTop {
-    bottom: 35%;
+    bottom: 13rem;
   }
 }
 
 @media (max-width: 576px) {
   #goTop {
-    bottom: 25%;
+    bottom: 11rem;
   }
 }
 
@@ -574,13 +599,32 @@ main {
 #footer {
   position: relative;
   background-color: #004460;
-  padding: 70px 0;
+  padding: 60px 0 40px 0;
   color: white;
+  z-index: 0;
+}
+
+@media (max-width: 576px) {
+  #footer {
+    padding: 40px 0 30px 0;
+  }
 }
 
 @media (max-width: 991px) {
   #footer .container .footerLogo {
     margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 767px) {
+  #footer .container .footerLogo {
+    margin-bottom: 38px;
+  }
+}
+
+@media (max-width: 576px) {
+  #footer .container .footerLogo {
+    margin-bottom: 25px;
   }
 }
 
@@ -591,13 +635,21 @@ main {
 
 @media (max-width: 991px) {
   #footer .container .footerLogo img {
-    min-width: 300px;
+    width: 60%;
+    min-width: 320px;
+    margin-bottom: 68px;
   }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 767px) {
   #footer .container .footerLogo img {
-    margin-bottom: 68px;
+    margin-bottom: 38px;
+  }
+}
+
+@media (max-width: 576px) {
+  #footer .container .footerLogo img {
+    margin-bottom: 25px;
   }
 }
 
@@ -608,9 +660,21 @@ main {
   margin-bottom: 1em;
 }
 
+@media (max-width: 767px) {
+  #footer .container .footerLogo .taxID {
+    letter-spacing: 1px;
+  }
+}
+
 #footer .container .footerLogo .taxID .IDnumber {
   margin-left: 25px;
   letter-spacing: 5px;
+}
+
+@media (max-width: 767px) {
+  #footer .container .footerLogo .taxID .IDnumber {
+    letter-spacing: 3px;
+  }
 }
 
 #footer .container .footerLogo .copyright {
@@ -627,7 +691,7 @@ main {
 
 @media (max-width: 767px) {
   #footer .container .footerLogo .copyright {
-    letter-spacing: 4px;
+    letter-spacing: 1px;
   }
 }
 
@@ -644,9 +708,29 @@ main {
   margin-bottom: 15px;
 }
 
+#footer .container .footerIntro ul li a {
+  color: white;
+}
+
+#footer .container .footerIntro ul li a:hover {
+  text-decoration: none;
+}
+
 @media (max-width: 991px) {
   #footer .container .footerIntro ul li {
     gap: 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  #footer .container .footerIntro ul li {
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    gap: 10px;
+    font-size: 13px;
+  }
+  #footer .container .footerIntro ul li:first-of-type {
+    font-size: 14px;
   }
 }
 

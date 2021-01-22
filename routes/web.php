@@ -55,11 +55,18 @@ Route::get('performance_detail/{id}', 'FrontController@performance_detail');
 Route::get('constructions/{id}', 'FrontController@constructions');
 Route::get('constructions_detail/{id}', 'FrontController@constructions_detail');
 
+// 技術專區
+Route::get('technology/{id}', 'FrontController@technology');
+
 // 職安資訊
 Route::get('occupational_safety', 'FrontController@occupational_safety');
 
 // 聯絡我們
 Route::get('contact_us', 'FrontController@contact_us');
+Route::post('contact_us/store', 'ContactusController@store');
+
+// 剪裁上傳圖片
+Route::post('crop_image_upload', 'FilesController@imgCropper');
 
 
 Route::middleware(['auth'])->prefix('admin')->group(function () {
@@ -68,6 +75,9 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     //SEO設定
     Route::get('seo', 'SeoController@index');
     Route::post('seo/{id}', 'SeoController@update');
+
+    // 副Banner
+    Route::resource('sub_banners', 'SubBannersController');
 
     // 關於我們
     // -公司沿革
@@ -99,15 +109,17 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('performances', 'PerformancesController')->only([
         'update', 'destroy'
     ]);
+    Route::post('performances/deleteFile', 'PerformancesController@deleteFile');
 
     // 在建工程
     Route::get('constructions/{id}', 'ConstructionsController@index');
     Route::post('constructions/store', 'ConstructionsController@store');
     Route::get('constructions/create/{id}', 'ConstructionsController@create');
     Route::get('constructions/{id}/edit/', 'ConstructionsController@edit');
-    Route::resource('performances', 'ConstructionsController')->only([
+    Route::resource('constructions', 'ConstructionsController')->only([
         'update', 'destroy'
     ]);
+    Route::post('constructions/deleteFile', 'ConstructionsController@deleteFile');
 
     // 技術專區
     // -畫面管理

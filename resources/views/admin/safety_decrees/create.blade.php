@@ -19,7 +19,7 @@
                                 <div class="col-10">
                                     <input type="number" class="form-control" id="sort" name="sort" required>
                                 </div>
-                                <div class="col-12"><p class="text-danger">權重等於排序，數字越大排序越前面。</p></div>
+                                <div class="col-12"><p class="text-danger">權重等於排序，數字越小排序越前面。</p></div>
                             </div>
                             <div class="form-group row">
                                 <label for="attachments" class="col-2 col-form-label">案例檔案</label>
@@ -31,7 +31,7 @@
                                 </div>
                             </div>
                             <hr>
-                            <button type="submit" class="btn btn-primary d-block mx-auto">新增</button>
+                            <button id="form_submit" type="submit" class="btn btn-primary d-block mx-auto">新增</button>
                         </form>
                     </div>
                 </div>

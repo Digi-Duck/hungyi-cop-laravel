@@ -17,6 +17,7 @@
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>
                             <tr>
+                                <th>權重</th>
                                 <th>技術專區畫面標題</th>
                                 <th>技術專區畫面小標題</th>
                                 {{-- <th>封面</th> --}}
@@ -26,6 +27,7 @@
                             <tbody>
                             @foreach($lists as $list)
                                 <tr>
+                                    <td>{{ $list->sort }}</td>
                                     <td>{{$list->title}}</td>
                                     <td>{{$list->subtitle}}</td>
                                     <td>
@@ -52,7 +54,7 @@
     <script>
         $(document).ready(function() {
             $('#table').DataTable({
-                "order": [[0,'desc']],
+                "order": [[0,'asc']],
                 scrollCollapse: true,
             });
         } );

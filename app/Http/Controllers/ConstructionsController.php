@@ -63,16 +63,17 @@ class ConstructionsController extends Controller
         $new_record->content = $request->content;
         $new_record->type_id = $id;
         $new_record->view_times = 0;
-        if ($request->hasFile('img')) {
-            $files = $request->file('img')[0];
-            $new_record->imgs = FilesController::imgUpload($files, 'constructions_img');
+        if ($request->img) {
+            $new_record->imgs = FilesController::imgCropper($request->img, 'constructions_img');
+        } else {
+            $new_record->imgs = '/img/404/noimg.png';
         }
         $new_record->save();
         if ($request->hasFile('imgs')) {
             $files = $request->file('imgs');
 
             foreach ($files as $file) {
-                $path = FilesController::imgUpload($file, 'constructions_img');
+                $path = FilesController::imgZipUpload($file, 'constructions_img', 1110, 540, false);
                 $query = new ConstructionsImgs();
                 $query->construction_id = $new_record->id;
                 $query->img = $path;
@@ -141,17 +142,19 @@ class ConstructionsController extends Controller
         $old_record->scheduled_progress  = $request->scheduled_progress;
         $old_record->actual_progress  = $request->actual_progress;
         $old_record->youtube  = $request->youtube;
-        if ($request->hasFile('img')) {
-            FilesController::deleteUpload($old_record->imgs);
-            $old_record->imgs = FilesController::imgUpload($request->file('img')[0], 'constructions_img');
+        if ($request->img) {
+            if ($old_record->img != '/img/404/noimg.png') {
+                FilesController::deleteUpload($old_record->imgs);
+            }
+            $old_record->imgs = FilesController::imgCropper($request->img, 'constructions_img');
         }
 
         if ($request->hasFile('imgs')) {
             $files = $request->file('imgs');
             foreach ($files as $file) {
-                $path = FilesController::imgUpload($file, 'constructions_img');
+                $path = FilesController::imgZipUpload($file, 'constructions_img', 1110, 540, false);
                 $query = new ConstructionsImgs();
-                $query->constructions_id = $old_record->id;
+                $query->construction_id = $old_record->id;
                 $query->img = $path;
                 $query->save();
             }

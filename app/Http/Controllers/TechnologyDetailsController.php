@@ -57,14 +57,15 @@ class TechnologyDetailsController extends Controller
         $new_record->sort = $request->sort;
         $new_record->title = $request->title;
         $new_record->content = $request->content;
-        if ($request->hasFile('img')) {
-            $files = $request->file('img')[0];
-            $new_record->imgs = FilesController::imgZipUpload($request->file('img')[0], 'technologys_details_img', 1363, null, False);
+        if ($request->img) {
+            $new_record->imgs = FilesController::imgCropper($request->img, 'technologys_details_img');
+        } else {
+            $new_record->imgs = '/img/404/noimg.png';
         }
         $new_record->zones_id = $request->zones_id;
         $new_record->blocks_id = $request->blocks_id;
         $new_record->save();
-        return redirect('admin/technologys_blocks/'.$request->zones_id)->with('message', '新增成功！');
+        return redirect('admin/technologys_blocks/' . $request->zones_id)->with('message', '新增成功！');
     }
 
     /**
@@ -105,12 +106,14 @@ class TechnologyDetailsController extends Controller
         $old_record->sort = $request->sort;
         $old_record->title = $request->title;
         $old_record->content = $request->content;
-        if ($request->hasFile('img')) {
-            FilesController::deleteUpload($old_record->imgs);
-            $old_record->imgs = FilesController::imgZipUpload($request->file('img')[0], 'technologys_details_img', 1363, null, False);
+        if ($request->img) {
+            if ($old_record->img != '/img/404/noimg.png') {
+                FilesController::deleteUpload($old_record->imgs);
+            }
+            $old_record->imgs = FilesController::imgCropper($request->img, 'technologys_details_img');
         }
         $old_record->save();
-        return redirect('admin/technologys_blocks/'.$old_record->zones_id)->with('message', '更新成功');
+        return redirect('admin/technologys_blocks/' . $old_record->zones_id)->with('message', '更新成功');
     }
 
     /**
@@ -126,6 +129,6 @@ class TechnologyDetailsController extends Controller
         $zone_id = $old_record->zones_id;
         FilesController::deleteUpload($old_record->imgs);
         $old_record->delete();
-        return redirect('/admin/technologys_blocks/'.$zone_id)->with('message','刪除成功!');
+        return redirect('/admin/technologys_blocks/' . $zone_id)->with('message', '刪除成功!');
     }
 }

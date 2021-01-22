@@ -19,7 +19,7 @@
                             <tr>
                                 <th>權重</th>
                                 <th>認證及獲獎日期</th>
-                                <th>認證及獲獎標題</th>
+                                <th>認證及獲獎年度</th>
                                 <th width="120">功能</th>
                             </tr>
                             </thead>
@@ -52,7 +52,7 @@
     <script>
         $(document).ready(function() {
             $('#table').DataTable({
-                "order": [[0,'desc']],
+                "order": [[0,'asc']],
                 scrollCollapse: true,
             });
         } );

@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- link會全部show在此HTML全部秀出 分為全站用外部套件都有用到及部分分頁用到 以利盡可能達到優化作用  p.s.若後續有新增將會附註更新-->
+    <meta name="keywords" content="@yield('keywords', \App\Seo::find(1)->keyword)" />
+    <meta name="description" content="@yield('description',\App\Seo::find(1)->description)" />
+    <title>@yield('title', \App\Seo::find(1)->title)</title>
+    <link rel="icon" href="{{ asset('img/logo_icon.svg') }}">
 
     <!-- 全站用 start -->
     <!-- bootstrap -->
@@ -46,14 +50,14 @@
                             <a href="{{ asset('history') }}">公司沿革</a>
                             <a href="{{ asset('security_policy') }}">職安品質政策</a>
                         </div>
-                        <a style="cursor: default;">關於我們</a>
+                        <a href="{{ asset('vision') }}">關於我們</a>
                     </li>
                     <li>
                         <div class="drop_down_menu">
                             <a href="{{ asset('job_opportunities') }}">職缺公告</a>
                             <a href="{{ asset('tender') }}">得標資訊</a>
                         </div>
-                        <a style="cursor: default;">動態消息</a>
+                        <a href="{{ asset('job_opportunities') }}">動態消息</a>
                     </li>
                     <li>
                         <a href="{{ asset('serve') }}">服務項目</a>
@@ -63,7 +67,7 @@
                             <a href="{{ asset('award_stories') }}">得獎事蹟</a>
                             <a href="{{ asset('certification_trophy') }}">認證及獎盃</a>
                         </div>
-                        <a style="cursor: default;">得獎及認證</a>
+                        <a href="{{ asset('award_stories') }}">得獎及認證</a>
                     </li>
                     <li>
                         <a href="/"><img src="{{ asset('./img/logo.svg') }}" alt="宏義工程"></a>
@@ -75,7 +79,7 @@
                             <a href="{{ asset('performance/3') }}">建築工程</a>
                             <a href="{{ asset('performance/4') }}">其他</a>
                         </div>
-                        <a style="cursor: default;">工程實績</a>
+                        <a href="{{ asset('performance/1') }}">工程實績</a>
                     </li>
                     <li>
                         <div class="drop_down_menu">
@@ -84,10 +88,23 @@
                             <a href="{{ asset('constructions/3') }}">建築工程</a>
                             <a href="{{ asset('constructions/4') }}">其他</a>
                         </div>
-                        <a style="cursor: default;">在建工程</a>
+                        <a href="{{ asset('constructions/1') }}">在建工程</a>
                     </li>
                     <li>
-                        <a href="{{ asset('technologys') }}">技術專區</a>
+                        <?php
+                            $technologys = App\TechnologyZones::get();
+                            $technology = null;
+                        ?>
+                        <div class="drop_down_menu">
+                            @foreach ($technologys as $index => $item)
+                            <?php
+                            if(!$technology)
+                                $technology = $item;
+                            ?>
+                            <a href="{{ asset('technology/'.$item->id) }}">{{ $item->title }}</a>
+                            @endforeach
+                        </div>
+                        <a href="{{ asset('technology/'.$technology->id) }}">技術專區</a>
                     </li>
                     <li>
                         <a href="{{ asset('occupational_safety') }}">職安資訊</a>
@@ -151,11 +168,16 @@
                         <a href="{{ asset('constructions/4') }}">其他</a>
                     </div>
                 </div>
-                <div class="title-level-wrapper">
+                <div class="title-level-wrapper drop-down">
                     <a>技術專區</a>
+                    <div class="sub-level-wrapper">
+                        @foreach ($technologys as $item)
+                        <a href="{{ asset('technology/'.$item->id) }}">{{ $item->title }}</a>
+                        @endforeach
+                    </div>
                 </div>
                 <div class="title-level-wrapper">
-                    <a>職安資訊</a>
+                    <a href="{{ asset('occupational_safety') }}">職安資訊</a>
                 </div>
             </div>
             <!-- 選單 -->
@@ -175,8 +197,16 @@
         </div>
     </a>
     <!-- 聯絡我們結束 -->
+    <!-- youtube 按鈕開始 -->
+    <a id="youtubelink" class="fixed_icon" href="https://www.youtube.com/channel/UC3PHLbmj_xAMXQtEoQ2Nt9w"
+        target="_block">
+        <div class="icon_box">
+            <i class="fab fa-youtube"></i>
+        </div>
+    </a>
+    <!-- youtube 按鈕結束 -->
     <!-- mail 按鈕開始 -->
-    <a id="email" class="fixed_icon" href="#">
+    <a id="email" class="fixed_icon" href="mailto:hy-taichung@hungyi-cop.com.tw">
         <div class="icon_box">
             <i class="far fa-envelope"></i>
         </div>
@@ -192,22 +222,24 @@
     <footer id="footer">
         <div class="container">
             <div class="row">
-                <div class="col-xl-4 offset-xl-1 col-lg-5 col-md-6 mb-5 footerLogo">
-                    <img src="{{ asset('img/footerLogo.svg') }}" alt="頁尾LOGO">
+                <div class="col-xl-4 offset-xl-1 col-lg-5 footerLogo">
+                    <img src="./img/footerLogo.svg" alt="頁尾LOGO">
                     <div class="taxID">
                         <span>公 司 統 編</span>
-                        <span class="IDnumber">9411420</span>
+                        <span class="IDnumber">94114202</span>
                     </div>
                     <div class="copyright">
                         © 2020 宏義工程股份有限公司 版權所有
                     </div>
                 </div>
-                <div class="col-xl-5 offset-xl-2 offset-lg-1 col-lg-6 col-md-6 footerIntro">
+                <div class="col-xl-5 offset-xl-2 offset-lg-1 col-lg-6 footerIntro">
                     <div class="information">
                         <ul>
                             <li>台北總公司</li>
                             <li>
-                                <span>TEL：02-2771-8965</span>
+                                <span>
+                                    <a href="tel:02-2771-8965">TEL：02-2771-8965</a>
+                                </span>
                                 <span>FAX：02-2775-5896</span>
                             </li>
                             <li>
@@ -223,7 +255,9 @@
                         <ul>
                             <li>台中辦公室</li>
                             <li>
-                                <span>TEL：04-2386-1278</span>
+                                <span>
+                                    <a href="tel:04-2386-1278">TEL：04-2386-1278</a>
+                                </span>
                                 <span>FAX：04-2386-8128</span>
                             </li>
                             <li>
@@ -244,14 +278,14 @@
     <!-- 全站用 start -->
     <!-- bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
     <!-- 全站用 end -->
 
     <!-- 部分分頁選用 start-->

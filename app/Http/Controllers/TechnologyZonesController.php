@@ -23,7 +23,7 @@ class TechnologyZonesController extends Controller
      */
     public function index()
     {
-        $lists = TechnologyZones::all();
+        $lists = TechnologyZones::get();
         return view($this->index, compact('lists'));
     }
 
@@ -54,7 +54,7 @@ class TechnologyZonesController extends Controller
         $new_record->content = $request->content;
         $new_record->save();
 
-        return redirect('admin.technologys')->with('message', '新增成功！');
+        return redirect('admin/technologys')->with('message', '新增成功！');
     }
 
     /**

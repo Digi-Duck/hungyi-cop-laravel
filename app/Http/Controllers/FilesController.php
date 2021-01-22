@@ -53,6 +53,31 @@ class FilesController extends Controller
         //回傳 資料庫儲存用的路徑格式
         return $path;
     }
+
+    // 上傳裁剪圖片
+    public static function imgCropper($base64, $path)
+    {
+        //防呆：資料夾不存在時將會自動建立資料夾，避免錯誤
+        if (!is_dir('upload/')) {
+            mkdir('upload/');
+        }
+        //防呆：資料夾不存在時將會自動建立資料夾，避免錯誤
+        if (!is_dir('upload/' . $path)) {
+            mkdir('upload/' . $path);
+        }
+
+        $image_parts = explode(";base64,", $base64);
+        $image_base64 = base64_decode($image_parts[1]);
+
+        $imageName = uniqid() . '.png';
+
+        $imageFullPath = '/upload/' . $path . '/' . $imageName;
+
+        file_put_contents(public_path() . $imageFullPath, $image_base64);
+
+        return $imageFullPath;
+    }
+
     // 壓縮上傳圖片，檔案/資料夾/寬/高/是否存原檔，返回path
     public static function imgZipUpload($file, $dir, $width, $height, $origin = True)
     {

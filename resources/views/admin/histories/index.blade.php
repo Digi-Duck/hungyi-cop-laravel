@@ -19,6 +19,7 @@
                             <tr>
                                 <th>年份</th>
                                 <th>事件名稱</th>
+                                <th>圖片</th>
                                 <th width="120">功能</th>
                             </tr>
                             </thead>
@@ -27,6 +28,7 @@
                                 <tr>
                                     <td>{{ $list->year }}</td>
                                     <td>{{$list->event}}</td>
+                                    <td><img style="width: 250px;" src="{{ $list->img }}" alt=""></td>
                                     <td>
                                         <a class="btn btn-sm btn-success" href="/admin/histories/{{$list->id}}/edit">編輯</a>
                                         <button class="btn btn-sm btn-danger test" data-listid="{{$list->id}}">刪除</button>
@@ -50,7 +52,7 @@
     <script>
         $(document).ready(function() {
             $('#table').DataTable({
-                "order": [[0,'desc']],
+                "order": [[0,'asc']],
                 scrollCollapse: true,
             });
         } );

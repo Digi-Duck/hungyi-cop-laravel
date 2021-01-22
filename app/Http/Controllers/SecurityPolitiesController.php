@@ -22,8 +22,8 @@ class SecurityPolitiesController extends Controller
     public function index()
     {
         //
-        $list = SecurityPolities::find(1);
-        return view($this->index, compact('list'));
+        $lists = SecurityPolities::get();
+        return view($this->index, compact('lists'));
     }
 
     /**
@@ -34,6 +34,7 @@ class SecurityPolitiesController extends Controller
     public function create()
     {
         //
+        return view($this->create);
     }
 
     /**
@@ -45,6 +46,13 @@ class SecurityPolitiesController extends Controller
     public function store(Request $request)
     {
         //
+        $new_record = new SecurityPolities();
+        $new_record->sort = $request->sort;
+        $new_record->orange_text = $request->orange_text;
+        $new_record->blue_text = $request->blue_text;
+        $new_record->save();
+
+        return redirect('admin/security_polities')->with('message', '新增成功！');
     }
 
     /**
@@ -67,6 +75,8 @@ class SecurityPolitiesController extends Controller
     public function edit($id)
     {
         //
+        $list = SecurityPolities::find($id);
+        return view($this->edit, compact('list'));
     }
 
     /**
@@ -79,18 +89,13 @@ class SecurityPolitiesController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $old_record = SecurityPolities::find(1);
-        $old_record->deaths = $request->deaths;
-        $old_record->injury = $request->injury;
-        $old_record->hospitalized = $request->hospitalized;
-        $old_record->accidents_people = $request->accidents_people;
-        $old_record->accidents_times = $request->accidents_times;
-        $old_record->accidents_false = $request->accidents_false;
-        $old_record->fines_times = $request->fines_times;
-        $old_record->fines_million = $request->fines_million;
+        $old_record = SecurityPolities::find($id);
+        $old_record->sort = $request->sort;
+        $old_record->orange_text = $request->orange_text;
+        $old_record->blue_text = $request->blue_text;
         $old_record->save();
 
-        return redirect('/admin/security_polities')->with('message','更新成功!');
+        return redirect('/admin/security_polities')->with('message', '更新成功!');
     }
 
     /**
@@ -102,5 +107,8 @@ class SecurityPolitiesController extends Controller
     public function destroy($id)
     {
         //
+        $old_record = SecurityPolities::find($id);
+        $old_record->delete();
+        return redirect('/admin/security_polities')->with('message', '刪除成功');
     }
 }

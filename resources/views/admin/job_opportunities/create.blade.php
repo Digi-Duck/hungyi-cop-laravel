@@ -32,7 +32,7 @@
                                 </div>
                             </div>
                             <hr>
-                            <button type="submit" class="btn btn-primary d-block mx-auto">新增</button>
+                            <button id="form_submit" type="submit" class="btn btn-primary d-block mx-auto">新增</button>
                         </form>
                     </div>
                 </div>

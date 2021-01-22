@@ -34,7 +34,7 @@
                                 </div>
                             </div>
                             <hr>
-                            <button type="submit" class="btn btn-primary d-block mx-auto">修改</button>
+                            <button id="form_submit" type="submit" class="btn btn-primary d-block mx-auto">修改</button>
                         </form>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
     <script>
         $(document).ready(function() {
             $('#table').DataTable({
-                "order": [[0,'desc']],
+                "order": [[0,'asc']],
                 scrollCollapse: true,
             });
         } );

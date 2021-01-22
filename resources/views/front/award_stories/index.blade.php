@@ -4,7 +4,7 @@
 @endsection
 @section('main')
     <div class="page_header">
-        <div class="sub_banner"></div>
+        <div class="sub_banner" style="background-image: url({{ asset($sub_banner->img) }})"></div>
         <div class="container">
             <h1>得獎事蹟</h1>
             <nav aria-label="breadcrumb">

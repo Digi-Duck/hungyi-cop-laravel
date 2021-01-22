@@ -88,7 +88,7 @@
                         </div>
 
                         <hr>
-                        <button type="submit" class="btn btn-primary d-block mx-auto">更新</button>
+                        <button id="form_submit" type="submit" class="btn btn-primary d-block mx-auto">更新</button>
                     </form>
                 </div>
             </div>

@@ -41,7 +41,11 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="/admin/seo">SEO設定</a>
                         </li>
-                        {{-- 首頁 --}}
+                        {{-- 副Banner --}}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="{{ asset('/admin/sub_banners') }}">副Banner</a>
+                        </li>
+                        {{-- 關於我們 --}}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
@@ -120,7 +124,7 @@
                                 職安資訊
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="/admin/safety_minutes">職安衛生委員會議紀錄</a></li>
+                                {{-- <li><a class="dropdown-item" href="/admin/safety_minutes">職安衛生委員會議紀錄</a></li> --}}
                                 <li><a class="dropdown-item" href="/admin/safety_plans">職安衛生教育訓練計畫</a></li>
                                 <li><a class="dropdown-item" href="/admin/safety_decrees">法令規章</a></li>
                                 <li><a class="dropdown-item" href="/admin/safety_cases">案例宣導</a></li>
@@ -212,10 +216,10 @@
         </main>
     </div>
 
-     <!-- Scripts -->
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
      <script src="{{ asset('js/app.js') }}"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
      <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>

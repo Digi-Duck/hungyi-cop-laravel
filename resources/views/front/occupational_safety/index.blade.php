@@ -4,8 +4,20 @@
 @endsection
 @section('main')
     <section id="info">
+        <div class="page_header">
+            <div style="background-image: url({{ asset($sub_banner->img) }})" class="sub_banner"></div>
+            <div class="container">
+                <h1>職安專區</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ asset('/') }}">首頁</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">職安專區</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
         <div class="container">
-            <div class="row swiper_block">
+            {{-- <div class="row swiper_block">
                 <h1>職安衛生委員會議紀錄</h1>
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
@@ -20,7 +32,7 @@
                     <!-- <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div> -->
                 </div>
-            </div>
+            </div> --}}
             <div class="row swiper_block">
                 <h1>職安衛生教育訓練計畫</h1>
                 <div class="swiper-container">

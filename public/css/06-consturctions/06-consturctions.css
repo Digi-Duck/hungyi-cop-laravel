@@ -173,18 +173,22 @@ ol.tab .tab_btn.active a {
   color: #5192AE;
   font-weight: 600;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 ol.tab .tab_btn.active a::before {
   content: '';
+  display: block;
   width: 20px;
   height: 14px;
-  position: absolute;
+  position: relative;
   background-image: url("../../img/04-award/mark.svg");
-  left: -25px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  margin-right: 5px;
 }
 
 ol.tab .mark {
@@ -255,6 +259,12 @@ main .container .card_content .card .card_img_top {
   background-size: cover;
 }
 
+@media (max-width: 576px) {
+  main .container .card_content .card .card_img_top {
+    height: 332px;
+  }
+}
+
 main .container .card_content .card .card_img_top .card_create_date {
   position: absolute;
   bottom: 0;
@@ -262,6 +272,13 @@ main .container .card_content .card .card_img_top .card_create_date {
   background-color: #004460;
   color: white;
   font-size: 20px;
+}
+
+@media (max-width: 576px) {
+  main .container .card_content .card .card_img_top .card_create_date {
+    font-size: 14px;
+    padding: 7px 5px;
+  }
 }
 
 main .container .card_content .card .card_img_top .hover_mask {
@@ -333,6 +350,12 @@ main .container .card_content .card .card-body .card-title {
   font-size: 24px;
 }
 
+@media (max-width: 576px) {
+  main .container .card_content .card .card-body .card-title {
+    font-size: 20px;
+  }
+}
+
 main .container .card_content .card .card-body .card_info {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -343,6 +366,12 @@ main .container .card_content .card .card-body .card_info {
       -ms-flex-pack: justify;
           justify-content: space-between;
   font-size: 20px;
+}
+
+@media (max-width: 576px) {
+  main .container .card_content .card .card-body .card_info {
+    font-size: 14px;
+  }
 }
 
 main .container .card_content .card .card-body .card_info > div {
@@ -373,60 +402,5 @@ main .container .pages {
       -ms-flex-pack: center;
           justify-content: center;
   margin-bottom: 100px;
-}
-
-.award_storis_modal .modal-content .modal-header {
-  position: relative;
-  padding: 0;
-}
-
-.award_storis_modal .modal-content .modal-header .close {
-  position: absolute;
-  right: 0;
-  top: -45px;
-  font-size: 40px;
-  color: white;
-  opacity: 1;
-}
-
-.award_storis_modal .modal-content .modal-header .close:focus {
-  outline: none;
-}
-
-.award_storis_modal .modal-content .modal-header .modal_img_top {
-  position: relative;
-  height: 540px;
-  background-size: cover;
-  background-position: center;
-}
-
-.award_storis_modal .modal-content .modal-header .modal_img_top .modal_create_date {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background-color: #004460;
-  white-space: nowrap;
-  font-size: 20px;
-  color: white;
-  padding: 10px 5px;
-}
-
-.award_storis_modal .modal-content .modal-body {
-  padding: 10px 30px;
-}
-
-.award_storis_modal .modal-content .modal-body .modal-title {
-  font-size: 26px;
-  color: #5192AE;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  padding-bottom: 10px;
-}
-
-.award_storis_modal .modal-content .modal-body .modal-text {
-  font-size: 20px;
-  letter-spacing: 1px;
-  line-height: 22px;
 }
 /*# sourceMappingURL=06-consturctions.css.map */
