@@ -61,7 +61,7 @@
                             </div>
                             <label for="img" class="col-2 col-form-label">內容圖片</label>
                             <div class="col-10">
-                                <input id="uploadImg" type="file" data-mywidth="960" data-myheight="540"
+                                <input id="uploadImg" type="file" data-mywidth="348" data-myheight="270"
                                     class="form-control image">
                                 <input type="text" class="form-control " id="img" name="img" hidden>
                                 {{-- <input type="file" class="form-control" id="img" name="img[]" required> --}}

@@ -58,14 +58,14 @@ class FrontController extends Controller
     {
         $lists = JobOpportunities::all();
         $units = JobOpportunitieUnits::all();
-        $sub_banner = SubBanners::where('page', '職缺資訊')->first();
+        $sub_banner = SubBanners::where('page', '動態消息')->first();
         return view('front.job_opportunity.index', compact('lists', 'units', 'sub_banner'));
     }
 
     public function tender()
     {
         $lists = Tenders::orderby('sort', 'asc')->paginate();
-        $sub_banner = SubBanners::where('page', '得標資訊')->first();
+        $sub_banner = SubBanners::where('page', '動態消息')->first();
         return view('front.tender.index', compact('lists', 'sub_banner'));
     }
 
@@ -139,6 +139,11 @@ class FrontController extends Controller
         $sub_banner = SubBanners::where('page', '工程實績')->first();
         // $imgs = PerformancesImgs::all();
 
+        // if ($_SESSION[$list->id . 'come'] != 'v') {
+        $list->view_times = $list->view_times + 1;
+        $list->save();
+        // $_SESSION[$list->id . 'come'] = 'v';
+
         // dd($imgs);
 
         $type_name = '實績';
@@ -160,7 +165,8 @@ class FrontController extends Controller
         $imgs = ConstructionsImgs::where('construction_id', $id)->get();
         $sub_banner = SubBanners::where('page', '在建工程')->first();
         // $imgs = PerformancesImgs::all();
-
+        $list->view_times = $list->view_times + 1;
+        $list->save();
         // dd($imgs);
 
         $type_name = '實績';

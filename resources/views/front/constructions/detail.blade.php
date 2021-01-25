@@ -131,7 +131,7 @@
         @endisset
     </div>
     <a href="">
-        <div class="back">回上一頁</div>
+        <div onclick="window.history.go(-1); return false;" class="back">回上一頁</div>
     </a>
 </div>
 @endsection

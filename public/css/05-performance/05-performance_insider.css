@@ -19,6 +19,12 @@
   left: -20px;
 }
 
+@media (max-width: 767px) {
+  .page_header h1 {
+    font-size: 2rem;
+  }
+}
+
 /*css命名
  顯示屬性>盒模型>背景>行高>文本屬性>其他
 (1)頁面結構
@@ -203,39 +209,99 @@ main .container .content {
   margin-bottom: 50px;
 }
 
-main .container .content .listTitle {
-  margin-right: 30px;
-  width: 58px;
-  height: 32px;
-  line-height: 32px;
-  background-color: #004663;
-  color: white;
-  text-align: center;
-}
-
-main .container .content .text {
-  line-height: 32px;
-}
-
 main .container .content .singleTitle {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-bottom: 27px;
 }
 
-main .container .content .singleTitle .text {
-  width: calc(100% - 88px);
+main .container .content .singleTitle:last-of-type {
+  margin-bottom: 60px;
+}
+
+main .container .content .singleTitle .block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px 0;
+}
+
+@media (max-width: 576px) {
+  main .container .content .singleTitle .block {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+main .container .content .listTitle {
+  margin-right: 30px;
+  padding: 6px 7.5px;
+  background-color: #004663;
+  color: white;
+  text-align: center;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -ms-flex-item-align: baseline;
+      align-self: baseline;
+}
+
+main .container .content .text {
+  line-height: 32px;
+  -ms-flex-item-align: baseline;
+      align-self: baseline;
 }
 
 main .container .content .doubleTitle {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 50px 0px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 27px;
+  gap: 27px 0;
+}
+
+main .container .content .doubleTitle .block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media (max-width: 767px) {
+  main .container .content .doubleTitle .block {
+    width: 100%;
+  }
 }
 
 main .container .content .doubleTitle .text {
   margin-right: 120px;
+}
+
+@media (max-width: 576px) {
+  main .container .content .doubleTitle .text {
+    margin-right: 0;
+  }
+}
+
+main .container .content .progressBlock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 45px;
+  color: white;
+  gap: 30px;
+}
+
+@media (max-width: 576px) {
+  main .container .content .progressBlock {
+    padding-top: 10px;
+  }
 }
 
 main .container a {

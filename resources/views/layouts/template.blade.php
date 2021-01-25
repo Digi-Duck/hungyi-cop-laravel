@@ -223,7 +223,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-4 offset-xl-1 col-lg-5 footerLogo">
-                    <img src="./img/footerLogo.svg" alt="頁尾LOGO">
+                    <img src="{{ asset('/img/footerLogo.svg') }}" alt="頁尾LOGO">
                     <div class="taxID">
                         <span>公 司 統 編</span>
                         <span class="IDnumber">94114202</span>

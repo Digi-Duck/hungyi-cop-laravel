@@ -26,12 +26,8 @@ class InitialController extends Controller
                 'page' => '關於我們',
                 'img' => 'img/00-banner/01-about.png'
             ],
-            'job' => [
-                'page' => '職缺資訊',
-                'img' => 'img/00-banner/02-job.png'
-            ],
             'news' => [
-                'page' => '得標資訊',
+                'page' => '動態消息',
                 'img' => 'img/00-banner/02-news.png'
             ],
             'serve' => [

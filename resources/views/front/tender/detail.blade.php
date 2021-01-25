@@ -51,7 +51,7 @@
             {!! $list->content !!}
         </div>
         <a href="{{ asset('tender/') }}">
-            <div class="back">回上一頁</div>
+            <div onclick="window.history.go(-1); return false;" class="back">回上一頁</div>
         </a>
     </div>
 @endsection

@@ -124,16 +124,22 @@
   text-shadow: 1px 1px 10px black;
 }
 
+@media (max-width: 991px) {
+  #banner .container .row .Introduction {
+    padding: 0 30px;
+  }
+}
+
 @media (max-width: 768px) {
   #banner .container .row .Introduction {
-    padding: 0 90px;
+    padding: 0 70px;
   }
 }
 
 @media (max-width: 423px) {
   #banner .container .row .Introduction {
     font-size: 18px;
-    padding: 0 40px;
+    padding: 0 60px;
   }
 }
 
@@ -141,9 +147,9 @@
   line-height: 2;
 }
 
-@media (max-width: 423px) {
+@media (max-width: 767px) {
   #banner .container .row .Introduction div {
-    line-height: 35px;
+    line-height: 1.7;
   }
 }
 

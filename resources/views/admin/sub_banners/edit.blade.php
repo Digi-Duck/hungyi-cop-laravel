@@ -59,7 +59,12 @@
                             </div>
                             <label for="img" class="col-2 col-form-label">Banner (更新圖片)</label>
                             <div class="col-10">
-                                <input id="uploadImg" type="file" data-mywidth="1920" data-myheight="480"
+                                <input id="uploadImg" type="file"
+                                @if ($list->page != '首頁')
+                                    data-mywidth="1920" data-myheight="480"
+                                @elseif ($list->page == '首頁')
+                                    data-mywidth="1920" data-myheight="795"
+                                @endif
                                     class="form-control image">
                                 <input type="text" class="form-control " id="img" name="img" hidden>
                                 {{-- <input type="file" class="form-control" id="img" name="img" required> --}}
