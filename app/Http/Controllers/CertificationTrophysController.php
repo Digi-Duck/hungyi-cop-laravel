@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\CertificationTrophys;
+use App\CertificationTrophysImgs;
 use Illuminate\Http\Request;
 
 class CertificationTrophysController extends Controller
@@ -58,6 +59,18 @@ class CertificationTrophysController extends Controller
         }
         $new_record->save();
 
+        if ($request->hasFile('imgs')) {
+            $files = $request->file('imgs');
+
+            foreach ($files as $file) {
+                $path = FilesController::imgZipUpload($file, 'certification_img', 800, 540, false);
+                $query = new CertificationTrophysImgs();
+                $query->certification_trophys_id = $new_record->id;
+                $query->img = $path;
+                $query->save();
+            }
+        }
+
         return redirect('/admin/certification_trophys')->with('message', '新增成功!');
     }
 
@@ -108,6 +121,16 @@ class CertificationTrophysController extends Controller
             }
             $old_record->img = FilesController::imgCropper($request->img, 'certification_img');
         }
+        if ($request->hasFile('imgs')) {
+            $files = $request->file('imgs');
+            foreach ($files as $file) {
+                $path = FilesController::imgZipUpload($file, 'certification_img', 800, 540, false);
+                $query = new CertificationTrophysImgs();
+                $query->certification_trophys_id = $old_record->id;
+                $query->img = $path;
+                $query->save();
+            }
+        }
         $old_record->save();
         return redirect('/admin/certification_trophys')->with('message', '更新成功!');
     }
@@ -124,7 +147,27 @@ class CertificationTrophysController extends Controller
         $old_record = CertificationTrophys::find($id);
         if ($old_record->img != '/img/404/noimg.png')
             FilesController::deleteUpload($old_record->img);
+
+        $old_imgs = CertificationTrophysImgs::where('certification_trophys_id', $id)->get();
+        foreach ($old_imgs as $old_img) {
+            FilesController::deleteUpload($old_img->img);
+            $old_img->delete();
+        }
+
         $old_record->delete();
         return redirect('/admin/certification_trophys')->with('message', '刪除成功!');
+    }
+
+    public function deleteFile(Request $request)
+    {
+        if ($request->type == 'img') {
+            $img = CertificationTrophysImgs::find($request->id);
+            $old_img = $img->img;
+            FilesController::deleteUpload($old_img);
+            $img->delete();
+            return "success";
+        }
+
+        return "fail";
     }
 }

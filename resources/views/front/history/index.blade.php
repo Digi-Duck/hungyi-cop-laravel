@@ -30,9 +30,11 @@
                             <div class="address">{{ $item->address }}</div>
                             <div style="width: 100%" class="engineering">{{ $item->engineering }}</div>
                         </div>
+                        @if (isset($item->img))
                         <div class="event_img">
                             <img style="width: 100%" src="{{ $item->img }}" alt="">
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>

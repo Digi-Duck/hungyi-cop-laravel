@@ -82,7 +82,12 @@ class SubBannersController extends Controller
     {
         //
         $old_record = SubBanners::find($id);
+        $img_path = mb_substr($old_record->img, 0, 4);
         if ($request->img) {
+            if ($img_path != 'img/') {
+                FilesController::deleteUpload($old_record->img);
+            }
+
             $old_record->img = FilesController::imgCropper($request->img, 'subbanner_img');
         }
         $old_record->save();

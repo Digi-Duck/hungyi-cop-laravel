@@ -1,29 +1,30 @@
 @extends('layouts.app')
 
 @section('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.css" />
 <style>
-    .imgs_area{
-        position: relative;
-    }
-    .imgs_area img{
-        border: 1px solid #000;
-    }
-    .del_btn{
-        position:absolute;
-        top: 0;
-        right:0;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        transform: translate(50%,-50%);
-        font-size: 25px;
-        line-height: 30px;
-        text-align: center;
-        z-index: 20;
-        cursor: pointer;
-    }
     .fa-file{
         font-size: 48px;
+    }
+
+    img#image {
+        display: block;
+        max-width: 100%;
+    }
+
+    .preview {
+        display: none;
+        overflow: hidden;
+        width: 260px;
+        height: 260px;
+        margin-left: 10px;
+        border: 1px solid red;
+    }
+
+    #cropbtn {
+        margin-top: 10px;
+        margin-left: 10px;
+        display: none
     }
 </style>
 @endsection
@@ -48,6 +49,32 @@
                             <div class="col-12"><p class="text-danger">權重等於排序，數字越小排序越前面。</p></div>
                         </div>
                         <div class="form-group row">
+                            <label for="img" class="col-2 col-form-label">Banner (目前圖片)</label>
+                            <div class="col-10">
+                                <img style="width: 350px" src="{{ asset($list->img) }}" alt="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-2 mb-3">
+                                <img id="image" src="">
+                            </div>
+                            <div class="col-md-4">
+                                <div id="preview" class="preview"></div>
+                            </div>
+                            <label for="img" class="col-2 col-form-label">Banner (更新圖片)</label>
+                            <div class="col-10">
+                                <input id="uploadImg" type="file"
+                                @if ($list->page != '首頁')
+                                    data-mywidth="1920" data-myheight="480"
+                                @elseif ($list->page == '首頁')
+                                    data-mywidth="1920" data-myheight="795"
+                                @endif
+                                    class="form-control image">
+                                <input type="text" class="form-control " id="img" name="img" hidden>
+                                {{-- <input type="file" class="form-control" id="img" name="img" required> --}}
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label for="title" class="col-2 col-form-label">標題</label>
                             <div class="col-10">
                                 <input class="form-control" id="title" name="title" value="{{ $list->title }}" required>
@@ -62,7 +89,7 @@
                         <div class="form-group row">
                             <label for="content" class="col-2 col-form-label">內容</label>
                             <div class="col-10">
-                                <textarea name="content" id="content" cols="" rows="10" style="width: 100%" required>{{ $list->content }}</textarea>
+                                <textarea class="form-control" name="content" id="content" cols="" rows="10" style="width: 100%" required>{{ $list->content }}</textarea>
                             </div>
                         </div>
                         <hr>
@@ -76,4 +103,6 @@
 @endsection
 
 @section('js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.js"></script>
+<script src="{{ asset('js/cropper.js') }}"></script>
 @endsection

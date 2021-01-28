@@ -34,7 +34,7 @@
                     <a href="/performance_detail/{{ $item->id }}">
                         <div class="card">
                             <div class="card_img_top" style="background-image: url({{ $item->imgs }})">
-                                <div class="card_create_date">{{ $item->location }}</div>
+                                <div class="card_create_date">{{ $item->category }}</div>
                                 <div class="hover_mask">
                                     <div class="hover_icon"></div>
                                     <div class="hover_text">MORE</div>

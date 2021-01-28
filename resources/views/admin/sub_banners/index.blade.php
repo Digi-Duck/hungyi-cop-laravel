@@ -14,6 +14,12 @@
                     副Banner管理
                 </h4>
                 <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="text-secondary">技術專區的 Baneer 請前往 <a href="{{ asset('admin/technologys') }}">技術專區</a> 進行更換</h5>
+                        </div>
+                    </div>
+                    <hr>
                     <table id="table" class="table table-bordered table-striped table-hover">
                         <thead>
                             <tr>

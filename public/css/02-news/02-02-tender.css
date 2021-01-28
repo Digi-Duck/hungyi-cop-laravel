@@ -19,6 +19,18 @@
   left: -20px;
 }
 
+@media (max-width: 767px) {
+  .page_header h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .page_header h1 {
+    font-size: 1.7rem;
+  }
+}
+
 main .container a .tender_card .card_img_top .hover_mask::before, main .container a .tender_card .card_img_top .hover_mask::after, main .container a .tender_card .card_img_top .hover_mask .hover_icon, main .container a .tender_card .card_img_top .hover_mask .hover_text {
   position: absolute;
   top: 50%;
@@ -137,6 +149,8 @@ main .container a .tender_card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   margin-bottom: 30px;
   cursor: pointer;
 }
@@ -164,6 +178,12 @@ main .container a .tender_card .card_img_top {
   position: relative;
   background-size: cover;
   background-position: center;
+}
+
+@media (max-width: 767px) {
+  main .container a .tender_card .card_img_top {
+    width: 100%;
+  }
 }
 
 main .container a .tender_card .card_img_top .card_create_date {
@@ -246,6 +266,19 @@ main .container a .tender_card .content {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  max-height: 310px;
+}
+
+@media (max-width: 991px) {
+  main .container a .tender_card .content {
+    padding: 20px 25px;
+  }
+}
+
+@media (max-width: 767px) {
+  main .container a .tender_card .content {
+    width: 100%;
+  }
 }
 
 main .container a .tender_card .content .title {
@@ -255,8 +288,20 @@ main .container a .tender_card .content .title {
   margin-bottom: 10px;
 }
 
+@media (max-width: 767px) {
+  main .container a .tender_card .content .title {
+    font-size: 22px;
+  }
+}
+
 main .container a .tender_card .content .date {
   margin-bottom: 10px;
+}
+
+@media (max-width: 767px) {
+  main .container a .tender_card .content .date {
+    font-size: 18px;
+  }
 }
 
 main .container a .tender_card .content .text {
@@ -268,6 +313,12 @@ main .container a .tender_card .content .text {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   margin-bottom: auto;
+}
+
+@media (max-width: 767px) {
+  main .container a .tender_card .content .text {
+    display: none;
+  }
 }
 
 main .container a .tender_card .content .readmore {

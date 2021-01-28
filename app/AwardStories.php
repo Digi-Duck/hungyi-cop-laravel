@@ -28,4 +28,8 @@ class AwardStories extends Model
      */
     protected $fillable = ['award_date', 'title', 'content', 'img', 'sort', 'created_at', 'updated_at'];
 
+    public function awardStoriesImgs()
+    {
+        return $this->hasMany('App\AwardStoriesImgs', 'award_stories_id');
+    }
 }

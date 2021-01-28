@@ -25,6 +25,12 @@
   }
 }
 
+@media (max-width: 576px) {
+  .page_header h1 {
+    font-size: 1.7rem;
+  }
+}
+
 /*css命名
  顯示屬性>盒模型>背景>行高>文本屬性>其他
 (1)頁面結構

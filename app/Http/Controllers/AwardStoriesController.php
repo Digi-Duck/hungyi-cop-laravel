@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\AwardStories;
+use App\AwardStoriesImgs;
 use Illuminate\Http\Request;
 
 class AwardStoriesController extends Controller
@@ -57,6 +58,17 @@ class AwardStoriesController extends Controller
             $new_record->img = '/img/404/noimg.png';
         }
         $new_record->save();
+        if ($request->hasFile('imgs')) {
+            $files = $request->file('imgs');
+
+            foreach ($files as $file) {
+                $path = FilesController::imgZipUpload($file, 'award_img', 800, 540, false);
+                $query = new AwardStoriesImgs();
+                $query->award_stories_id = $new_record->id;
+                $query->img = $path;
+                $query->save();
+            }
+        }
 
         return redirect('/admin/award_stories')->with('message', '新增成功!');
     }
@@ -107,6 +119,16 @@ class AwardStoriesController extends Controller
             }
             $old_record->img = FilesController::imgCropper($request->img, 'award_img');
         }
+        if ($request->hasFile('imgs')) {
+            $files = $request->file('imgs');
+            foreach ($files as $file) {
+                $path = FilesController::imgZipUpload($file, 'award_img', 800, 540, false);
+                $query = new AwardStoriesImgs();
+                $query->award_stories_id = $old_record->id;
+                $query->img = $path;
+                $query->save();
+            }
+        }
         $old_record->save();
         return redirect('/admin/award_stories')->with('message', '更新成功!');
     }
@@ -123,7 +145,27 @@ class AwardStoriesController extends Controller
         $old_record = AwardStories::find($id);
         if ($old_record->img != '/img/404/noimg.png')
             FilesController::deleteUpload($old_record->img);
+
+        $old_imgs = AwardStoriesImgs::where('award_stories', $old_record->id);
+        foreach ($old_imgs as $old_img) {
+            FilesController::deleteUpload($old_img->img);
+            $old_img->delete();
+        }
+
         $old_record->delete();
         return redirect('/admin/award_stories')->with('message', '刪除成功!');
+    }
+
+    public function deleteFile(Request $request)
+    {
+        if ($request->type == 'img') {
+            $img = AwardStoriesImgs::find($request->id);
+            $old_img = $img->img;
+            FilesController::deleteUpload($old_img);
+            $img->delete();
+            return "success";
+        }
+
+        return "fail";
     }
 }

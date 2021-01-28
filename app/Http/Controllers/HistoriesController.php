@@ -54,8 +54,6 @@ class HistoriesController extends Controller
         $new_record->engineering  = $request->engineering;
         if ($request->img) {
             $new_record->img = FilesController::imgCropper($request->img, 'histories_img');
-        } else {
-            $new_record->img = '/img/404/noimg.png';
         }
         $new_record->save();
 
@@ -109,7 +107,10 @@ class HistoriesController extends Controller
                 FilesController::deleteUpload($old_record->img);
             }
             $old_record->img = FilesController::imgCropper($request->img, 'histories_img');
+        } elseif (!$request->img) {
+            $old_record->img = null;
         }
+        
         $old_record->save();
         return redirect('/admin/histories')->with('message', '更新成功!');
     }

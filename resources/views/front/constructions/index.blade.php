@@ -34,7 +34,7 @@
                 <a href="{{ asset('constructions_detail/'.$item->id) }}">
                     <div class="card" data-toggle="modal" data-target="#award_storis_modal">
                         <div class="card_img_top" style="background-image: url('{{ $item->imgs }}')">
-                            <div class="card_create_date">{{ $item->owner }}</div>
+                            <div class="card_create_date">{{ $item->category }}</div>
                             <div class="hover_mask">
                                 <div class="hover_icon"></div>
                                 <div class="hover_text">MORE</div>

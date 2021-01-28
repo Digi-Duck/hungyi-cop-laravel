@@ -51,9 +51,15 @@
         </div>
     </div>
     <div class="content">
-        <div class="singleTitle">
-            <span class="listTitle">工期</span>
-            <span class="text">{{ $list->performances_date }}</span>
+        <div class="doubleTitle">
+            <div class="block">
+                <span class="listTitle">標別</span>
+                <span class="text">{{ $list->category }}</span>
+            </div>
+            <div class="block">
+                <span class="listTitle">工期</span>
+                <span class="text">{{ $list->performances_date }}</span>
+            </div>
         </div>
         <div class="doubleTitle">
             <div class="block">

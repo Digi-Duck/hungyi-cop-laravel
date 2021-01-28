@@ -67,7 +67,7 @@
                                 @enderror
                             </div>
                             <div class="col-12">
-                                <p class="text-danger">單張圖片裁減上傳</p>
+                                <p class="text-danger">單張圖片裁減上傳 *如不上傳照片則無照片</p>
                             </div>
                         </div>
                         <div class="form-group row">

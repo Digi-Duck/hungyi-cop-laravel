@@ -140,6 +140,9 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
         'update', 'destroy'
     ]);
 
+    Route::post('ajax_upload_img', 'FilesController@ajax_upload_img');
+    Route::post('ajax_delete_img', 'FilesController@ajax_delete_img');
+
     // 職安資訊
     // -職安衛生教育會議記錄
     Route::resource('safety_minutes', 'SafetyMinutesController');

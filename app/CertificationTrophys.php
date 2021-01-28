@@ -28,4 +28,8 @@ class CertificationTrophys extends Model
      */
     protected $fillable = ['award_date', 'title', 'content', 'img', 'sort', 'created_at', 'updated_at'];
 
+    public function certificationTrophysImgs()
+    {
+        return $this->hasMany('App\CertificationTrophysImgs', 'certification_trophys_id');
+    }
 }

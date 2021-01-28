@@ -20,7 +20,7 @@ class CreateHistoriesTable extends Migration
             $table->string('capital');
             $table->string('address');
             $table->string('engineering');
-            $table->string('img');
+            $table->string('img')->nullable();
             $table->timestamps();
         });
     }

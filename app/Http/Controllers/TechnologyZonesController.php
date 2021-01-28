@@ -47,11 +47,14 @@ class TechnologyZonesController extends Controller
     public function store(Request $request)
     {
         //
-        $new_record = New TechnologyZones();
+        $new_record = new TechnologyZones();
         $new_record->sort = $request->sort;
         $new_record->title = $request->title;
         $new_record->subtitle = $request->subtitle;
         $new_record->content = $request->content;
+        if ($request->img) {
+            $new_record->img = FilesController::imgCropper($request->img, 'subbanner_img');
+        }
         $new_record->save();
 
         return redirect('admin/technologys')->with('message', '新增成功！');
@@ -96,6 +99,12 @@ class TechnologyZonesController extends Controller
         $old_record->title = $request->title;
         $old_record->subtitle = $request->subtitle;
         $old_record->content = $request->content;
+        if ($request->img) {
+            if ($request->img != 'img/00-banner/07-technology.png')
+                FilesController::deleteUpload($old_record->img);
+
+            $old_record->img = FilesController::imgCropper($request->img, 'subbanner_img');
+        }
         $old_record->save();
         return redirect('admin/technologys')->with('message', '修改完成');
     }
@@ -111,12 +120,14 @@ class TechnologyZonesController extends Controller
         //
         $zone = TechnologyZones::find($id);
 
-        $hasBlock = TechnologyBlocks::where('zones_id' , $id)->count();
-        if($hasBlock)
-            return redirect('admin/technologys')->with('message', '目前 '.$zone->title.' 內尚有 '.$hasBlock.' 個區塊，請先進入專區刪除剩餘區塊，才能刪除本技術專區！');
-        else
+        $hasBlock = TechnologyBlocks::where('zones_id', $id)->count();
+        if ($hasBlock)
+            return redirect('admin/technologys')->with('message', '目前 ' . $zone->title . ' 內尚有 ' . $hasBlock . ' 個區塊，請先進入專區刪除剩餘區塊，才能刪除本技術專區！');
+        else {
+            if ($zone->img != 'img/00-banner/07-technology.png')
+                FilesController::deleteUpload($zone->img);
             $zone->delete();
-
+        }
         return redirect('admin/technologys')->with('message', '刪除成功！');
     }
 }

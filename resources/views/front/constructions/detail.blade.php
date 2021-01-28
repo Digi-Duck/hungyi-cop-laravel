@@ -52,7 +52,11 @@
         </div>
     </div>
     <div class="content">
-        <div class="singleTitle">
+        <div class="doubleTitle">
+            <div class="block">
+                <span class="listTitle">標別</span>
+                <span class="text">{{ $list->category }}</span>
+            </div>
             <div class="block">
                 <span class="listTitle">業主</span>
                 <span class="text">{{ $list->owner }}</span>

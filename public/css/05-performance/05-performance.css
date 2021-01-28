@@ -19,6 +19,18 @@
   left: -20px;
 }
 
+@media (max-width: 767px) {
+  .page_header h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .page_header h1 {
+    font-size: 1.7rem;
+  }
+}
+
 main .container .card_content .card .card_img_top .hover_mask::before, main .container .card_content .card .card_img_top .hover_mask::after, main .container .card_content .card .card_img_top .hover_mask .hover_icon, main .container .card_content .card .card_img_top .hover_mask .hover_text {
   position: absolute;
   top: 50%;
@@ -132,7 +144,7 @@ ol.tab {
 
 @media (max-width: 991px) {
   ol.tab {
-    left: 25px;
+    left: 0;
     top: 45%;
   }
 }
@@ -162,6 +174,12 @@ ol.tab .tab_btn {
 @media (max-width: 420px) {
   ol.tab .tab_btn {
     font-size: 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  ol.tab .tab_btn {
+    font-size: 14px;
   }
 }
 
@@ -257,11 +275,18 @@ main .container .card_content .card .card_img_top {
   height: 415px;
   position: relative;
   background-size: cover;
+  background-position: center;
+}
+
+@media (max-width: 1200px) {
+  main .container .card_content .card .card_img_top {
+    height: 380px;
+  }
 }
 
 @media (max-width: 576px) {
   main .container .card_content .card .card_img_top {
-    height: 332px;
+    height: 67.639vw;
   }
 }
 
@@ -353,6 +378,7 @@ main .container .card_content .card .card-body .card-title {
 @media (max-width: 576px) {
   main .container .card_content .card .card-body .card-title {
     font-size: 20px;
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -379,6 +405,12 @@ main .container .card_content .card .card-body .card_info > div {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+@media (max-width: 576px) {
+  main .container .card_content .card .card-body .card_info > div {
+    padding: 0.7rem 0;
+  }
 }
 
 main .container .card_content .card .card-body .card_info .sub_info {

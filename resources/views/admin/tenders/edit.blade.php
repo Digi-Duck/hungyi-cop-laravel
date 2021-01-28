@@ -108,6 +108,9 @@
                                 <p class="text-danger error_message">{{ $message}}</p>
                                 @enderror
                             </div>
+                            <div class="col-12">
+                                <p class="text-danger">單多張圖片裁減上傳</p>
+                            </div>
                         </div>
                         <hr>
                         <div class="form-group row">
@@ -136,16 +139,16 @@
                         </div>
                         <hr>
                         <div class="form-group row">
-                            <label for="title" class="col-2 col-form-label">公告標題 (英)</label>
+                            <label for="title" class="col-2 col-form-label">公告標題  </label>
                             <div class="col-10">
                                 <input class="form-control" id="title" name="title" value="{{$list->title}}">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="content" class="col-2 col-form-label">公告內容 (英)</label>
+                            <label for="content" class="col-2 col-form-label">公告內容  </label>
                             <div class="col-10">
                                 <textarea class="summernote" name="content" id="content" cols="30"
-                                    rows="10">{{$list->content}}</textarea>
+                                    rows="10">{!! $list->content !!}</textarea>
                             </div>
                         </div>
                         <hr>
@@ -156,6 +159,8 @@
         </div>
     </div>
 </div>
+
+
 @endsection
 
 @section('js')
@@ -163,15 +168,71 @@
 
 <script>
     $(document).ready(function() {
-            $('.summernote').summernote({
-                height: 300,
-                popover: {
-                    image: [],
-                    link: [],
-                    air: []
+        $('.summernote').summernote({
+            height: 300,
+            lang: 'zh-TW',
+            fontNames: [
+            'Serif', 'Sans', 'Arial', '新細明體', '微軟正黑體', '標楷體'
+            ],
+            callbacks: {
+                onImageUpload: function(files) {
+                    for(let i=0; i < files.length; i++) {
+                        $.upload(files[i], '.summernote');
+                    }
+                },
+                onMediaDelete: function(target) {
+                    $.delete(target[0].getAttribute("src"));
                 }
-            })
+            },
+        })
+    });
+
+    $.upload = function(file, imageTarget) {
+        let out = new FormData();
+        out.append('file', file, file.name);
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
         });
+        console.log(imageTarget);
+        $.ajax({
+            method: 'POST',
+            url: '/admin/ajax_upload_img',
+            contentType: false,
+            cache: false,
+            processData: false,
+            data: out,
+            success: function(img) {
+                $(imageTarget).summernote('insertImage', img, 'img');
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.error(textStatus + " " + errorThrown);
+            }
+        });
+    };
+
+    $.delete = function (file_link) {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            method: 'POST',
+            url: '/admin/ajax_delete_img',
+            data: {file_link:file_link},
+            success: function (img) {
+                console.log("delete:",img);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.error(textStatus + " " + errorThrown);
+            }
+        });
+    }
+
         $('.del_btn').click(function () {
             var type = $(this).attr("data-type");
             if(type == "img")

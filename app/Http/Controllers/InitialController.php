@@ -22,33 +22,69 @@ class InitialController extends Controller
                 'page' => '首頁',
                 'img' => 'img/00-banner/00-index.jpg'
             ],
-            'about' => [
-                'page' => '關於我們',
+            'vision' => [
+                'page' => '理念願景',
                 'img' => 'img/00-banner/01-about.png'
             ],
-            'news' => [
-                'page' => '動態消息',
+            'history' => [
+                'page' => '公司沿革',
+                'img' => 'img/00-banner/01-about.png'
+            ],
+            'security_policy' => [
+                'page' => '職安品質政策',
+                'img' => 'img/00-banner/01-about.png'
+            ],
+            'job_opportunities' => [
+                'page' => '職缺公告',
+                'img' => 'img/00-banner/02-news.png'
+            ],
+            'tender' => [
+                'page' => '得標資訊',
                 'img' => 'img/00-banner/02-news.png'
             ],
             'serve' => [
                 'page' => '服務項目',
                 'img' => 'img/00-banner/03-server.png'
             ],
-            'award' => [
-                'page' => '得獎及認證',
+            'award_stories' => [
+                'page' => '得獎事蹟',
                 'img' => 'img/00-banner/04-award.png'
             ],
-            'performance' => [
-                'page' => '工程實績',
+            'certification_trophy' => [
+                'page' => '認證及獎盃',
+                'img' => 'img/00-banner/04-award.png'
+            ],
+            'performance_1' => [
+                'page' => '工程實績/土木工程',
                 'img' => 'img/00-banner/05-performance.png'
             ],
-            'construction' => [
-                'page' => '在建工程',
+            'performance_2' => [
+                'page' => '工程實績/環保工程',
+                'img' => 'img/00-banner/05-performance.png'
+            ],
+            'performance_3' => [
+                'page' => '工程實績/建築工程',
+                'img' => 'img/00-banner/05-performance.png'
+            ],
+            'performance_4' => [
+                'page' => '工程實績/其他',
+                'img' => 'img/00-banner/05-performance.png'
+            ],
+            'construction_1' => [
+                'page' => '在建工程/土木工程',
                 'img' => 'img/00-banner/06-constructions.png'
             ],
-            'technology' => [
-                'page' => '技術專區',
-                'img' => 'img/00-banner/07-technology.png'
+            'construction_2' => [
+                'page' => '在建工程/環保工程',
+                'img' => 'img/00-banner/06-constructions.png'
+            ],
+            'construction_3' => [
+                'page' => '在建工程/建築工程',
+                'img' => 'img/00-banner/06-constructions.png'
+            ],
+            'construction_4' => [
+                'page' => '在建工程/其他',
+                'img' => 'img/00-banner/06-constructions.png'
             ],
             'occupational' => [
                 'page' => '職安資訊',

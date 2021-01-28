@@ -102,11 +102,36 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="img" class="col-2 col-form-label">內容圖片(目前圖片)</label>
+                            <div class="col-10 row">
+                                @foreach ($list->certificationTrophysImgs as $img)
+                                <div class="imgs_area mx-2 mb-2">
+                                    <div class="del_btn bg-danger text-white" data-type="img" data-id="{{$img->id}}">X
+                                    </div>
+                                    <img src="{{$img->img}}" alt="" width="200">
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="imgs" class="col-2 col-form-label">內容圖片(新增圖片)</label>
+                            <div class="col-10">
+                                <input type="file" class="form-control" id="imgs" name="imgs[]" multiple>
+                                @error('imgs.*')
+                                <p class="text-danger error_message">{{ $message}}</p>
+                                @enderror
+                            </div>
+                            <div class="col-12">
+                                <p class="text-danger">支援多張圖片上傳 *建議圖片解析度(寬 * 高)800 x 540</p>
+                            </div>
+                        </div>
                         <hr>
                         <div class="form-group row">
                             <label for="award_date" class="col-2 col-form-label">認證及獲獎年度</label>
                             <div class="col-10">
-                                <input class="form-control" name="award_date" id="award_date" value="{{$list->award_date}}">
+                                <input class="form-control" name="award_date" id="award_date"
+                                    value="{{$list->award_date}}">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -119,7 +144,7 @@
                             <label for="content" class="col-2 col-form-label">認證及獲獎內容</label>
                             <div class="col-10">
                                 <textarea class="summernote" name="content" id="content" cols="30"
-                                    rows="10">{{$list->content}}</textarea>
+                                    rows="10">{!! $list->content !!}</textarea>
                             </div>
                         </div>
                         <hr>
@@ -171,5 +196,70 @@
         });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.js"></script>
-<script src="{{ asset('js/cropper.js') }}"></script>
+
+<script>
+    var image = document.getElementById('image');
+    var myWidth = document.getElementById('uploadImg').dataset.mywidth;
+    var myHeight = document.getElementById('uploadImg').dataset.myheight;
+    var preview = document.getElementById('preview');
+    var cropper;
+    $("body").on("change", ".image", function (e) {
+        var files = e.target.files;
+        var done = function (url) {
+            image.src = url;
+            preview.style.display = 'block';
+            // cropbtn.style.display = 'block';
+
+            if (cropper) {
+                cropper.destroy();
+                cropper = null;
+            }
+            cropper = new Cropper(image, {
+                viewMode: 1,
+                preview: '.preview'
+            });
+        };
+        var reader;
+        var file;
+        var url;
+        if (files && files.length > 0) {
+            file = files[0];
+            if (URL) {
+                done(URL.createObjectURL(file));
+            } else if (FileReader) {
+                reader = new FileReader();
+                reader.onload = function (e) {
+                    done(reader.result);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    });
+
+    $("#form_submit").click(function (ev) {
+        ev.preventDefault();
+        if(cropper){
+            canvas = cropper.getCroppedCanvas({
+                width: myWidth,
+                height: myHeight,
+            });
+
+            canvas.toBlob(function (blob) {
+                url = URL.createObjectURL(blob);
+                var reader = new FileReader();
+                reader.readAsDataURL(blob);
+                reader.onloadend = function () {
+                    var base64data = reader.result;
+                    $('#img').val(base64data);
+                    $('form').submit();
+                }
+            });
+        }
+        else{
+            $('form').submit();
+            // alert('請上傳封面圖片！');
+        }
+    })
+
+</script>
 @endsection

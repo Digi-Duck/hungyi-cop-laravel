@@ -115,21 +115,77 @@
 
 <script>
     $(document).ready(function() {
-            $('.summernote').summernote({
-                height: 300,
-                popover: {
-                    image: [],
-                    link: [],
-                    air: []
+        $('.summernote').summernote({
+            height: 300,
+            lang: 'zh-TW',
+            fontNames: [
+            'Serif', 'Sans', 'Arial', '新細明體', '微軟正黑體', '標楷體'
+            ],
+            callbacks: {
+                onImageUpload: function(files) {
+                    for(let i=0; i < files.length; i++) {
+                        $.upload(files[i], '.summernote');
+                    }
+                },
+                onMediaDelete: function(target) {
+                    $.delete(target[0].getAttribute("src"));
                 }
-            })
+            },
+        })
+    });
+
+    $.upload = function(file, imageTarget) {
+        let out = new FormData();
+        out.append('file', file, file.name);
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
         });
-        $('.clear_start').click(function () {
-            $('#start').val('');
+        console.log(imageTarget);
+        $.ajax({
+            method: 'POST',
+            url: '/admin/ajax_upload_img',
+            contentType: false,
+            cache: false,
+            processData: false,
+            data: out,
+            success: function(img) {
+                $(imageTarget).summernote('insertImage', img, 'img');
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.error(textStatus + " " + errorThrown);
+            }
         });
-        $('.clear_end').click(function () {
-            $('#end').val('');
+    };
+
+    $.delete = function (file_link) {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
         });
+
+        $.ajax({
+            method: 'POST',
+            url: '/admin/ajax_delete_img',
+            data: {file_link:file_link},
+            success: function (img) {
+                console.log("delete:",img);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.error(textStatus + " " + errorThrown);
+            }
+        });
+    }
+
+    $('.clear_start').click(function () {
+        $('#start').val('');
+    });
+    $('.clear_end').click(function () {
+        $('#end').val('');
+    });
 </script>
 
 <script src="{{ asset('js/cropper.js') }}"></script>

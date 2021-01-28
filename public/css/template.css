@@ -73,7 +73,7 @@ html {
 
 #contactus {
   position: fixed;
-  padding: 20px 25px 20px 20px;
+  padding: 20px 21px 20px 20px;
   right: 0;
   bottom: 28rem;
   z-index: 99;
@@ -91,7 +91,7 @@ html {
 
 @media screen and (max-width: 767px) {
   #contactus {
-    padding: 15px 20px 15px 15px;
+    padding: 15px 16px 15px 15px;
     font-size: 18px;
     bottom: 26rem;
   }
@@ -99,7 +99,7 @@ html {
 
 @media (max-width: 576px) {
   #contactus {
-    padding: 10px 15px 10px 10px;
+    padding: 10px 11px 10px 10px;
     bottom: 23rem;
     font-size: 14px;
   }
@@ -112,9 +112,19 @@ html {
 }
 
 #contactus .btn_box {
-  -webkit-writing-mode: vertical-rl;
-      -ms-writing-mode: tb-rl;
-          writing-mode: vertical-rl;
+  line-height: 22px;
+}
+
+@media (max-width: 767px) {
+  #contactus .btn_box {
+    line-height: 18px;
+  }
+}
+
+@media (max-width: 576px) {
+  #contactus .btn_box {
+    line-height: 16px;
+  }
 }
 
 .fixed_icon {
@@ -610,9 +620,21 @@ main {
   }
 }
 
+#footer .container .footerLogo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
 @media (max-width: 991px) {
   #footer .container .footerLogo {
     margin-bottom: 50px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 }
 
@@ -629,73 +651,72 @@ main {
 }
 
 #footer .container .footerLogo img {
-  min-width: 364px;
-  margin-bottom: 118px;
+  min-width: 320px;
 }
 
 @media (max-width: 991px) {
   #footer .container .footerLogo img {
     width: 60%;
     min-width: 310px;
-    margin-bottom: 68px;
   }
 }
 
-@media (max-width: 767px) {
-  #footer .container .footerLogo img {
-    margin-bottom: 38px;
+#footer .container .footerIntro {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media (max-width: 991px) {
+  #footer .container .footerIntro {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 }
 
 @media (max-width: 576px) {
-  #footer .container .footerLogo img {
-    margin-bottom: 25px;
+  #footer .container .footerIntro {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
-}
-
-#footer .container .footerLogo .taxID {
-  font-size: 16px;
-  font-weight: 900;
-  letter-spacing: 2px;
-  margin-bottom: 1em;
-}
-
-@media (max-width: 767px) {
-  #footer .container .footerLogo .taxID {
-    letter-spacing: 1px;
-  }
-}
-
-#footer .container .footerLogo .taxID .IDnumber {
-  margin-left: 25px;
-  letter-spacing: 5px;
-}
-
-@media (max-width: 767px) {
-  #footer .container .footerLogo .taxID .IDnumber {
-    letter-spacing: 3px;
-  }
-}
-
-#footer .container .footerLogo .copyright {
-  font-size: 14px;
-  letter-spacing: 4px;
-  font-weight: 600;
 }
 
 @media (max-width: 991px) {
-  #footer .container .footerLogo .copyright {
-    letter-spacing: 2px;
+  #footer .container .footerIntro .information:first-of-type {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 991px) {
+  #footer .container .footerIntro .information {
+    width: 55%;
   }
 }
 
 @media (max-width: 767px) {
-  #footer .container .footerLogo .copyright {
-    letter-spacing: 1px;
+  #footer .container .footerIntro .information {
+    width: 60%;
   }
 }
 
-#footer .container .footerIntro ul li {
+@media (max-width: 576px) {
+  #footer .container .footerIntro .information {
+    width: 100%;
+  }
+}
+
+#footer .container .footerIntro .information ul {
+  margin-bottom: 0;
+}
+
+#footer .container .footerIntro .information ul li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -704,45 +725,149 @@ main {
   gap: 20px;
   font-size: 16px;
   font-weight: 600;
-  letter-spacing: 2.5px;
-  margin-bottom: 15px;
+  letter-spacing: 0.2px;
+  margin-bottom: 10px;
 }
 
-#footer .container .footerIntro ul li a {
+#footer .container .footerIntro .information ul li a {
   color: white;
 }
 
-#footer .container .footerIntro ul li a:hover {
+#footer .container .footerIntro .information ul li a:hover {
   text-decoration: none;
 }
 
 @media (max-width: 991px) {
-  #footer .container .footerIntro ul li {
+  #footer .container .footerIntro .information ul li {
     gap: 15px;
   }
 }
 
 @media (max-width: 767px) {
-  #footer .container .footerIntro ul li {
+  #footer .container .footerIntro .information ul li {
     letter-spacing: 1px;
     margin-bottom: 10px;
     gap: 10px;
     font-size: 13px;
   }
-  #footer .container .footerIntro ul li:first-of-type {
+  #footer .container .footerIntro .information ul li:first-of-type {
     font-size: 14px;
   }
 }
 
-#footer .container .footerIntro ul li:last-of-type {
+#footer .container .footerIntro .information ul li:last-of-type {
   margin-bottom: 0;
 }
 
 #footer .container .footerIntro .line {
+  margin: 10px 0;
   width: 100%;
-  height: 3px;
+  height: 1px;
   background-color: #fff;
-  margin: 24px 0;
+}
+
+@media (max-width: 991px) {
+  #footer .container .footerIntro .line {
+    margin: 1rem 0;
+    width: 55%;
+  }
+}
+
+@media (max-width: 767px) {
+  #footer .container .footerIntro .line {
+    width: 60%;
+  }
+}
+
+@media (max-width: 576px) {
+  #footer .container .footerIntro .line {
+    width: 100%;
+  }
+}
+
+#footer .container .footerIntro .subInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 991px) {
+  #footer .container .footerIntro .subInfo {
+    width: 55%;
+  }
+}
+
+@media (max-width: 767px) {
+  #footer .container .footerIntro .subInfo {
+    width: 60%;
+  }
+}
+
+@media (max-width: 576px) {
+  #footer .container .footerIntro .subInfo {
+    width: 100%;
+  }
+}
+
+#footer .container .footerIntro .subInfo .taxID {
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+@media (min-width: 991px) {
+  #footer .container .footerIntro .subInfo .taxID {
+    margin-right: 50px;
+  }
+}
+
+@media (max-width: 991px) {
+  #footer .container .footerIntro .subInfo .taxID {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  #footer .container .footerIntro .subInfo .taxID {
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+}
+
+#footer .container .footerIntro .subInfo .taxID .IDnumber {
+  margin-left: 25px;
+  letter-spacing: 1.2px;
+}
+
+@media (max-width: 767px) {
+  #footer .container .footerIntro .subInfo .taxID .IDnumber {
+    margin-left: 5px;
+    letter-spacing: 1px;
+  }
+}
+
+#footer .container .footerIntro .subInfo .copyright {
+  font-size: 14px;
+  letter-spacing: 3px;
+  font-weight: 600;
+}
+
+@media (max-width: 991px) {
+  #footer .container .footerIntro .subInfo .copyright {
+    letter-spacing: 2px;
+  }
+}
+
+@media (max-width: 767px) {
+  #footer .container .footerIntro .subInfo .copyright {
+    letter-spacing: 1px;
+  }
 }
 
 nav .pagination {
@@ -750,6 +875,12 @@ nav .pagination {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+@media (max-width: 767px) {
+  nav .pagination {
+    margin-bottom: 95px;
+  }
 }
 
 nav .pagination .page-item a {

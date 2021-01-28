@@ -55,6 +55,7 @@ class PerformancesController extends Controller
         $new_record->funds  = $request->funds;
         $new_record->content = $request->content;
         $new_record->sort  = $request->sort;
+        $new_record->category = $request->category;
         $new_record->type_id = $id;
         $new_record->view_times = 0;
         if ($request->img) {
@@ -131,6 +132,7 @@ class PerformancesController extends Controller
         $old_record->location  = $request->location;
         $old_record->performances_date  = $request->performances_date;
         $old_record->funds  = $request->funds;
+        $old_record->category = $request->category;
         if ($request->img) {
             if ($old_record->img != '/img/404/noimg.png') {
                 FilesController::deleteUpload($old_record->imgs);

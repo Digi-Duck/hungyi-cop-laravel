@@ -19,6 +19,18 @@
   left: -20px;
 }
 
+@media (max-width: 767px) {
+  .page_header h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .page_header h1 {
+    font-size: 1.7rem;
+  }
+}
+
 /*css命名
  顯示屬性>盒模型>背景>行高>文本屬性>其他
 (1)頁面結構
@@ -218,7 +230,6 @@ main .container .content .singleTitle .block {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 10px 0;
 }
 
 @media (max-width: 576px) {
@@ -252,8 +263,16 @@ main .container .content .doubleTitle {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin-bottom: 27px;
-  gap: 27px 0;
+}
+
+@media (max-width: 991px) {
+  main .container .content .doubleTitle > * + * {
+    margin: 27px 0 0 0;
+  }
 }
 
 main .container .content .doubleTitle .block {
@@ -262,8 +281,10 @@ main .container .content .doubleTitle .block {
   display: flex;
 }
 
-main .container .content .doubleTitle .text {
-  margin-right: 120px;
+@media (max-width: 991px) {
+  main .container .content .doubleTitle .block {
+    width: 100%;
+  }
 }
 
 @media (max-width: 576px) {
@@ -283,7 +304,16 @@ main .container .content .progressBlock {
           justify-content: center;
   margin-bottom: 45px;
   color: white;
-  gap: 30px;
+}
+
+main .container .content .progressBlock > * + * {
+  margin: 0 0 0 30px;
+}
+
+@media (max-width: 767px) {
+  main .container .content .progressBlock > * + * {
+    margin: 30px 0 0 0;
+  }
 }
 
 @media (max-width: 576px) {

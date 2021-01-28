@@ -5,7 +5,7 @@
 
 @section('main')
 <div class="page_header">
-    <div style="background-image: url({{ asset($sub_banner->img) }})" class="sub_banner"></div>
+    <div style="background-image: url({{ asset($zone->img) }})" class="sub_banner"></div>
     <div class="container">
         <h1>{{ $zone->title }}</h1>
         <nav aria-label="breadcrumb">

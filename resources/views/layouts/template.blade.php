@@ -54,8 +54,8 @@
                     </li>
                     <li>
                         <div class="drop_down_menu">
-                            <a href="{{ asset('job_opportunities') }}">職缺公告</a>
                             <a href="{{ asset('tender') }}">得標資訊</a>
+                            <a href="{{ asset('job_opportunities') }}">職缺公告</a>
                         </div>
                         <a href="{{ asset('job_opportunities') }}">動態消息</a>
                     </li>
@@ -136,8 +136,8 @@
                 <div class="title-level-wrapper drop-down">
                     <a>動態消息</a>
                     <div class="sub-level-wrapper">
-                        <a href="{{ asset('job_opportunities') }}">職缺公告</a>
                         <a href="{{ asset('tender') }}">得標資訊</a>
+                        <a href="{{ asset('job_opportunities') }}">職缺公告</a>
                     </div>
                 </div>
                 <div class="title-level-wrapper">
@@ -193,7 +193,7 @@
     <!-- 聯絡我們開始 -->
     <a href="{{ asset('contact_us') }}" id="contactus" style="background-image: url({{ asset('img/contact.svg') }})">
         <div class="btn_box">
-            聯絡我們
+            聯<br>絡<br>我<br>們
         </div>
     </a>
     <!-- 聯絡我們結束 -->
@@ -222,17 +222,10 @@
     <footer id="footer">
         <div class="container">
             <div class="row">
-                <div class="col-xl-4 offset-xl-1 col-lg-5 footerLogo">
+                <div class="col-xl-4 mb-xl-0 mb-4 col-12 footerLogo">
                     <img src="{{ asset('/img/footerLogo.svg') }}" alt="頁尾LOGO">
-                    <div class="taxID">
-                        <span>公 司 統 編</span>
-                        <span class="IDnumber">94114202</span>
-                    </div>
-                    <div class="copyright">
-                        © 2020 宏義工程股份有限公司 版權所有
-                    </div>
                 </div>
-                <div class="col-xl-5 offset-xl-2 offset-lg-1 col-lg-6 footerIntro">
+                <div class="col-xl-8 col-12 footerIntro">
                     <div class="information">
                         <ul>
                             <li>台北總公司</li>
@@ -250,7 +243,6 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="line"></div>
                     <div class="information">
                         <ul>
                             <li>台中辦公室</li>
@@ -267,6 +259,16 @@
                                 408台中市南屯區五權西路二段666號14樓之7
                             </li>
                         </ul>
+                    </div>
+                    <div class="line"></div>
+                    <div class="subInfo">
+                        <div class="taxID">
+                            <span>公司統編</span>
+                            <span class="IDnumber">9411420</span>
+                        </div>
+                        <div class="copyright">
+                            © 2020 宏義工程股份有限公司 版權所有
+                        </div>
                     </div>
                 </div>
             </div>
@@ -298,7 +300,7 @@
     <!-- 部分分頁選用 end-->
 
     <!-- //layout -->
-    <script src="./js/template.js"></script>
+    <script src="{{ asset('js/template.js') }}"></script>
     <!-- page -->
     @yield('js')
 </body>

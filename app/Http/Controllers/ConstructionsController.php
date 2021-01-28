@@ -61,6 +61,7 @@ class ConstructionsController extends Controller
         $new_record->youtube = $request->youtube;
         $new_record->sort  = $request->sort;
         $new_record->content = $request->content;
+        $new_record->category = $request->category;
         $new_record->type_id = $id;
         $new_record->view_times = 0;
         if ($request->img) {
@@ -141,6 +142,7 @@ class ConstructionsController extends Controller
         $old_record->complete_date  = $request->complete_date;
         $old_record->scheduled_progress  = $request->scheduled_progress;
         $old_record->actual_progress  = $request->actual_progress;
+        $old_record->category = $request->category;
         $old_record->youtube  = $request->youtube;
         if ($request->img) {
             if ($old_record->img != '/img/404/noimg.png') {

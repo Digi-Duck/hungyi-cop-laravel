@@ -90,6 +90,12 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label for="category" class="col-2 col-form-label">標別</label>
+                            <div class="col-10">
+                                <input type="text" class="form-control" id="category" name="category" value="{{ $list->category }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label for="owner" class="col-2 col-form-label">業主</label>
                             <div class="col-10">
                                 <input class="form-control" id="owner" name="owner" value="{{ $list->owner }}" required>

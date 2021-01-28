@@ -30,27 +30,28 @@ class FrontController extends Controller
     public function index()
     {
         $performances = Performances::all()->sortByDesc('sort');
-        $tenders = Tenders::all()->sortByDesc('sort')->take(4);
+        $tenders = Tenders::all()->sortByDesc('tender_date')->take(4);
         $sub_banner = SubBanners::where('page', '首頁')->first();
         return view('front.index', compact('performances', 'tenders', 'sub_banner'));
     }
 
     public function vision()
     {
-        return view('front.vision.index');
+        $sub_banner = SubBanners::where('page', '理念願景')->first();
+        return view('front.vision.index', compact('sub_banner'));
     }
 
     public function history()
     {
         $lists = Histories::all()->sortBy('year');
-        $sub_banner = SubBanners::where('page', '關於我們')->first();
+        $sub_banner = SubBanners::where('page', '公司沿革')->first();
         return view('front.history.index', compact('lists', 'sub_banner'));
     }
 
     public function security_policy()
     {
         $lists = SecurityPolities::orderby('sort', 'asc')->get();
-        $sub_banner = SubBanners::where('page', '關於我們')->first();
+        $sub_banner = SubBanners::where('page', '職安品質政策')->first();
         return view('front.security_policy.index', compact('lists', 'sub_banner'));
     }
 
@@ -58,14 +59,14 @@ class FrontController extends Controller
     {
         $lists = JobOpportunities::all();
         $units = JobOpportunitieUnits::all();
-        $sub_banner = SubBanners::where('page', '動態消息')->first();
+        $sub_banner = SubBanners::where('page', '職缺公告')->first();
         return view('front.job_opportunity.index', compact('lists', 'units', 'sub_banner'));
     }
 
     public function tender()
     {
         $lists = Tenders::orderby('sort', 'asc')->paginate();
-        $sub_banner = SubBanners::where('page', '動態消息')->first();
+        $sub_banner = SubBanners::where('page', '得標資訊')->first();
         return view('front.tender.index', compact('lists', 'sub_banner'));
     }
 
@@ -73,6 +74,8 @@ class FrontController extends Controller
     {
         $list = Tenders::find($id);
         $imgs = TendersImgs::where('tender_id', $id)->get();
+        $list->view_times = $list->view_times + 1;
+        $list->save();
         $sub_banner = SubBanners::where('page', '得標資訊')->first();
         return view('front.tender.detail', compact('list', 'imgs', 'id', 'sub_banner'));
     }
@@ -86,14 +89,14 @@ class FrontController extends Controller
     public function award_stories()
     {
         $lists = AwardStories::orderBy('sort', 'asc')->get();
-        $sub_banner = SubBanners::where('page', '得獎及認證')->first();
+        $sub_banner = SubBanners::where('page', '得獎事蹟')->first();
         return view('front.award_stories.index', compact('lists', 'sub_banner'));
     }
 
     public function certification_trophy()
     {
         $lists = CertificationTrophys::orderBy('sort', 'asc')->get();
-        $sub_banner = SubBanners::where('page', '得獎及認證')->first();
+        $sub_banner = SubBanners::where('page', '得獎事蹟')->first();
         return view('front.certification_trophy.index', compact('lists', 'sub_banner'));
     }
 
@@ -101,7 +104,6 @@ class FrontController extends Controller
     {
         $type_name = '實績';
         $lists = Performances::where('type_id', $id)->orderby('sort', 'asc')->paginate(4);
-        $sub_banner = SubBanners::where('page', '工程實績')->first();
 
         if ($id == 1)
             $type_name = '土木工程';
@@ -111,6 +113,8 @@ class FrontController extends Controller
             $type_name = '建築工程';
         elseif ($id == 4)
             $type_name = '其他';
+
+        $sub_banner = SubBanners::where('page', '工程實績/' . $type_name)->first();
 
         return view('front.performance.index', compact('lists', 'id', 'type_name', 'sub_banner'));
     }
@@ -119,7 +123,6 @@ class FrontController extends Controller
     {
         $type_name = '實績';
         $lists = Constructions::where('type_id', $id)->orderby('sort', 'asc')->paginate(4);
-        $sub_banner = SubBanners::where('page', '在建工程')->first();
 
         if ($id == 1)
             $type_name = '土木工程';
@@ -129,6 +132,9 @@ class FrontController extends Controller
             $type_name = '建築工程';
         elseif ($id == 4)
             $type_name = '其他';
+
+        $sub_banner = SubBanners::where('page', '在建工程/' . $type_name)->first();
+
         return view('front.constructions.index', compact('lists', 'id', 'type_name', 'sub_banner'));
     }
 
@@ -136,15 +142,12 @@ class FrontController extends Controller
     {
         $list = Performances::find($id);
         $imgs = PerformancesImgs::where('performances_id', $id)->get();
-        $sub_banner = SubBanners::where('page', '工程實績')->first();
         // $imgs = PerformancesImgs::all();
 
         // if ($_SESSION[$list->id . 'come'] != 'v') {
         $list->view_times = $list->view_times + 1;
         $list->save();
         // $_SESSION[$list->id . 'come'] = 'v';
-
-        // dd($imgs);
 
         $type_name = '實績';
         if ($list->type_id == 1)
@@ -155,6 +158,8 @@ class FrontController extends Controller
             $type_name = '建築工程';
         elseif ($list->type_id == 4)
             $type_name = '其他';
+
+        $sub_banner = SubBanners::where('page', '工程實績/' . $type_name)->first();
 
         return view('front.performance.detail', compact('list', 'imgs', 'type_name', 'id', 'sub_banner'));
     }
@@ -163,7 +168,6 @@ class FrontController extends Controller
     {
         $list = Constructions::find($id);
         $imgs = ConstructionsImgs::where('construction_id', $id)->get();
-        $sub_banner = SubBanners::where('page', '在建工程')->first();
         // $imgs = PerformancesImgs::all();
         $list->view_times = $list->view_times + 1;
         $list->save();
@@ -179,14 +183,15 @@ class FrontController extends Controller
         elseif ($list->type_id == 4)
             $type_name = '其他';
 
+        $sub_banner = SubBanners::where('page', '在建工程/' . $type_name)->first();
+
         return view('front.constructions.detail', compact('list', 'imgs', 'type_name', 'id', 'sub_banner'));
     }
 
     public function technology($id)
     {
         $zone = TechnologyZones::with('blocks')->orderBy('sort', 'asc')->find($id);
-        $sub_banner = SubBanners::where('page', '技術專區')->first();
-        return view('front.technology.index', compact('zone', 'sub_banner'));
+        return view('front.technology.index', compact('zone'));
     }
 
     public function occupational_safety()
