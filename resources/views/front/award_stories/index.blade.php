@@ -16,7 +16,7 @@
             <ol class="tab">
                 <li class="tab_btn active"><a>得獎事蹟</a></li>
                 <li class="mark"></li>
-                <li class="tab_btn"><a href="/certification_trophy">認證及獎盃</a></li>
+                <li class="tab_btn"><a href="/certification_trophy">認證</a></li>
             </ol>
         </nav>
     </div>
@@ -55,9 +55,10 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <div class="modal_img_top">
+                <div class="modal_img_top" @if (count($item->awardStoriesImgs) == 0) style="background-image: url('{{ asset($item->img) }}')" @endif>
                     <div class="modal_create_date">{{ $item->award_date }}</div>
-                    <div id="carouselExampleFade{{ $item->id }}" class="carousel slide carousel-fade" data-ride="carousel">
+                    <div id="carouselExampleFade{{ $item->id }}" class="carousel slide carousel-fade"
+                        data-ride="carousel">
                         <div class="carousel-inner">
                             @foreach ($item->awardStoriesImgs as $index => $imgs)
                             <div class="carousel-item @if ($index == 0) active @endif"
@@ -66,14 +67,18 @@
                             </div>
                             @endforeach
                         </div>
-                        <a class="carousel-control-prev" href="#carouselExampleFade{{ $item->id }}" role="button" data-slide="prev">
+                        @if (count($item->awardStoriesImgs) != 0)
+                        <a class="carousel-control-prev" href="#carouselExampleFade{{ $item->id }}" role="button"
+                            data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Previous</span>
                         </a>
-                        <a class="carousel-control-next" href="#carouselExampleFade{{ $item->id }}" role="button" data-slide="next">
+                        <a class="carousel-control-next" href="#carouselExampleFade{{ $item->id }}" role="button"
+                            data-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="sr-only">Next</span>
                         </a>
+                        @endif
                     </div>
                 </div>
             </div>

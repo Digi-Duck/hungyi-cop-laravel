@@ -9,10 +9,10 @@
             <div class="col-sm-12">
                 <div class="card">
                     <h4 class="card-header">
-                        認證及獎盃管理
+                        認證管理
                     </h4>
                     <div class="card-body">
-                        <a class="btn btn-success" href="/admin/certification_trophys/create">新增認證及獎盃</a>
+                        <a class="btn btn-success" href="/admin/certification_trophys/create">新增認證</a>
                         <hr>
                         <table id="table" class="table table-bordered table-striped table-hover">
                             <thead>

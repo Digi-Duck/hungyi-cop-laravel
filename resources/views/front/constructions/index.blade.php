@@ -17,9 +17,9 @@
                 <ol class="tab">
                     <li class="tab_btn @if ($id == 1) active @endif"><a href="{{ asset('constructions/1') }}">土木工程</a></li>
                     <li class="mark"></li>
-                    <li class="tab_btn @if ($id == 2) active @endif"><a href="{{ asset('constructions/2') }}">環保工程</a></li>
-                    <li class="mark"></li>
                     <li class="tab_btn @if ($id == 3) active @endif"><a href="{{ asset('constructions/3') }}">建築工程</a></li>
+                    <li class="mark"></li>
+                    <li class="tab_btn @if ($id == 2) active @endif"><a href="{{ asset('constructions/2') }}">環保工程</a></li>
                     <li class="mark"></li>
                     <li class="tab_btn @if ($id == 4) active @endif"><a href="{{ asset('constructions/4') }}">其他</a></li>
                 </ol>

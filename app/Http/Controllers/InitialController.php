@@ -51,7 +51,7 @@ class InitialController extends Controller
                 'img' => 'img/00-banner/04-award.png'
             ],
             'certification_trophy' => [
-                'page' => '認證及獎盃',
+                'page' => '認證',
                 'img' => 'img/00-banner/04-award.png'
             ],
             'performance_1' => [

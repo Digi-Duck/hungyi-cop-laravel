@@ -96,7 +96,7 @@ class FrontController extends Controller
     public function certification_trophy()
     {
         $lists = CertificationTrophys::orderBy('sort', 'asc')->get();
-        $sub_banner = SubBanners::where('page', '得獎事蹟')->first();
+        $sub_banner = SubBanners::where('page', '認證')->first();
         return view('front.certification_trophy.index', compact('lists', 'sub_banner'));
     }
 

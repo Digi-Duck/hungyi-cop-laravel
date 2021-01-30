@@ -57,7 +57,7 @@
                             <a href="{{ asset('tender') }}">得標資訊</a>
                             <a href="{{ asset('job_opportunities') }}">職缺公告</a>
                         </div>
-                        <a href="{{ asset('job_opportunities') }}">動態消息</a>
+                        <a href="{{ asset('tender') }}">動態消息</a>
                     </li>
                     <li>
                         <a href="{{ asset('serve') }}">服務項目</a>
@@ -65,7 +65,7 @@
                     <li>
                         <div class="drop_down_menu">
                             <a href="{{ asset('award_stories') }}">得獎事蹟</a>
-                            <a href="{{ asset('certification_trophy') }}">認證及獎盃</a>
+                            <a href="{{ asset('certification_trophy') }}">認證</a>
                         </div>
                         <a href="{{ asset('award_stories') }}">得獎及認證</a>
                     </li>
@@ -75,8 +75,8 @@
                     <li>
                         <div class="drop_down_menu">
                             <a href="{{ asset('performance/1') }}">土木工程</a>
-                            <a href="{{ asset('performance/2') }}">環保工程</a>
                             <a href="{{ asset('performance/3') }}">建築工程</a>
+                            <a href="{{ asset('performance/2') }}">環保工程</a>
                             <a href="{{ asset('performance/4') }}">其他</a>
                         </div>
                         <a href="{{ asset('performance/1') }}">工程實績</a>
@@ -84,8 +84,8 @@
                     <li>
                         <div class="drop_down_menu">
                             <a href="{{ asset('constructions/1') }}">土木工程</a>
-                            <a href="{{ asset('constructions/2') }}">環保工程</a>
                             <a href="{{ asset('constructions/3') }}">建築工程</a>
+                            <a href="{{ asset('constructions/2') }}">環保工程</a>
                             <a href="{{ asset('constructions/4') }}">其他</a>
                         </div>
                         <a href="{{ asset('constructions/1') }}">在建工程</a>
@@ -147,15 +147,15 @@
                     <a>得獎及認證</a>
                     <div class="sub-level-wrapper">
                         <a href="{{ asset('award_stories') }}">得獎事蹟</a>
-                        <a href="{{ asset('certification_trophy') }}">認證及獎盃</a>
+                        <a href="{{ asset('certification_trophy') }}">認證</a>
                     </div>
                 </div>
                 <div class="title-level-wrapper drop-down">
                     <a>工程實績</a>
                     <div class="sub-level-wrapper">
                         <a href="{{ asset('performance/1') }}">土木工程</a>
-                        <a href="{{ asset('performance/2') }}">環保工程</a>
                         <a href="{{ asset('performance/3') }}">建築工程</a>
+                        <a href="{{ asset('performance/2') }}">環保工程</a>
                         <a href="{{ asset('performance/4') }}">其他</a>
                     </div>
                 </div>
@@ -163,8 +163,8 @@
                     <a>在建工程</a>
                     <div class="sub-level-wrapper">
                         <a href="{{ asset('constructions/1') }}">土木工程</a>
-                        <a href="{{ asset('constructions/2') }}">環保工程</a>
                         <a href="{{ asset('constructions/3') }}">建築工程</a>
+                        <a href="{{ asset('constructions/2') }}">環保工程</a>
                         <a href="{{ asset('constructions/4') }}">其他</a>
                     </div>
                 </div>
@@ -264,11 +264,12 @@
                     <div class="subInfo">
                         <div class="taxID">
                             <span>公司統編</span>
-                            <span class="IDnumber">9411420</span>
+                            <span class="IDnumber">94114202</span>
                         </div>
                         <div class="copyright">
                             © 2020 宏義工程股份有限公司 版權所有
                         </div>
+                        <a href="{{ asset('/admin') }}">前往後臺</a>
                     </div>
                 </div>
             </div>

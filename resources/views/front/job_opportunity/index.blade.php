@@ -46,7 +46,7 @@
             </div>
             <div class="col-lg-3 col-md-6 welfare_content">
                 <div class="top_img">
-                    <img src="{{ asset('img/02-news/F3.jpg') }}" alt="">
+                    <img src="{{ asset('img/02-news/F3.png') }}" alt="">
                 </div>
                 <ol class="intro_text">
                     <li>激勵獎金</li>

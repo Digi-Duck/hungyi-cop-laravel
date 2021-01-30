@@ -44,7 +44,7 @@ Route::get('serve', 'FrontController@serve');
 // 得獎及認證
 // -得獎事蹟
 Route::get('award_stories', 'FrontController@award_stories');
-// -認證及獎盃
+// -認證
 Route::get('certification_trophy', 'FrontController@certification_trophy');
 
 // 工程實績

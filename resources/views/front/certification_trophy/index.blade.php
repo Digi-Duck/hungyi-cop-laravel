@@ -7,17 +7,17 @@
 <div class="page_header">
     <div class="sub_banner" style="background-image: url({{ asset($sub_banner->img) }})"></div>
     <div class="container">
-        <h1>認證及獎盃</h1>
+        <h1>認證</h1>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">首頁</a></li>
                 <li class="breadcrumb-item"><a>得獎認證</a></li>
-                <li class="breadcrumb-item active" aria-current="page">認證及獎盃</li>
+                <li class="breadcrumb-item active" aria-current="page">認證</li>
             </ol>
             <ol class="tab">
                 <li class="tab_btn"><a href="/award_stories">得獎事蹟</a></li>
                 <li class="mark"></li>
-                <li class="tab_btn active"><a>認證及獎盃</a></li>
+                <li class="tab_btn active"><a>認證</a></li>
             </ol>
         </nav>
     </div>
@@ -56,7 +56,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <div class="modal_img_top" style="background-image: url({{ $item->img }})">
+                <div class="modal_img_top" @if (count($item->certificationTrophysImgs) == 0) style="background-image: url('{{ asset($item->img) }}')" @endif>
                     <div class="modal_create_date">{{ $item->award_date }}</div>
                     <div id="carouselExampleFade{{ $item->id }}" class="carousel slide carousel-fade"
                         data-ride="carousel">
@@ -68,6 +68,7 @@
                             </div>
                             @endforeach
                         </div>
+                        @if (count($item->certificationTrophysImgs) != 0)
                         <a class="carousel-control-prev" href="#carouselExampleFade{{ $item->id }}" role="button"
                             data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -78,6 +79,7 @@
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="sr-only">Next</span>
                         </a>
+                        @endif
                     </div>
                 </div>
             </div>
