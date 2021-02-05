@@ -150,12 +150,12 @@
                 </div>
             </div>
             <div class="cardPhoto">
-                <img src="./img/index/advantage1.jpg" alt="">
+                <img src="{{ asset('/img/index/advantage1.png') }}" alt="">
             </div>
         </div>
         <div class="content">
             <div class="cardPhoto">
-                <img src="./img/index/advantage2.jpg" alt="">
+                <img src="{{ asset('/img/index/advantage2.png') }}" alt="">
             </div>
             <div class="advantageCard">
                 <div class="cardTitle">穩健的財務為後盾</div>
