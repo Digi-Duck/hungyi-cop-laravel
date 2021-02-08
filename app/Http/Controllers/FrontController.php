@@ -65,7 +65,7 @@ class FrontController extends Controller
 
     public function tender()
     {
-        $lists = Tenders::orderby('sort', 'asc')->paginate();
+        $lists = Tenders::orderby('sort', 'asc')->paginate(4);
         $sub_banner = SubBanners::where('page', '得標資訊')->first();
         return view('front.tender.index', compact('lists', 'sub_banner'));
     }

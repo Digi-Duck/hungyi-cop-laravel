@@ -26,7 +26,7 @@
     <div class="row">
         @foreach ($lists as $index => $item)
         <div class="col-lg-4 col-md-6 card_content">
-            <div class="card" data-toggle="modal" data-target="#award_storis_modal{{ $index }}">
+            <div class="card h-100" data-toggle="modal" data-target="#award_storis_modal{{ $index }}">
                 <div class="card_img_top" style="background-image: url({{ $item->img }})">
                     <img src="{{ asset($item->img) }}" alt="">
                     <div class="card_create_date">{{ $item->award_date }}</div>

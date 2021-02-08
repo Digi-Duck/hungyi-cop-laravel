@@ -44,6 +44,7 @@
                     <ul class="navbar-nav mr-auto">
                         @guest
                         @else
+                        @canany(['admin', 'personnel'])
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="/admin/seo">SEO設定</a>
                         </li>
@@ -151,6 +152,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="/admin/contactus">聯絡我們</a>
                         </li>
+                        @endcanany
                         {{-- 員工專區 --}}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
