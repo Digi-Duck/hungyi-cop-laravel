@@ -162,6 +162,7 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 @can('admin')
                                 <li><a class="dropdown-item" href="/admin/members">員工管理</a></li>
+                                <li><a class="dropdown-item" href="/admin/project_managements">專案管理</a></li>
                                 @endcan
                                 <li><a class="dropdown-item" href="/admin/cctvs">CCTV管理</a></li>
                             </ul>

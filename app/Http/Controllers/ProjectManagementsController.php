@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Cctvs;
+use App\ProjectManagements;
 use App\User;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
-class CctvsController extends Controller
+class ProjectManagementsController extends Controller
 {
     function __construct()
     {
         $this->redirect = '/admin';
-        $this->index = 'admin.cctvs.index';
-        $this->show = 'admin.cctvs.show';
-        $this->create = 'admin.cctvs.create';
-        $this->edit = 'admin.cctvs.edit';
+        $this->index = 'admin.project_managements.index';
+        $this->show = 'admin.project_managements.show';
+        $this->create = 'admin.project_managements.create';
+        $this->edit = 'admin.project_managements.edit';
     }
     /**
      * Display a listing of the resource.
@@ -25,10 +25,11 @@ class CctvsController extends Controller
      */
     public function index()
     {
+        //
         if (Gate::allows('admin')) {
-            $lists = Cctvs::all();
+            $lists = ProjectManagements::all();
         } else {
-            $lists = Cctvs::where('assign_names', 'like', '%'.Auth::user()->name.'%')->get();
+            $lists = ProjectManagements::where('assign_names', 'like', '%'.Auth::user()->name.'%')->get();
         }
 
         return view($this->index, compact('lists'));
@@ -43,6 +44,7 @@ class CctvsController extends Controller
     {
         //
         $names = User::all();
+
         return view($this->create, compact('names'));
     }
 
@@ -60,7 +62,11 @@ class CctvsController extends Controller
         if($request->input('assign_names'))
             $input['assign_names'] = implode(',', $request->input('assign_names'));
 
-        Cctvs::create($input);
+        if ($request->img) {
+            $input['img'] = FilesController::imgCropper($request->img, 'project_managements_img');
+        }
+
+        ProjectManagements::create($input);
         return redirect('/admin/cctvs')->with('message','新增成功!');
     }
 
@@ -73,10 +79,6 @@ class CctvsController extends Controller
     public function show($id)
     {
         //
-        $list = Cctvs::find($id);
-        $names = User::all();
-        $assign_name = explode(',', $list->assign_names);
-        return view($this->show, compact('list', 'names', 'assign_name'));
     }
 
     /**
@@ -88,7 +90,7 @@ class CctvsController extends Controller
     public function edit($id)
     {
         //
-        $list = Cctvs::find($id);
+        $list = ProjectManagements::find($id);
         $assign_name = explode(',', $list->assign_names);
         $names = User::all();
         return view($this->edit, compact('list', 'names', 'assign_name'));
@@ -104,12 +106,6 @@ class CctvsController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $input = $request->all();
-        // dd($input['assign_names']);
-        $input['assign_names'] = implode(',', $request->input('assign_names'));
-        Cctvs::find($id)->update($input);
-
-        return redirect('/admin/cctvs')->with('message','更新成功!');
     }
 
     /**
@@ -120,9 +116,6 @@ class CctvsController extends Controller
      */
     public function destroy($id)
     {
-        $cctv = Cctvs::find(1);
-        $cctv->delete();
-
-        return redirect('/admin/cctvs')->with('message','刪除成功!');
+        //
     }
 }

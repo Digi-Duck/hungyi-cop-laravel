@@ -166,6 +166,9 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     // CCTV管理
     Route::resource('cctvs', 'CctvsController');
 
+    // 專案管理
+    Route::resource('project_managements', 'ProjectManagementsController');
+
     // 帳號管理
     Route::resource('members', 'MembersController');
 });

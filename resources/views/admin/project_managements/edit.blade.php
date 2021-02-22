@@ -34,40 +34,53 @@
         <div class="col-sm-12">
             <div class="card">
                 <h4 class="card-header">
-                    CCTV管理-編輯
+                    專案管理-編輯
                 </h4>
                 <div class="card-body">
-                    <form method="POST" action="/admin/cctvs/{{$list->id}}" enctype="multipart/form-data">
+                    <form method="POST" action="/admin/project_managements/{{$list->id}}" enctype="multipart/form-data">
                         @csrf
                         @method("PATCH")
+                        <input type="text" name="creator" id="" value="{{ Auth::user()->name }}" hidden>
                         <div class="form-group row">
-                            <label for="title" class="col-2 col-form-label">工程名稱</label>
+                            <label for="name" class="col-2 col-form-label">工程名稱</label>
                             <div class="col-10">
-                                <input class="form-control" id="title" name="title" value="{{ $list->title }}" required>
+                                <input class="form-control" id="name" name="name" value="{{ $list->name }}" required>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="cctv_title" class="col-2 col-form-label">CCTV名稱</label>
+                            <label for="target" class="col-2 col-form-label">標</label>
                             <div class="col-10">
-                                <input class="form-control" id="cctv_title" name="cctv_title" value="{{ $list->cctv_title }}" required>
+                                <input class="form-control" id="target" name="target" value="{{ $list->target }}" required>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="url" class="col-2 col-form-label">網址</label>
+                            <label for="approved_date" class="col-2 col-form-label">核定日期</label>
                             <div class="col-10">
-                                <input class="form-control" id="url" name="url" value="{{ $list->url }}" required>
+                                <input type="date" class="form-control" id="approved_date" name="approved_date" value="{{ date('Y-m-d', strtotime($list->approved_date)) }}" required>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="account" class="col-2 col-form-label">帳號</label>
+                            <label for="start_date" class="col-2 col-form-label">開工日期</label>
                             <div class="col-10">
-                                <input class="form-control" id="account" name="account" value="{{ $list->account }}" required>
+                                <input type="date" class="form-control" id="start_date" name="start_date" value="{{ date('Y-m-d', strtotime($list->start_date)) }}" required>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="password" class="col-2 col-form-label">密碼</label>
+                            <label for="finished_date" class="col-2 col-form-label">完工日期</label>
                             <div class="col-10">
-                                <input class="form-control" id="password" name="password" value="{{ $list->password }}" required>
+                                <input type="date" class="form-control" id="finished_date" name="finished_date" value="{{ date('Y-m-d', strtotime($list->finished_date)) }}" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="director" class="col-2 col-form-label">工地主任</label>
+                            <div class="col-10">
+                                <input class="form-control" id="director" name="director" value="{{ $list->director }}" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="remark" class="col-2 col-form-label">備註</label>
+                            <div class="col-10">
+                                <input class="form-control" id="remark" name="remark" value="{{ $list->remark }}" required>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -76,17 +89,13 @@
                             <div class="col-3">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="{{ $item->name }}" name="assign_names[]"
-                                    @if (str_contains($list->assign_names??'', $item->name)) checked="checked" @endif
-                                    id="assign_names{{ $index }}">
+                                    @if (str_contains($list->assign_names??'', $item->name)) checked="checked" @endif id="assign_names{{ $index }}">
                                     <label class="form-check-label" for="assign_names{{ $index }}">
                                         {{ $item->name }}
                                     </label>
                                 </div>
                             </div>
                             @endforeach
-                            {{-- <div class="col-12">
-                                <p class="text-danger">*指派人員僅能指派權限為 admin 以外的人</p>
-                            </div> --}}
                         </div>
                         <hr>
                         <button id="form_submit" type="submit" class="btn btn-primary d-block mx-auto">更新</button>

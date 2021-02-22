@@ -20,7 +20,7 @@ class CreateCctvsTable extends Migration
             $table->string('account');
             $table->string('password');
             $table->string('url');
-            $table->string('assign_names');
+            $table->string('assign_names')->nullable();
             $table->timestamps();
         });
     }
