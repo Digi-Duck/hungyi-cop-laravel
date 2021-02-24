@@ -120,7 +120,7 @@ class CctvsController extends Controller
      */
     public function destroy($id)
     {
-        $cctv = Cctvs::find(1);
+        $cctv = Cctvs::find($id);
         $cctv->delete();
 
         return redirect('/admin/cctvs')->with('message','刪除成功!');

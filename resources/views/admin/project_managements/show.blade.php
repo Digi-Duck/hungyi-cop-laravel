@@ -37,40 +37,63 @@
         <div class="col-sm-12">
             <div class="card">
                 <h4 class="card-header">
-                    CCTV管理-查看
+                    專案管理-查看
                 </h4>
                 <div class="card-body">
-                    <form method="POST" action="/admin/cctvs/{{$list->id}}" enctype="multipart/form-data">
-                        @csrf
+                    <form>
                         @method("PATCH")
                         <div class="form-group row">
-                            <label for="title" class="col-12 col-md-2">工程名稱</label>
+                            <label for="name" class="col-12 col-md-2">專案名稱</label>
                             <div class="col-12 col-md-10">
-                                {{ $list->title }}
+                                {{ $list->name }}
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="cctv_title" class="col-12 col-md-2">CCTV名稱</label>
+                            <label for="target" class="col-12 col-md-2">標</label>
                             <div class="col-12 col-md-10">
-                                {{ $list->cctv_title }}
+                                {{ $list->target }}
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="url" class="col-12 col-md-2">網址</label>
+                            <label for="approved_date" class="col-12 col-md-2">核定日期</label>
                             <div class="col-12 col-md-10">
-                                <a href="{{ $list->url }}" target="_block">{{ $list->url }}</a>
+                                {{ date('Y/m/d', strtotime($list->approved_date)) }}
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="account" class="col-12 col-md-2">帳號</label>
+                            <label for="start_date" class="col-12 col-md-2">開工日期</label>
                             <div class="col-12 col-md-10">
-                                {{ $list->account }}
+                                {{ date('Y/m/d', strtotime($list->start_date)) }}
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="password" class="col-12 col-md-2">密碼</label>
+                            <label for="finished_date" class="col-12 col-md-2">完工日期</label>
                             <div class="col-12 col-md-10">
-                                {{ $list->password }}
+                                {{ date('Y/m/d', strtotime($list->finished_date)) }}
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="director" class="col-12 col-md-2">工地主任</label>
+                            <div class="col-12 col-md-10">
+                                {{ $list->director }}
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="remark" class="col-12 col-md-2">備註</label>
+                            <div class="col-12 col-md-10">
+                                {{ $list->remark }}
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="creator" class="col-12 col-md-2">創建者</label>
+                            <div class="col-12 col-md-10">
+                                {{ $list->creator }}
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="creator" class="col-12 col-md-2">工地照片</label>
+                            <div class="col-12 col-md-10">
+                                <img class="w-50 w-md-100" src="{{ $list->img }}" alt="">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -79,8 +102,10 @@
                             <div class="col-3">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="{{ $item->name }}"
-                                        name="assign_names[]" disabled @if (str_contains($list->assign_names,
-                                    $item->name)) checked="checked" @endif id="assign_names{{ $index }}">
+                                        name="assign_names[]" disabled
+                                        @if (str_contains($list->assign_names??'', $item->name))
+                                            checked="checked"
+                                        @endif id="assign_names{{ $index }}">
                                     <label class="form-check-label" for="assign_names{{ $index }}">
                                         {{ $item->name }}
                                     </label>
@@ -88,6 +113,8 @@
                             </div>
                             @endforeach
                         </div>
+                        <hr>
+                        <button id="form_submit" type="submit" class="btn btn-primary d-block mx-auto" onClick="history.go(-1); return false;">返回</button>
                     </form>
                 </div>
             </div>

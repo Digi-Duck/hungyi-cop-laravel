@@ -62,12 +62,13 @@ class ProjectManagementsController extends Controller
         if($request->input('assign_names'))
             $input['assign_names'] = implode(',', $request->input('assign_names'));
 
-        if ($request->img) {
+        if ($request->img)
             $input['img'] = FilesController::imgCropper($request->img, 'project_managements_img');
-        }
+        else
+            $input['img'] = '';
 
         ProjectManagements::create($input);
-        return redirect('/admin/cctvs')->with('message','新增成功!');
+        return redirect('/admin/project_managements')->with('message','新增成功!');
     }
 
     /**
@@ -79,6 +80,10 @@ class ProjectManagementsController extends Controller
     public function show($id)
     {
         //
+        $list = ProjectManagements::find($id);
+        $names = User::all();
+        $assign_name = explode(',', $list->assign_names);
+        return view($this->show, compact('list', 'names', 'assign_name'));
     }
 
     /**
@@ -106,6 +111,19 @@ class ProjectManagementsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $old_record = ProjectManagements::find($id);
+        $input = $request->all();
+        if($request->input('assign_names'))
+            $input['assign_names'] = implode(',', $request->input('assign_names'));
+
+        if ($request->img)
+            $input['img'] = FilesController::imgCropper($request->img, 'project_managements_img');
+        else
+            $input['img'] = $old_record->img;
+
+        $old_record->update($input);
+
+        return redirect('/admin/project_managements')->with('message','更新成功!');
     }
 
     /**
@@ -117,5 +135,9 @@ class ProjectManagementsController extends Controller
     public function destroy($id)
     {
         //
+        $old_record = ProjectManagements::find($id);
+        FilesController::deleteUpload($old_record->img);
+        $old_record->delete();
+        return redirect('/admin/project_managements/')->with('message', '刪除成功!');
     }
 }

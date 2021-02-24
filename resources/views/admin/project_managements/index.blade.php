@@ -103,7 +103,7 @@
                             <tr>
                                 <td data-th="工程名稱">{{$list->name}}</td>
                                 <td data-th="標">{{$list->target}}</td>
-                                <td data-th="開工日期">{{ date('Y:m:d', strtotime($list->start_date)) }}</td>
+                                <td data-th="開工日期">{{ date('Y/m/d', strtotime($list->start_date)) }}</td>
                                 <td data-th="新增者">{{ $list->creator }}</td>
                                 <td data-th="備註">{{ $list->remark }}</td>
                                 <td data-th="工程圖片"><img style="width: 100%" src="{{ $list->img }}" alt=""></td>
